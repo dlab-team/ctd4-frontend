@@ -76,4 +76,6 @@ TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)
 
 Team Frontend:
 
+[Matías González Lorca](https://github.com/MatiasGonzalezL)
+
 Team Backend:
