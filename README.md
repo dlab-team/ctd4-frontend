@@ -79,4 +79,5 @@ FS: [Paul Levy Diaz](https://github.com/Strike2-ux)
 
 Team Backend:
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
-FS: [Paul Levy Diaz](https://github.com/Strike2-ux
+FS: [Paul Levy Diaz](https://github.com/Strike2-ux)
+FS: [Sebastian Vera](https://github.com/Verastian)
