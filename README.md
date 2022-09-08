@@ -75,7 +75,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)
 
 Team Frontend:
+FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
 
 Team Backend:
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
 FS: [David Aravena Poblete](https://github.com/david-aravena)
+FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
