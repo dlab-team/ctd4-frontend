@@ -75,6 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)
 
 Team Frontend:
+FE: [Antoni Perez](https://github.com/antoniPrz)
 
 Team Backend:
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
