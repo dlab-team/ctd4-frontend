@@ -77,3 +77,7 @@ TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)
 Team Frontend:
 
 Team Backend:
+<br>
+FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
+<br>
+FS: [Emerson Espinoza Aguirre](https://github.com/emersonxinay)
