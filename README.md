@@ -78,3 +78,4 @@ Team Frontend:
 
 Team Backend:
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
+FS: [David Aravena Poblete](https://github.com/david-aravena)
