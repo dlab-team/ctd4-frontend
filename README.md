@@ -76,8 +76,10 @@ TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)
 
 Team Frontend:
 FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
+FS: [Daniela Hernández Gajardo] (https://github.com/DanyBeth-Dev)
 
 Team Backend:
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
 FS: [David Aravena Poblete](https://github.com/david-aravena)
 FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
+FS: [Daniela Hernández Gajardo] (https://github.com/DanyBeth-Dev)
