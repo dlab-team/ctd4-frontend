@@ -87,6 +87,6 @@ FS: [Paul Levy Diaz](https://github.com/Strike2-ux)
 FS: [Sebastian Vera](https://github.com/Verastian)
 FS: [Emerson Espinoza Aguirre](https://github.com/emersonxinay)
 FS: [David Aravena Poblete](https://github.com/david-aravena)
+FS: [Katherine Cornejo Tejeda](https://github.com/Kathecot)
 FS: [Nicolás Fariña](https://github.com/nico-ras)
-FS: [Paul Levy Diaz](https://github.com/Strike2-ux
 FS: [Daniela Hernández Gajardo] (https://github.com/DanyBeth-Dev)
