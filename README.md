@@ -88,5 +88,6 @@ FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
 FS: [Emerson Espinoza Aguirre](https://github.com/emersonxinay)
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
 FS: [David Aravena Poblete](https://github.com/david-aravena)
-FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
+FS: [Nicolás Fariña](https://github.com/nico-ras)
+FS: [Paul Levy Diaz](https://github.com/Strike2-ux
 FS: [Daniela Hernández Gajardo] (https://github.com/DanyBeth-Dev)
