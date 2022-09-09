@@ -78,6 +78,8 @@ Team Frontend:
 FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
 FS: [Carlos Araya Salfate] (https://github.com/Charlie2208)
 
+[Matías González Lorca](https://github.com/MatiasGonzalezL)
+
 Team Backend:
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
 FS: [David Aravena Poblete](https://github.com/david-aravena)
