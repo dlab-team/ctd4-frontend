@@ -77,6 +77,7 @@ TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)
 Team Frontend:
 FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
 FS: [Carlos Araya Salfate] (https://github.com/Charlie2208)
+FE: [Andrea Leal](https://github.com/andrelealr)
 
 Team Backend:
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)
