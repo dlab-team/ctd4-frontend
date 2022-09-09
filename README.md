@@ -79,6 +79,7 @@ FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
 FS: [Daniela Hernández Gajardo] (https://github.com/DanyBeth-Dev)
 FE: [Antoni Perez](https://github.com/antoniPrz)
 FS: [Carlos Araya Salfate] (https://github.com/Charlie2208)
+FS: [Viviana Vera Ceballos](https://github.com/vverac)
 FE: [Andrea Leal](https://github.com/andrelealr)
 [Matías González Lorca](https://github.com/MatiasGonzalezL)
 
