@@ -80,6 +80,7 @@ FS: [Paul Levy Diaz](https://github.com/Strike2-ux)
 FE: [Antoni Perez](https://github.com/antoniPrz)
 FS: [Paul Levy Díaz](https://github.com/Strike2-ux)
 FS: [Carlos Araya Salfate] (https://github.com/Charlie2208)
+FS: [Viviana Vera Ceballos](https://github.com/vverac)
 
 [Matías González Lorca](https://github.com/MatiasGonzalezL)
 
