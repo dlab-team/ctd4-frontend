@@ -1,7 +1,62 @@
 # Devsafio WEB
 
-Proyecto para programa DLAB - Desafio Latam
+## Descripción:
+
+Proyecto para programa DLAB - Desafio Latam<br>
 El proyecto consiste en una plataforma online orientada al uso de búsqueda de empleo y reclutamiento del rubro TI. Partiendo del perfil de cada usuario, test técnicos, encuestas, exhibiciones de código y material de apoyo. La web pretende poner en contacto a miles de postulantes y empresas.
+
+## Tecnologías que utiliza el proyecto:
+
+El proyecto para el frontEnd utiliza la librería de JavaScript; React.js<br>
+Para la parte visual utilizaremos el framework de CSS; Tailwind.
+
+## Instalación del proyecto:
+
+### `npm install`
+
+Este es el primer comando que ejecutaremos luego de clonar el repositorio que sirve para instalar node.js 
+
+### `npm run serve`
+
+Con este comando ejecutaremos nuestro proyecto en nuestro servidor local que estará alojado en el siguiente enlace [http://localhost:3000](http://localhost:3000)
+
+## Dependencias: (pendiente)
+
+## Equipo:
+
+TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)  
+
+Team Frontend:  
+FS: [Paul Levy Díaz](https://github.com/Strike2-ux)  
+FS: [Daniela Hernández Gajardo](https://github.com/DanyBeth-Dev)  
+FE: [Antoni Perez](https://github.com/antoniPrz)  
+FE: [Carlos Araya Salfate](https://github.com/Charlie2208)  
+FS: [Viviana Vera Ceballos](https://github.com/vverac)  
+FE: [Andrea Leal](https://github.com/andrelealr)  
+FE: [Matías González Lorca](https://github.com/MatiasGonzalezL)  
+FS:[Angela Medina](https://github.com/angelamedina)  
+
+Team Backend:  
+FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)  
+FS: [Paul Levy Diaz](https://github.com/Strike2-ux)  
+FS: [Sebastian Vera](https://github.com/Verastian)  
+FS: [Emerson Espinoza Aguirre](https://github.com/emersonxinay)  
+FS: [David Aravena Poblete](https://github.com/david-aravena)  
+FS: [Katherine Cornejo Tejeda](https://github.com/Kathecot)  
+FS: [Nicolás Fariña](https://github.com/nico-ras)  
+FS: [Daniela Hernández Gajardo](https://github.com/DanyBeth-Dev)
+
+## Características:
+
+El proyecto contará con una página principal para que los usuarios no registrados puedan informarse de qué se trata
+Devsafio.<br>
+
+Los usuarios interesados en participar de la plataforma podrán crearse un perfil mediante una autentización, el perfil en cuestión tendrá su propia ruta
+y vista, donde se podrán editar y gestionar los datos <br>
+
+Existen dos modos para los usuarios creados; Active y JobReady, la diferencia es que el active es un usuario creado
+y el jobReady es cuando el usuario ha realizado almenos un test. <br>
+
 
 ## Available Scripts
 
@@ -70,26 +125,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Equipo
 
-TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)  
-
-Team Frontend:  
-FS: [Paul Levy Díaz](https://github.com/Strike2-ux)  
-FS: [Daniela Hernández Gajardo](https://github.com/DanyBeth-Dev)  
-FE: [Antoni Perez](https://github.com/antoniPrz)  
-FS: [Carlos Araya Salfate](https://github.com/Charlie2208)  
-FS: [Viviana Vera Ceballos](https://github.com/vverac)  
-FE: [Andrea Leal](https://github.com/andrelealr)  
-[Matías González Lorca](https://github.com/MatiasGonzalezL)  
-FS:[Angela Medina](https://github.com/angelamedina)  
-
-Team Backend:  
-FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)  
-FS: [Paul Levy Diaz](https://github.com/Strike2-ux)  
-FS: [Sebastian Vera](https://github.com/Verastian)  
-FS: [Emerson Espinoza Aguirre](https://github.com/emersonxinay)  
-FS: [David Aravena Poblete](https://github.com/david-aravena)  
-FS: [Katherine Cornejo Tejeda](https://github.com/Kathecot)  
-FS: [Nicolás Fariña](https://github.com/nico-ras)  
-FS: [Daniela Hernández Gajardo](https://github.com/DanyBeth-Dev)
