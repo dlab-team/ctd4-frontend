@@ -4,12 +4,12 @@ import DefaultLayout from "../layout/DefaultLayout";
 
 
 export const ProtectedRoute = () => {
-  const [ user , setUser ] = useState(true);
+  const [user, setUser] = useState(true);
   return (
-    user 
+    user
       ? <>
-          <Outlet />
-        </>
+        <Outlet />
+      </>
       : <Navigate to="/login" />
   );
 };
