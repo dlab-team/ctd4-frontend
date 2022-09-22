@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import 'tw-elements';
-import './index.css';
-import './App.css'
-import App from './components/App.js';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import "tw-elements";
+import "./index.css";
+import "./App.css";
+// import App from "./components/App.js";
+import reportWebVitals from "./reportWebVitals";
+import SignUp from "./components/SignUp/signUp";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      {/* <App /> */}
+      <SignUp />
     </BrowserRouter>
   </React.StrictMode>
 );
