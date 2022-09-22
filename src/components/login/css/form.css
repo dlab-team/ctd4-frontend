@@ -1,0 +1,114 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    overflow: hidden;
+}
+
+#container{
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 1px 1px 3px rgb(126, 126, 126);
+}
+
+.text-input-container{
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.label{
+    position: absolute;
+    left: 10px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 1;
+    font-family: Helvetica;
+    top: -11px;
+    color: #4744e7;
+    font-size: 14px;
+    opacity: 0;
+}
+
+.text-input{
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2738f5;
+    background: #f4f9fc;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+    color: rgb(63, 63, 63);
+}
+
+#forgotPass{
+    color: #676868;
+    text-align: right;
+    cursor: pointer;
+    font-family: Helvetica;
+    font-size: 0.8rem;
+}
+
+
+.label::before{
+    content: "";
+    height: 5px;
+    background: #f4f9fc;
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 100%;
+    z-index: -1;
+}
+
+.text-input:focus{
+    border: 2px solid #4744e7;
+}
+
+.text-input:focus + .label{
+    opacity: 1;
+}
+
+.text-input::placeholder{
+    font-size: 16px;
+    opacity: 1;
+    transition: all 0.3s;
+    color: #9d9e9e;
+}
+
+
+.text-input:focus::placeholder{
+    font-size: 0;
+    opacity: 1;
+}
+
+input[type="submit"]{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+}
+
+p{
+    font-family: "Helvetica";
+    color: rgb(75, 74, 74);
+}
+
+.validation{
+    font-size: 0.8rem;
+    color: red;
+}
