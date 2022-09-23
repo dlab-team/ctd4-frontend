@@ -1,21 +1,19 @@
-import './css/form.css'
-
 export const LoginUI = () => {
     return(
         <div id="container">
             <form>
-                <div class="text-input-container">
-                    <input type="text" placeholder="email" autocomplete="off" id="email" class="text-input" onclick="showValidationEmail()" onblur="hiddenValidationEmail()"/>
-                    <label for="email" class="label">Email</label>
-                    <p class="validation" id="validationEmail">aviso de validacion</p>
+                <div className="text-input-container">
+                    <input type="text" placeholder="email" autoComplete="off" id="email" className="text-input" />
+                    <label htmlFor="email" className="label">Email</label>
+                    <p className="validation" id="validationEmail">aviso de validacion</p>
                 </div>
-                <div class="text-input-container" id="containerPassword">
-                    <input type="password" placeholder="contraseña" autocomplete="off" id="password" class="text-input" onclick="showValidationPassword()" onblur="hiddenValidationPassword()" />
-                    <label for="password" class="label">Contraseña</label>
-                    <p class="validation" id="validationPassword">aviso de validacion</p>
+                <div className="text-input-container" id="containerPassword">
+                    <input type="password" placeholder="contraseña" id="password" className="text-input" />
+                    <label htmlFor="password" className="label">Contraseña</label>
+                    <p className="validation" id="validationPassword">aviso de validacion</p>
                     <p id="forgotPass"> Olvidé la contraseña </p>
                 </div>
-                <div class="text-input-container">
+                <div className="text-input-container">
                     <input type="submit" value="Entrar"  />
                 </div>
             </form>
