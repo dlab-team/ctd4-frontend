@@ -1,3 +1,5 @@
+import {showLogin} from './animations/animations';
+
 export const ForgotPasswordUI = ({functions}) => {
     return(
         <div id="containerForgotPassword">
@@ -14,7 +16,7 @@ export const ForgotPasswordUI = ({functions}) => {
                     <input type="submit" value="Enviar email"  />
                 </div>
             </form>
-            <p id="outLogin" onClick={functions.showLogin}>volver al login</p>
+            <p id="outLogin" onClick={showLogin}>volver al login</p>
         </div>
     )
 }

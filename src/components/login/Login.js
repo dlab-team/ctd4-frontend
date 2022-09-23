@@ -4,10 +4,22 @@ import './css/forgotPassword.css'
 import {LoginUI} from './LoginUI';
 import { ForgotPasswordUI } from './ForgotPasswordUI';
 import {authService} from './services/authService'
+import {validationEmail} from './validations/validations'
 
 export const Login = () => {
 
     const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
+    const [validations, setValidations] = useState({email: null, password: null});
+
+    const formValidations = (e) => {
+        if(e.target.id === "email"){
+            if(validationEmail(credentialsUser.email)){
+                setValidations({...validations, email: "email valido"})
+            } else {
+                setValidations({...validations, email: "email no valido"})
+            }
+        }
+    }
 
     const getDataLogin = (e) => {
         if(e.target.id === "email"){
@@ -21,28 +33,21 @@ export const Login = () => {
     const getAuthentication = () => {
         authService(credentialsUser, "endpoint")
     }
-    
-    const showForgotPassword = () => {
-        document.getElementById("containerLogin").style.animationName = "outLogin";
-        document.getElementById("containerForgotPassword").style.animationName = "inForgotPassword";
-    }
-
-    const showLogin = () => {
-        document.getElementById("containerLogin").style.animationName = "inLogin";
-        document.getElementById("containerForgotPassword").style.animationName = "outForgotPassword";
-    }
 
     const functions = {
-        showForgotPassword,
-        showLogin,
         getDataLogin,
-        getAuthentication
+        getAuthentication,
+        formValidations
+    }
+
+    const states = {
+        validations
     }
 
     return(
         <>
-            <LoginUI functions={functions} />
-            <ForgotPasswordUI functions={functions} />
+            <LoginUI functions={functions} states={states} />
+            <ForgotPasswordUI />
         </>
     )
 }
