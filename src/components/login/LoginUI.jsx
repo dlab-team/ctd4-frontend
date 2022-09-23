@@ -1,6 +1,6 @@
-export const LoginUI = () => {
+export const LoginUI = ({functions}) => {
     return(
-        <div id="container">
+        <div id="containerLogin">
             <form>
                 <div className="text-input-container">
                     <input type="text" placeholder="email" autoComplete="off" id="email" className="text-input" />
@@ -11,7 +11,7 @@ export const LoginUI = () => {
                     <input type="password" placeholder="contraseña" id="password" className="text-input" />
                     <label htmlFor="password" className="label">Contraseña</label>
                     <p className="validation" id="validationPassword">aviso de validacion</p>
-                    <p id="forgotPass"> Olvidé la contraseña </p>
+                    <p id="forgotPass" onClick={functions.showForgotPassword}> Olvidé la contraseña </p>
                 </div>
                 <div className="text-input-container">
                     <input type="submit" value="Entrar"  />

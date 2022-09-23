@@ -9,7 +9,7 @@ body{
     overflow: hidden;
 }
 
-#container{
+#containerLogin{
     width: 250px;
     position: absolute;
     top: 50%;
@@ -20,6 +20,8 @@ body{
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 1px 1px 3px rgb(126, 126, 126);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .text-input-container{
@@ -111,4 +113,14 @@ p{
 .validation{
     font-size: 0.8rem;
     color: red;
+}
+
+@keyframes outLogin {
+    from {left: 50%;}
+    to {left: 150%;}
+}
+
+@keyframes inLogin {
+    from {left: 150%;}
+    to {left: 50%;}
 }
