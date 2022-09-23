@@ -6,7 +6,7 @@ export const ForgotPasswordUI = ({functions}) => {
                 <p>Ingrese su correo para restablecer su contraseña</p>
                 </div>
                 <div className="forgot-input-container">
-                    <input type="text" placeholder="email" autoComplete="off" id="email" className="text-input" />
+                    <input type="text" placeholder="email" autoComplete="off" className="text-input" />
                     <label htmlFor="email" className="label">Email</label>
                     <p className="validation" id="validationEmail">aviso de validacion</p>
                 </div>
