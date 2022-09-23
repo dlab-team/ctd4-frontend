@@ -1,4 +1,5 @@
 import { Landing1 } from "../components/Landing1";
+import { LandingPage2 } from "../components/LandingPage2";
 
 
 export function LandingPage() {
@@ -8,6 +9,7 @@ export function LandingPage() {
 
       </div>
       <Landing1 />
+      <LandingPage2 />
 
     </>
   )

@@ -2,11 +2,11 @@ import React from 'react'
 import CardsLandingPage2 from './CardsLandingPage2'
 
 
-const LandingPage2 = () => {
+export function LandingPage2() {
   return (
     <>
       <div
-        className="flex flex-row place-content-center justify-around content-center items-center pb-[84px] "
+        className="flex flex-row place-content-center justify-around content-center items-center pb-[84px] mt-16 mb-24"
         id="program"
       >
         <div className="flex flex-col items-center box-border pl-[134px] p-3">
@@ -34,4 +34,3 @@ const LandingPage2 = () => {
   )
 }
 
-export default LandingPage2
