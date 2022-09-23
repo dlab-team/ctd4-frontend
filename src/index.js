@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "tw-elements";
 import "./index.css";
 import "./App.css";
+import App from "./components/App.js"
 // import App from "./components/App.js";
 import reportWebVitals from "./reportWebVitals";
 import SignUp from "./components/SignUp/signUp";
@@ -12,8 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<App />} />
       {/* <App /> */}
-      <SignUp />
+      <Route path='/register' element={<SignUp />} />
+    </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
