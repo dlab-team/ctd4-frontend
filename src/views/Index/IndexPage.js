@@ -1,11 +1,11 @@
 import React from "react";
 import "animate.css";
-import hero from '../../assets/images/referencia.png'
+import SignUp from "../../components/SignUp/signUp";
+// import { LockClosedIcon } from "@heroicons/react/20/solid";
+// import hero from "../../assets/images/referencia.png";
 
 const IndexPage = () => {
-  return (
-    <></>
-  );
+  return <SignUp />;
 };
 
 export default IndexPage;
