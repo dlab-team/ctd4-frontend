@@ -18,9 +18,9 @@ export function LandingPage2() {
           </h1>
 
         </div>
-        <div className="box-border pr-[134px]  p-3">
+        <div className="box-border pr-[134px]  p-3 ">
           <iframe
-            className=" md:w-[627px] md:h-[423px]"
+            className=" md:w-[627px] md:h-[423px] rounded-2xl"
             src="https://youtube.com/embed/z5NPi7WrViU"
             frameborder="0"
             allow="autoplay; encrypted-media"
