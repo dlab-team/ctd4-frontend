@@ -28,9 +28,9 @@ const CardsLandingPage2 = () => {
 
   return (
     <>
-      <div className="grid gap-2 w-5/6 ml-48 lg:grid-cols-3 mb-24">
+      <div className="grid gap-2 w-5/6 mx-auto md:grid-cols-3 mb-24 ">
         {posts.map((items, key) => (
-          <div className=" mx-auto w-full rounded-xl  md:w-[380px] md:h-[418px] shadow-md lg:max-w-sm flex flex-col gap-y-5 " key={key}>
+          <div className=" mx-auto w-full rounded-xl  md:w-[23.75rem] md:h-[26.12rem] shadow-md lg:max-w-sm flex flex-col gap-y-5 " key={key}>
             <img
               className=" mt-10 h-20"
               src={items.img}
@@ -40,7 +40,7 @@ const CardsLandingPage2 = () => {
               <h4 className="text-xl text-center font-semibold text-blue-600">
                 {items.title}
               </h4>
-              <p className="mb-2 mt-10 leading-normal">
+              <p className="mb-2 mt-10 leading-normal text-center mx-auto">
                 {items.content}
               </p>
               {/* <button className="px-4 py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
