@@ -8,16 +8,22 @@ import App from "./components/App.js"
 // import App from "./components/App.js";
 import reportWebVitals from "./reportWebVitals";
 import SignUp from "./components/SignUp/signUp";
+// import { Login } from "./components/login/Login"
+
+//Descomentar  lienas 11 y 24 para que funcione el componente login y comentar de nuevo para que funcione el landinPage
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<App />} />
-      {/* <App /> */}
-      <Route path='/register' element={<SignUp />} />
-    </Routes>
+      <Routes>
+        <Route path='/' element={<App />} />
+        {/* <App /> */}
+        <Route path='/register' element={<SignUp />} />
+        {/* <Route path='/login' element={<Login />} />*/}
+
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
