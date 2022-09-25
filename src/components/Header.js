@@ -1,4 +1,5 @@
 import logo from '../assets/images/devSafio-logo.svg'
+import { Link } from 'react-router-dom'
 
 
 export function Header() {
@@ -13,8 +14,8 @@ export function Header() {
         <a href="">Contrata talento</a>
         <a href="">Programa Mentorias</a>
         <a href="">Show The Code</a>
-        <a href="" className="border-solid border-zinc-100 border-2 py-3 px-7 radius rounded-full hidden xl:inline hover:opacity-80">Sign In</a>
-        <a href="" className="bg-zinc-100 text-black py-3 px-7 radius rounded-full hidden xl:inline hover:opacity-80" > Sign Up</a>
+        <Link to="/login" className="border-solid border-zinc-100 border-2 py-3 px-7 radius rounded-full hidden xl:inline hover:opacity-80">Sign In</Link>
+        <Link to="/register" className="bg-zinc-100 text-black py-3 px-7 radius rounded-full hidden xl:inline hover:opacity-80" > Sign Up</Link>
 
       </nav>
     </header>
