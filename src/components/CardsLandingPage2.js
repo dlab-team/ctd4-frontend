@@ -28,7 +28,7 @@ const CardsLandingPage2 = () => {
 
   return (
     <>
-      <div className="grid gap-2 w-5/6 mx-auto md:grid-cols-3 mb-24 ">
+      <div className="grid gap-6 w-5/6 mx-auto md:grid-cols-3 mb-24 ">
         {posts.map((items, key) => (
           <div className=" mx-auto w-full rounded-xl  md:w-[23.75rem] md:h-[26.12rem] shadow-md lg:max-w-sm flex flex-col gap-y-5 " key={key}>
             <img

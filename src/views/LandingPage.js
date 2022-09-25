@@ -11,7 +11,7 @@ export function LandingPage() {
       </div>
       <Landing1 />
       <LandingPage2 />
-      {/* <Landing3 /> */}
+      <Landing3 />
 
     </>
   )
