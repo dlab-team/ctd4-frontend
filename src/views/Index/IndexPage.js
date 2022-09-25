@@ -6,7 +6,7 @@ import { LandingPage } from "../LandingPage";
 const IndexPage = () => {
   return (
     <>
-      <LandingPage />
+
     </>
   );
 };
