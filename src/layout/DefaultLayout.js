@@ -5,8 +5,8 @@ import { LandingPage } from '../views/LandingPage';
 const DefaultLayout = () => {
   return (
     <>
-      {/* <Outlet /> */}
-      <LandingPage />
+      <Outlet />
+      {/* <LandingPage /> */}
     </>
   );
 };
