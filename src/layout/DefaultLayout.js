@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { LandingPage } from '../views/LandingPage';
+import { Login } from './../components/login/Login'
 
 const DefaultLayout = () => {
   return (
     <>
+      <Login />
       <Outlet />
       {/* <LandingPage /> */}
     </>
