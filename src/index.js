@@ -1,34 +1,26 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "tw-elements";
-import "./index.css";
-import "./App.css";
-import App from "./components/App.js"
-// import App from "./components/App.js";
-import reportWebVitals from "./reportWebVitals";
-import SignUp from "./components/SignUp/signUp";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'tw-elements';
+import './index.css';
+import './App.css';
+
+import App from './components/App.js';
+import SignUp from './components/SignUp/signUp';
 // import { Login } from "./components/login/Login"
 
-//Descomentar  lienas 11 y 24 para que funcione el componente login y comentar de nuevo para que funcione el landinPage
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />} />
-        {/* <App /> */}
-        <Route path='/register' element={<SignUp />} />
+        <Route path="/" element={<App />} />
+        <Route path="/register" element={<SignUp />} />
         {/* <Route path='/login' element={<Login />} />*/}
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
