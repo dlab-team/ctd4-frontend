@@ -6,12 +6,9 @@ import "./index.css";
 import "./App.css";
 import App from "./components/App.js"
 // import App from "./components/App.js";
-import reportWebVitals from "./reportWebVitals";
 import SignUp from "./components/SignUp/signUp";
 import {Login} from './components/login/Login'
 
-import App from './components/App.js';
-import SignUp from './components/SignUp/signUp';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
