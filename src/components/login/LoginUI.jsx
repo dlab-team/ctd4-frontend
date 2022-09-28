@@ -1,7 +1,14 @@
 import './css/login.css'
 import {TypedEffect} from './../animations/react-typed'
+import {useAnimationInput} from './hooks/useAnimationInput'
+import { Link } from "react-router-dom";
+
 
 export const LoginUI = () => {
+
+    const animationEmail = useAnimationInput();
+    const animationPassword = useAnimationInput();
+    
     return(
         <div>
             <div className="h-screen flex bg-gradient-to-b p-6 rounded-xl ">
@@ -26,22 +33,32 @@ export const LoginUI = () => {
                                     Sign In
                                 </h2>
                                 <p className="mt-2 text-center text-sm text-black">
-                                    Or <span className="font-bold">Sign Up</span>
+                                    Or <span className="font-bold"><Link to="/register">Sign up</Link></span>
                                 </p>
                             </div>
 
-                            <div 
-                                className="flex items-center border-2 mb-8 rounded-2xl relative"
-                            >
-                                <input type="text" id="email" className="text-input" />
-                                <label htmlFor="email" className="label">Email</label>
+                            <div className="flex items-center border-2 mb-8 rounded-2xl relative">
+                                <input 
+                                    type="text" 
+                                    className="text-input"
+                                    id="email"
+                                    onFocus={() => animationEmail.focusAnimation()} 
+                                    onBlur={(e) => animationEmail.blurAnimation(e)}
+                                />
+                                <label htmlFor="email" className={`${animationEmail.inputFocus ? "labelBlur" : "labelFocus"}`}>Email</label>
                             </div>
-                            <div 
-                                className="flex items-center border-2 mb-8 rounded-2xl relative"
-                            >
-                                <input type="password" id="password" className="text-input" />
-                                <label htmlFor="password" className="label">Contraseña</label>
+
+                            <div className="flex items-center border-2 mb-8 rounded-2xl relative">
+                                <input 
+                                    type="password" 
+                                    className="text-input"
+                                    id="password"
+                                    onFocus={() => animationPassword.focusAnimation()} 
+                                    onBlur={(e) => animationPassword.blurAnimation(e)}
+                                />
+                                <label htmlFor="password" className={`${animationPassword.inputFocus ? "labelBlur" : "labelFocus"}`}>Password</label>
                             </div>
+                            
                             <button
                                 type="submit"
                                 className="block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
@@ -95,12 +112,10 @@ export const LoginUI = () => {
                             ¿Buscas talento TI?
                         </h1>
                         <p className="text-black text-justify mt-1">
-                            Registrate y te ayudamos a contratar a los mejores en 5 días, y
-                            nosotros los acompañamos por 3 meses con tutores senior para
-                            potenciar sus habilidades tecnicas.
+                            
                             <TypedEffect
                                 text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para protencias sus habilidades tecnicas'}
-                                speed={30}
+                                speed={20}
                             />
                         </p>
                         <div className="flow-root flex justify-center lg:justify-start mt-6">

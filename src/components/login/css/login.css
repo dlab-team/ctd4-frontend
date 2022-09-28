@@ -1,4 +1,4 @@
-.label{
+.labelFocus{
     position: absolute;
     left: 10px;
     transition: all 0.2s;
@@ -13,7 +13,33 @@
     animation-fill-mode: forwards;
 }
 
-.label::before{
+.labelBlur{
+    position: absolute;
+    left: 10px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 1;
+    font-family: Helvetica;
+    font-weight: bold;
+    top: -10px;
+    color: #4744e7;
+    font-size: 14px;
+    opacity: 1;
+    animation-fill-mode: forwards;
+}
+
+.labelFocus::before{
+    content: "";
+    height: 5px;
+    background: white;
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 100%;
+    z-index: -1;
+}
+
+.labelBlur::before{
     content: "";
     height: 5px;
     background: white;
