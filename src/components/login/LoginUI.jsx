@@ -1,4 +1,5 @@
 import './css/login.css'
+import {TypedEffect} from './../animations/react-typed'
 
 export const LoginUI = () => {
     return(
@@ -97,6 +98,10 @@ export const LoginUI = () => {
                             Registrate y te ayudamos a contratar a los mejores en 5 días, y
                             nosotros los acompañamos por 3 meses con tutores senior para
                             potenciar sus habilidades tecnicas.
+                            <TypedEffect
+                                text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para protencias sus habilidades tecnicas'}
+                                speed={30}
+                            />
                         </p>
                         <div className="flow-root flex justify-center lg:justify-start mt-6">
                             <a
