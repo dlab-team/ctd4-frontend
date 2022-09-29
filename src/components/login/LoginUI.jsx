@@ -2,7 +2,9 @@ import { useForm } from 'react-hook-form'
 import './css/login.css'
 
 export const LoginUI = () => {
-    const { register, handleSubmit, formState: {errors} } = useForm();
+    const { register, handleSubmit, formState: {errors} } = useForm({
+        mode: "onTouched"
+    });
 
     const onSubmit = (data, e) => {
         //e.preventDefault();

@@ -1,6 +1,20 @@
+import { useForm } from 'react-hook-form'
 import React from 'react'
 
-const signUp = () => {
+const SignUp = () => {
+  const { register, handleSubmit, watch, formState: {errors} } = useForm({
+    mode: "onTouched"
+  });
+
+  const onSubmit = (data, e) => {
+    //e.preventDefault();
+    console.log(data);
+    e.target.reset()
+  }
+
+  //comprobar los passwords
+  const password = watch('password')
+
   return (
     // color de fondo gradiente
     <div>
@@ -49,8 +63,9 @@ const signUp = () => {
             <form
     className="shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60      bg-white"
     action="#"
-    method="POST"
+    //method="POST"
     id="signupcss"
+    onSubmit={handleSubmit(onSubmit)} //---> para evaluar los datos que son enviados al back
   >
     <div 
       className="my-5"
@@ -67,22 +82,73 @@ const signUp = () => {
           Or <span className="font-bold">Sign In</span>
       </p>
     </div>
+    
+              <span className="formulario__input-error">
+                {errors.email?.type === 'required' && <p>El correo es requerido</p>}
+                {errors.email?.type === 'minLength' && <p>El correo debe tener mínimo 4 caracteres</p>}
+                {errors.email?.type === 'pattern' && <p>El formato del correo no es válido</p>}
+              </span>
+    
     <div 
         className="flex items-center border-2 mb-8 rounded-2xl relative"
     >
-      <input type="text" id="email" className="text-input" />
+      <input
+        type="text"
+        id="email"
+        className="text-input"
+        {...register("email", {
+          minLength: 4,
+          required: true,
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+        })}  
+      />
       <label htmlFor="email" className="label">Email</label>
     </div>
+    
+              <span className="formulario__input-error">
+                {errors.password?.type === 'required' && <p>La contraseña es requerida</p>}
+                {errors.password?.type === 'minLength' && <p>La contraseña debe tener un mínimo de 4 caracteres</p>}
+                {errors.password?.type === 'maxLength' && <p>La contraseña debe tener un máximo de 14 caracteres</p>}
+              </span>
+
     <div 
         className="flex items-center border-2 mb-8 rounded-2xl relative"
     >
-      <input type="password" id="password" className="text-input" />
+      <input
+        type="password"
+        id="password"
+        className="text-input"
+        {...register("password", {
+          minLength: 4,
+          required: true,
+          maxLength: 14
+        })}  
+      />
       <label htmlFor="password" className="label">Contraseña</label>
     </div>
+    
+              <span className="formulario__input-error">
+                {errors.password2?.type === 'required' && <p>La contraseña es requerida</p>}
+                {errors.password2?.type === 'minLength' && <p>La contraseña debe tener un mínimo de 4 caracteres</p>}
+                {errors.password2?.type === 'maxLength' && <p>La contraseña debe tener un máximo de 14 caracteres</p>}
+                {errors.password2?.type === 'validate' && <p>Las contraseñas deben coincidir</p>}
+              </span>
+    
     <div 
         className="flex items-center border-2 mb-8 rounded-2xl relative"
     >
-      <input type="password" id="repeat-password" className="text-input" />
+      <input
+        type="password"
+        id="repeat-password"
+        className="text-input"
+        {...register("password2", {
+          minLength: 4,
+          required: true,
+          maxLength: 14,
+          validate: (value) =>
+          value === password || "Las contraseñas no coinciden",
+        })}
+      />
       <label htmlFor="repeat-password" className="label">Repetir contraseña</label>
     </div>
     <button
@@ -125,4 +191,4 @@ const signUp = () => {
   )
 }
 
-export default signUp
+export default SignUp
