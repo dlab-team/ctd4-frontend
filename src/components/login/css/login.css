@@ -45,3 +45,13 @@
     font-size: 14px;
     color: #4744e7;
 }
+
+.formulario__input-error {
+    color: red;
+    font-size: 12px;
+    
+}
+
+.formulario__input-error-activo {
+    display: block;
+}

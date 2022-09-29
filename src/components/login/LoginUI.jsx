@@ -1,6 +1,15 @@
+import { useForm } from 'react-hook-form'
 import './css/login.css'
 
 export const LoginUI = () => {
+    const { register, handleSubmit, formState: {errors} } = useForm();
+
+    const onSubmit = (data, e) => {
+        //e.preventDefault();
+        console.log(data);
+        e.target.reset()
+    }
+    
     return(
         <div>
             <div className="h-screen flex bg-gradient-to-b p-6 rounded-xl ">
@@ -10,8 +19,9 @@ export const LoginUI = () => {
                         <form
                             className="formcss shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60      bg-white"
                             action="#"
-                            method="POST"
+                            //method="POST"
                             id="signincss"
+                            onSubmit={handleSubmit(onSubmit)} //---> para evaluar los datos que son enviados al back
                         >
                             <div 
                                 className="my-5"
@@ -28,19 +38,54 @@ export const LoginUI = () => {
                                     Or <span className="font-bold">Sign Up</span>
                                 </p>
                             </div>
+                            
+            
+                            <span className="formulario__input-error">
+                                {errors.email?.type === 'required' && <p>El correo es requerido</p>}
+                                {errors.email?.type === 'minLength' && <p>El correo debe tener mínimo 4 caracteres</p>}
+                                {errors.email?.type === 'pattern' && <p>El formato del correo no es válido</p>}
+                            </span>
+                            
+                            <div 
+                                className="flex items-center border-2 mb-8 rounded-2xl relative"
+                            >
+                                
+                                <input
+                                    type="text"
+                                    id="email"
+                                    className="text-input"
+                                    {...register("email", {
+                                        minLength: 4,
+                                        required: true,
+                                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                                      })}
+                                />
+                                <label htmlFor="email" className="label">Email</label>
+                            </div>
+
+                            <span className="formulario__input-error">
+                                {errors.password?.type === 'required' && <p>La contraseña es requerida</p>}
+                                {errors.password?.type === 'minLength' && <p>La contraseña debe tener un mínimo de 4 caracteres</p>}
+                                {errors.password?.type === 'maxLength' && <p>La contraseña debe tener un máximo de 14 caracteres</p>}
+                            </span>
 
                             <div 
                                 className="flex items-center border-2 mb-8 rounded-2xl relative"
                             >
-                                <input type="text" id="email" className="text-input" />
-                                <label htmlFor="email" className="label">Email</label>
-                            </div>
-                            <div 
-                                className="flex items-center border-2 mb-8 rounded-2xl relative"
-                            >
-                                <input type="password" id="password" className="text-input" />
+                                <input
+                                    type="password"
+                                    id="password"
+                                    className="text-input"
+                                    {...register("password", {
+                                        minLength: 4,
+                                        required: true,
+                                        maxLength: 14
+                                      })}
+                                />
                                 <label htmlFor="password" className="label">Contraseña</label>
+                                
                             </div>
+                            
                             <button
                                 type="submit"
                                 className="block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
