@@ -1,10 +1,21 @@
 import './css/login.css';
+import { useForm } from 'react-hook-form'
 import { useAnimationInput } from './hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
 
 export const LoginUI = () => {
   const animationEmail = useAnimationInput();
   const animationPassword = useAnimationInput();
+
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    mode: "onTouched"
+  });
+
+  const onSubmit = (data, e) => {
+    //e.preventDefault();
+    console.log(data);
+    e.target.reset()
+  }
 
   return (
     <div>
@@ -15,8 +26,9 @@ export const LoginUI = () => {
             <form
               className='formcss shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60      bg-white'
               action='#'
-              method='POST'
+              //method='POST'
               id='signincss'
+              onSubmit={handleSubmit(onSubmit)} //---> para evaluar los datos que son enviados al back
             >
               <div className='my-5'>
                 <img
@@ -35,6 +47,12 @@ export const LoginUI = () => {
                 </p>
               </div>
 
+              <span className="formulario__input-error">
+                {errors.email?.type === 'required' && <p>El correo es requerido</p>}
+                {errors.email?.type === 'minLength' && <p>El correo debe tener mínimo 4 caracteres</p>}
+                {errors.email?.type === 'pattern' && <p>El formato del correo no es válido</p>}
+              </span>
+
               <div className='flex items-center border-2 mb-8 rounded-2xl relative'>
                 <input
                   type='text'
@@ -42,6 +60,11 @@ export const LoginUI = () => {
                   id='email'
                   onFocus={() => animationEmail.focusAnimation()}
                   onBlur={(e) => animationEmail.blurAnimation(e)}
+                  {...register("email", {
+                    minLength: 4,
+                    required: true,
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                  })}
                 />
                 <label
                   htmlFor='email'
@@ -53,6 +76,12 @@ export const LoginUI = () => {
                 </label>
               </div>
 
+              <span className="formulario__input-error">
+                {errors.password?.type === 'required' && <p>La contraseña es requerida</p>}
+                {errors.password?.type === 'minLength' && <p>La contraseña debe tener un mínimo de 4 caracteres</p>}
+                {errors.password?.type === 'maxLength' && <p>La contraseña debe tener un máximo de 14 caracteres</p>}
+              </span>
+
               <div className='flex items-center border-2 mb-8 rounded-2xl relative'>
                 <input
                   type='password'
@@ -60,6 +89,11 @@ export const LoginUI = () => {
                   id='password'
                   onFocus={() => animationPassword.focusAnimation()}
                   onBlur={(e) => animationPassword.blurAnimation(e)}
+                  {...register("password", {
+                    minLength: 4,
+                    required: true,
+                    maxLength: 14
+                  })}
                 />
                 <label
                   htmlFor='password'

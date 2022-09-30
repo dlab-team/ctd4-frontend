@@ -1,4 +1,5 @@
 import React from 'react';
+import { useForm } from 'react-hook-form'
 import { useAnimationInput } from './../login/hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +7,19 @@ export function SignUp() {
   const animationEmail = useAnimationInput();
   const animationPassword = useAnimationInput();
   const animationRepeatPassword = useAnimationInput();
+
+  const { register, handleSubmit, watch, formState: {errors} } = useForm({
+    mode: "onTouched"
+  });
+
+  const onSubmit = (data, e) => {
+    //e.preventDefault();
+    console.log(data);
+    e.target.reset()
+  }
+
+  //comprobar los passwords
+  const password = watch('password')
 
   return (
     // color de fondo gradiente
@@ -55,8 +69,9 @@ export function SignUp() {
             <form
               className='shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60      bg-white'
               action='#'
-              method='POST'
+              //method='POST'
               id='signupcss'
+              onSubmit={handleSubmit(onSubmit)} //---> para evaluar los datos que son enviados al back
             >
               <div className='my-5'>
                 <img
@@ -74,6 +89,13 @@ export function SignUp() {
                   </span>
                 </p>
               </div>
+
+              <span className="formulario__input-error">
+                {errors.email?.type === 'required' && <p>El correo es requerido</p>}
+                {errors.email?.type === 'minLength' && <p>El correo debe tener mínimo 4 caracteres</p>}
+                {errors.email?.type === 'pattern' && <p>El formato del correo no es válido</p>}
+              </span>
+
               <div className='flex items-center border-2 mb-8 rounded-2xl relative'>
                 <input
                   type='text'
@@ -81,6 +103,11 @@ export function SignUp() {
                   id='email'
                   onFocus={() => animationEmail.focusAnimation()}
                   onBlur={(e) => animationEmail.blurAnimation(e)}
+                  {...register("email", {
+                    minLength: 4,
+                    required: true,
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                  })} 
                 />
                 <label
                   htmlFor='email'
@@ -92,6 +119,12 @@ export function SignUp() {
                 </label>
               </div>
 
+              <span className="formulario__input-error">
+                {errors.password?.type === 'required' && <p>La contraseña es requerida</p>}
+                {errors.password?.type === 'minLength' && <p>La contraseña debe tener un mínimo de 4 caracteres</p>}
+                {errors.password?.type === 'maxLength' && <p>La contraseña debe tener un máximo de 14 caracteres</p>}
+              </span>
+
               <div className='flex items-center border-2 mb-8 rounded-2xl relative'>
                 <input
                   type='password'
@@ -99,6 +132,11 @@ export function SignUp() {
                   id='password'
                   onFocus={() => animationPassword.focusAnimation()}
                   onBlur={(e) => animationPassword.blurAnimation(e)}
+                  {...register("password", {
+                    minLength: 4,
+                    required: true,
+                    maxLength: 14
+                  })} 
                 />
                 <label
                   htmlFor='password'
@@ -109,6 +147,14 @@ export function SignUp() {
                   Password
                 </label>
               </div>
+
+              <span className="formulario__input-error">
+                {errors.password2?.type === 'required' && <p>La contraseña es requerida</p>}
+                {errors.password2?.type === 'minLength' && <p>La contraseña debe tener un mínimo de 4 caracteres</p>}
+                {errors.password2?.type === 'maxLength' && <p>La contraseña debe tener un máximo de 14 caracteres</p>}
+                {errors.password2?.type === 'validate' && <p>Las contraseñas deben coincidir</p>}
+              </span>
+
               <div className='flex items-center border-2 mb-8 rounded-2xl relative'>
                 <input
                   type='password'
@@ -116,6 +162,13 @@ export function SignUp() {
                   id='repeat-password'
                   onFocus={() => animationRepeatPassword.focusAnimation()}
                   onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
+                  {...register("password2", {
+                    minLength: 4,
+                    required: true,
+                    maxLength: 14,
+                    validate: (value) =>
+                    value === password || "Las contraseñas no coinciden",
+                  })}
                 />
                 <label
                   htmlFor='repeat-password'
