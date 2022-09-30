@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "tw-elements";
 import "./index.css";
 import App from "./app/App"
-import { SignUp } from "./views/SignUp/signUp";
+import  SignUp  from "./views/SignUp/signUp";
 import { Login } from './views/login/Login'
 
 
