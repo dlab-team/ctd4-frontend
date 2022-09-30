@@ -24,11 +24,11 @@ export const LoginUI = () => {
                             <div 
                                 className="my-5"
                             >
-                                <img
+                                <Link to="/" ><img
                                     className="mx-auto h-12 w-auto my-5"
                                     src="https://devsafio.com/wp-content/uploads/2022/02/DEV-IMAGOTIPO-COLOR-HORIZONTAL.png"
-                                    alt="DevSafio"
-                                />
+                                    alt="DevSafio"/>
+                                </Link>
                                 <h2 className="text-black text-center font-bold text-2xl mb-1">
                                     Sign In
                                 </h2>
@@ -114,7 +114,7 @@ export const LoginUI = () => {
                         <p className="text-black text-justify mt-1">
                             
                             <TypedEffect
-                                text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para protencias sus habilidades tecnicas'}
+                                text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para potenciar sus habilidades tecnicas'}
                                 speed={20}
                             />
                         </p>

@@ -1,6 +1,6 @@
 import React from 'react'
-import {useAnimationInput} from './../login/hooks/useAnimationInput'
-import {TypedEffect} from './../animations/react-typed'
+import {useAnimationInput} from '../login/hooks/useAnimationInput'
+import {TypedEffect} from '../animations/react-typed'
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -38,7 +38,7 @@ const SignUp = () => {
           </h1>
           <p className="text-black text-justify mt-1">
           <TypedEffect
-            text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para protencias sus habilidades tecnicas'}
+            text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para potenciar sus habilidades tecnicas'}
             speed={20}
           />
           </p>
@@ -64,11 +64,11 @@ const SignUp = () => {
               <div 
                 className="my-5"
               >
-                <img
+                <Link to="/"><img
                   className="mx-auto h-12 w-auto my-5"
                   src="https://devsafio.com/wp-content/uploads/2022/02/DEV-IMAGOTIPO-COLOR-HORIZONTAL.png"
-                  alt="DevSafio"
-                />
+                  alt="DevSafio"/>
+                </Link>
                 <h2 className="text-black text-center font-bold text-2xl mb-1">
                   Sign Up
                 </h2>
