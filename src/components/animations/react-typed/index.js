@@ -5,7 +5,6 @@
     //el prop text debe tener un valor string y el prop speed debe ser tener un valor number
 
 
-
 import Typed from 'react-typed';
 
 
