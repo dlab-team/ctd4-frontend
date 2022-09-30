@@ -1,10 +1,9 @@
 
-import logo from '../assets/images/devSafio-logo.svg'
-import { Header } from './Header'
+import { Header } from '../../../components/Header'
 import { Link } from "react-router-dom"
 
 
-export function Landing1() {
+export function Section1() {
   return (
 
     <>

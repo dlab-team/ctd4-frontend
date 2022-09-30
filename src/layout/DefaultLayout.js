@@ -1,9 +1,9 @@
 import React from 'react';
-import { LandingPage } from '../views/LandingPage';
+import { Home } from '../views/Home/Home';
 const DefaultLayout = () => {
   return (
     <>
-      <LandingPage />
+      <Home />
     </>
   );
 };

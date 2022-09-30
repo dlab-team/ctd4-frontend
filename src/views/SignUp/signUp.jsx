@@ -2,7 +2,7 @@ import React from 'react';
 import { useAnimationInput } from './../login/hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
 
-const SignUp = () => {
+export function SignUp() {
   const animationEmail = useAnimationInput();
   const animationPassword = useAnimationInput();
   const animationRepeatPassword = useAnimationInput();
@@ -162,6 +162,4 @@ const SignUp = () => {
       </div>
     </div>
   );
-};
-
-export default SignUp;
+}

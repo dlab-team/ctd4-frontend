@@ -1,8 +1,8 @@
 import React from 'react'
-import CardsLandingPage2 from './CardsLandingPage2'
+import CardsLandingPage2 from '../../../components/CardsLandingPage2'
 
 
-export function LandingPage2() {
+export function Section2() {
   return (
     <>
 
