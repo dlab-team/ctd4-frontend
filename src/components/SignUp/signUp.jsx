@@ -1,6 +1,9 @@
-import React from 'react';
-import { useAnimationInput } from './../login/hooks/useAnimationInput';
-import { Link } from 'react-router-dom';
+
+import React from 'react'
+import {useAnimationInput} from '../login/hooks/useAnimationInput'
+import {TypedEffect} from '../animations/react-typed'
+import { Link } from "react-router-dom";
+
 
 const SignUp = () => {
   const animationEmail = useAnimationInput();
@@ -28,25 +31,27 @@ const SignUp = () => {
                 bg-black 
                 opacity-20 
                 inset-0 
-                z-0'
-          ></div>
-          <div className='w-full mx-auto px-20 flex-col items-center space-y-6'>
-            <h1 className='text-black font-bold text-4xl font-sans'>
-              ¿Buscas talento TI?
-            </h1>
-            <p className='text-black text-justify mt-1'>
-              Registrate y te ayudamos a contratar a los mejores en 5 dias, y
-              nosotros los acompañamos por 3 meses con tutores senior para
-              protencias sus habilidades tecnicas
-            </p>
-            <div className='flex justify-center lg:justify-start mt-6'>
-              <a
-                href='https://github.com'
-                className='hover:bg-indigo-700 hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 bg-blue-700 text-white mt-4 px-4 py-2 rounded-2xl font-bold mb-2'
-              >
-                Get Started
-              </a>
-            </div>
+
+                z-0"
+        ></div>
+        <div className="w-full mx-auto px-20 flex-col items-center space-y-6">
+          <h1 className="text-black font-bold text-4xl font-sans">
+            ¿Buscas talento TI?
+          </h1>
+          <p className="text-black text-justify mt-1">
+          <TypedEffect
+            text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para potenciar sus habilidades tecnicas'}
+            speed={20}
+          />
+          </p>
+          <div className="flex justify-center lg:justify-start mt-6">
+            <a
+              href="https://github.com"
+              className="hover:bg-indigo-700 hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 bg-blue-700 text-white mt-4 px-4 py-2 rounded-2xl font-bold mb-2"
+            >
+              Get Started
+            </a>
+
           </div>
         </div>
         {/* sección de formulario de datos registro */}
@@ -58,13 +63,17 @@ const SignUp = () => {
               method='POST'
               id='signupcss'
             >
-              <div className='my-5'>
-                <img
-                  className='mx-auto h-12 w-auto my-5'
-                  src='https://devsafio.com/wp-content/uploads/2022/02/DEV-IMAGOTIPO-COLOR-HORIZONTAL.png'
-                  alt='DevSafio'
-                />
-                <h2 className='text-black text-center font-bold text-2xl mb-1'>
+
+              <div 
+                className="my-5"
+              >
+                <Link to="/"><img
+                  className="mx-auto h-12 w-auto my-5"
+                  src="https://devsafio.com/wp-content/uploads/2022/02/DEV-IMAGOTIPO-COLOR-HORIZONTAL.png"
+                  alt="DevSafio"/>
+                </Link>
+                <h2 className="text-black text-center font-bold text-2xl mb-1">
+
                   Sign Up
                 </h2>
                 <p className='mt-2 text-center text-sm text-black'>
