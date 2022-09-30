@@ -1,9 +1,6 @@
-
-import React from 'react'
-import {useAnimationInput} from '../login/hooks/useAnimationInput'
-import {TypedEffect} from '../animations/react-typed'
-import { Link } from "react-router-dom";
-
+import React from 'react';
+import { useAnimationInput } from '../login/hooks/useAnimationInput';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const animationEmail = useAnimationInput();
@@ -12,46 +9,37 @@ const SignUp = () => {
 
   return (
     // color de fondo gradiente
-    <div>
-      {/* una forma de poner imagen de fondo */}
-      {/* <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n  .login_img_section {\n  background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) center center;\n}\n",
-        }}
-      /> */}
-      <div className='h-screen flex bg-gradient-to-b p-6 rounded-xl '>
-        {/* seccion de  imagenes o texto  */}
-        <div
-          className='hidden lg:flex w-full lg:w-1/2 login_img_section
+
+    <div className='h-screen flex bg-gradient-to-b p-6 rounded-xl '>
+      {/* seccion de  imagenes o texto  */}
+      <div
+        className='hidden lg:flex w-full lg:w-1/2 login_img_section
           justify-around items-center '
-        >
-          <div
-            className=' 
+      >
+        <div
+          className=' 
                 bg-black 
                 opacity-20 
                 inset-0 
 
-                z-0"
+                z-0'
         ></div>
-        <div className="w-full mx-auto px-20 flex-col items-center space-y-6">
-          <h1 className="text-black font-bold text-4xl font-sans">
+        <div className='w-full mx-auto px-20 flex-col items-center space-y-6'>
+          <h1 className='text-black font-bold text-4xl font-sans'>
             ¿Buscas talento TI?
           </h1>
-          <p className="text-black text-justify mt-1">
-          <TypedEffect
-            text={'Registrate y te ayudamos a contratar a los mejores en 5 dias, y nosotros los acompañamos por 3 meses con tutores senior para potenciar sus habilidades tecnicas'}
-            speed={20}
-          />
+          <p className='text-black text-justify mt-1'>
+            Registrate y te ayudamos a contratar a los mejores en 5 dias, y
+            nosotros los acompañamos por 3 meses con tutores senior para
+            potenciar sus habilidades tecnicas
           </p>
-          <div className="flex justify-center lg:justify-start mt-6">
+          <div className='flex justify-center lg:justify-start mt-6'>
             <a
-              href="https://github.com"
-              className="hover:bg-indigo-700 hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 bg-blue-700 text-white mt-4 px-4 py-2 rounded-2xl font-bold mb-2"
+              href='https://github.com'
+              className=' hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 bg-blue-700 text-white mt-4 px-4 py-2 rounded-2xl font-bold mb-2'
             >
               Get Started
             </a>
-
           </div>
         </div>
         {/* sección de formulario de datos registro */}
@@ -63,17 +51,15 @@ const SignUp = () => {
               method='POST'
               id='signupcss'
             >
-
-              <div 
-                className="my-5"
-              >
-                <Link to="/"><img
-                  className="mx-auto h-12 w-auto my-5"
-                  src="https://devsafio.com/wp-content/uploads/2022/02/DEV-IMAGOTIPO-COLOR-HORIZONTAL.png"
-                  alt="DevSafio"/>
+              <div className='my-5'>
+                <Link to='/'>
+                  <img
+                    className='mx-auto h-12 w-auto my-5'
+                    src='https://devsafio.com/wp-content/uploads/2022/02/DEV-IMAGOTIPO-COLOR-HORIZONTAL.png'
+                    alt='DevSafio'
+                  />
                 </Link>
-                <h2 className="text-black text-center font-bold text-2xl mb-1">
-
+                <h2 className='text-black text-center font-bold text-2xl mb-1'>
                   Sign Up
                 </h2>
                 <p className='mt-2 text-center text-sm text-black'>
