@@ -1,7 +1,7 @@
-import image3 from '../assets/images/imageLanding3.png'
+import image3 from '../../../assets/images/imageLanding3.png'
 import { Link } from "react-router-dom"
 
-export default function () {
+export function Section3() {
   return (<>
 
     <div className="bg-[#F6F5FF]  flex justify-center">
