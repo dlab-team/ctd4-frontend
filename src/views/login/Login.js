@@ -1,13 +1,14 @@
 import {useState} from 'react';
 import {LoginUI} from './LoginUI';
-import {authService} from './services/authService'
+import {loginService} from './loginService/loginService'
+import { Navigate } from "react-router-dom";
 
 export const Login = () => {
 
     const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
+    const [loginFail, setLoginFail] = useState(null)
 
-
-    const getDataLogin = (e) => {
+    const getDataFormLogin = (e) => {
         if(e.target.id === "email"){
             setCredentialsUser({...credentialsUser, email: e.target.value})
         }
@@ -16,13 +17,23 @@ export const Login = () => {
         }        
     }
 
-    const getAuthentication = () => {
-        authService(credentialsUser, "endpoint")
+    const getAuthenticationFromBack = (e) => {
+        e.preventDefault()
+        loginService(credentialsUser, setLoginFail)
+    }
+
+    const functions = {
+        getDataFormLogin,
+        getAuthenticationFromBack
     }
 
     return(
         <>
-            <LoginUI />
+            {!loginFail ? 
+                <LoginUI functions={functions}/>
+            :
+                <Navigate to="/" replace={true} />
+            }
         </>
     )
 }
