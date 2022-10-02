@@ -5,13 +5,15 @@ import "tw-elements";
 import "./index.css";
 import App from "./app/App"
 import  SignUp  from "./views/SignUp/signUp";
-import { Login } from './views/login/Login'
+import { Login } from './views/login/Login';
+import {LoggedUserProvider} from './contexts/auth/LoggedUser'
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <LoggedUserProvider>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />} />
@@ -19,6 +21,7 @@ root.render(
         <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
+    </LoggedUserProvider>
   </React.StrictMode>
 );
 
