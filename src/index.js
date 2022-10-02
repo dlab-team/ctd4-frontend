@@ -8,8 +8,7 @@ import App from "./components/App.js"
 // import App from "./components/App.js";
 import SignUp from "./components/SignUp/signUp";
 import {Login} from './components/login/Login'
-
-
+import PerfilUsuario from './components/Perfil/PerfilUsuario'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +19,7 @@ root.render(
       {/* <App /> */}
       <Route path='/register' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/perfil' element={<PerfilUsuario />} />
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

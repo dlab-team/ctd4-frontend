@@ -5,6 +5,7 @@ import { Landing4 } from '../components/Landing4';
 import { Landing5 } from '../components/Landing5';
 import { Footer } from '../components/Footer';
 
+
 export function LandingPage() {
   return (
     <>
@@ -15,6 +16,7 @@ export function LandingPage() {
       <Landing4 />
       <Landing5 />
       <Footer />
+      
     </>
   );
 }
