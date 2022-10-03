@@ -5,7 +5,7 @@ const LoggedUser = createContext();
 export const LoggedUserProvider = ({children}) => {
 
     const [loggedUser, setLoggedUser] = useState(
-        window.localStorage.getItem("user") ?? false
+        JSON.parse(window.localStorage.getItem("user")) ?? false
     );
 
     return(
@@ -13,10 +13,9 @@ export const LoggedUserProvider = ({children}) => {
             {children}
         </LoggedUser.Provider>
     )
-        
 }
 
-//hook para consumir el estado que identifica al usuario
+//hook para consumir el estado con los datos del usuario
 export const useLoggedUser = () => {
     return useContext(LoggedUser)
 }

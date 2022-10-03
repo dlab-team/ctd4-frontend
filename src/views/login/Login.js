@@ -3,7 +3,7 @@ import {LoginUI} from './LoginUI';
 import {loginService} from './loginService/loginService'
 import { Navigate } from "react-router-dom";
 import {useLoggedUser} from './../../contexts/auth/LoggedUser'
-import './css/loginFail.css'
+import {Alert} from './../../components/Alert'
 
 
 export const Login = () => {
@@ -11,7 +11,7 @@ export const Login = () => {
     const {loggedUser} = useLoggedUser()
 
     const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
-    const [loginFail, setLoginFail] = useState(null);
+    const [loginFailMessage, setLoginFailMessage] = useState(null);
 
 
     const getDataFormLogin = (e) => {
@@ -25,7 +25,7 @@ export const Login = () => {
 
     const getAuthenticationFromBack = (e) => {
         e.preventDefault()
-        loginService(credentialsUser, setLoginFail)
+        loginService(credentialsUser, setLoginFailMessage)
     }
 
     const functions = {
@@ -41,13 +41,11 @@ export const Login = () => {
 
                 <Navigate to="/" replace={true} />
             }
-            {loginFail &&
-                <div className="loginFail">
-                    <div className="messageFail">
-                        <p>{loginFail}</p>
-                        <button onClick={() => setLoginFail(null)}>volver a intentarlo</button>
-                    </div>
-                </div>
+
+            {loginFailMessage &&
+                <Alert close={() => setLoginFailMessage(null)}>
+                    <p>{loginFailMessage}</p>
+                </Alert>
             }
         </>
     )
