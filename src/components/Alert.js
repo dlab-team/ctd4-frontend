@@ -26,13 +26,17 @@ import ReactDOM from "react-dom";
 
 function Alert({ children, close }){
 
-
     return ReactDOM.createPortal(
         <div className="loginFail">
-            <div className="messageFail">
-                {children}
-                <button onClick={close}>Entendido!</button>
-            </div>
+            {close ?
+                <div className="messageFail">
+                    {children}
+                    <button onClick={close}>Entendido!</button>
+                    
+                </div>
+            :
+            <h3>ESPERE......</h3>
+            }
         </div>,
         document.getElementById("modal")
     );

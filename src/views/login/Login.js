@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import {useState} from 'react';
 import {LoginUI} from './LoginUI';
 import {loginService} from './loginService/loginService'
 import { Navigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import {Alert} from './../../components/Alert'
 
 export const Login = () => {
 
-    const {loggedUser} = useLoggedUser()
+    const {loggedUser, loader, setLoader} = useLoggedUser()
 
     const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
     const [loginFailMessage, setLoginFailMessage] = useState(null);
@@ -25,7 +25,8 @@ export const Login = () => {
 
     const getAuthenticationFromBack = (e) => {
         e.preventDefault()
-        loginService(credentialsUser, setLoginFailMessage)
+        loginService(credentialsUser, setLoginFailMessage, setLoader);
+        setLoader(true);
     }
 
     const functions = {
@@ -38,7 +39,6 @@ export const Login = () => {
             {!loggedUser ? 
                 <LoginUI functions={functions}/>
             :
-
                 <Navigate to="/" replace={true} />
             }
 
@@ -46,6 +46,10 @@ export const Login = () => {
                 <Alert close={() => setLoginFailMessage(null)}>
                     <p>{loginFailMessage}</p>
                 </Alert>
+            }
+
+            {loader &&
+                <Alert />
             }
         </>
     )
