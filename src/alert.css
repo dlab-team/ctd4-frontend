@@ -1,4 +1,4 @@
-.loginFail{
+.alerta{
     position: absolute;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.messageFail{
+.message{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +25,7 @@
     z-index: 200;
 }
 
-.messageFail button{
+.message button{
     margin-top: 2rem;
     background-color: blue;
     border-radius: 10px;

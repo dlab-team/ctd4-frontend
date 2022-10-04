@@ -5,14 +5,12 @@ import { Navigate } from "react-router-dom";
 import {useLoggedUser} from './../../contexts/auth/LoggedUser'
 import {Alert} from './../../components/Alert'
 
-
 export const Login = () => {
 
     const {loggedUser, loader, setLoader} = useLoggedUser()
 
     const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
     const [loginFailMessage, setLoginFailMessage] = useState(null);
-
 
     const getDataFormLogin = (e) => {
         if(e.target.id === "email"){
@@ -37,7 +35,7 @@ export const Login = () => {
     return(
         <>
             {!loggedUser ? 
-                <LoginUI functions={functions}/>
+                <LoginUI functions={functions} />
             :
                 <Navigate to="/" replace={true} />
             }
