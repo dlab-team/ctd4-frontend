@@ -1,11 +1,11 @@
-import {createContext, useCallback, useContext, useState} from 'react';
+import {createContext, useContext, useState} from 'react';
 
 const LoggedUser = createContext();
 
 export const LoggedUserProvider = ({children}) => {
 
     const [loggedUser, setLoggedUser] = useState(
-        JSON.parse(window.localStorage.getItem("user")) ?? false
+        JSON.parse(localStorage.getItem("user")) ?? false
     );
 
     return(

@@ -1,10 +1,9 @@
-import {useState, useCallback} from 'react';
+import {useState} from 'react';
 import {LoginUI} from './LoginUI';
 import {loginService} from './loginService/loginService'
 import { Navigate } from "react-router-dom";
 import {useLoggedUser} from './../../contexts/auth/LoggedUser'
-import {Alert} from './../../components/Alert'
-
+import {FailMessage, Loading} from '../../components/Alerts'
 
 export const Login = () => {
 
@@ -12,7 +11,7 @@ export const Login = () => {
 
     const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
     const [loginFailMessage, setLoginFailMessage] = useState(null);
-
+    const [loading, setLoading] = useState(false);
 
     const getDataFormLogin = (e) => {
         if(e.target.id === "email"){
@@ -25,7 +24,8 @@ export const Login = () => {
 
     const getAuthenticationFromBack = (e) => {
         e.preventDefault()
-        loginService(credentialsUser, setLoginFailMessage)
+        setLoading(true);
+        loginService(credentialsUser, setLoginFailMessage, setLoading);
     }
 
     const functions = {
@@ -36,16 +36,19 @@ export const Login = () => {
     return(
         <>
             {!loggedUser ? 
-                <LoginUI functions={functions}/>
+                <LoginUI functions={functions} />
             :
-
                 <Navigate to="/" replace={true} />
             }
 
             {loginFailMessage &&
-                <Alert close={() => setLoginFailMessage(null)}>
+                <FailMessage close={() => setLoginFailMessage(null)}>
                     <p>{loginFailMessage}</p>
-                </Alert>
+                </FailMessage>
+            }
+
+            {loading &&
+                <Loading />
             }
         </>
     )
