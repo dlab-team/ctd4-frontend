@@ -72,16 +72,23 @@ const SignUpForm = () => {
               </span>
             </p>
           </div>
-          <div>
+          <div style={{position: "relative"}} className="my-4">
             <Field
               type='text'
               id='email'
               name='email'
-              placeholder='Correo'
-              className='text-input my-4'
+              className='text-input'
               onFocus={() => animationEmail.focusAnimation()}
               onBlur={(e) => animationEmail.blurAnimation(e)}
             />
+            <label
+                  htmlFor='email'
+                  className={`${
+                    animationEmail.inputFocus ? 'labelBlur' : 'labelFocus'
+                  }`}
+                >
+                  Email
+            </label>
             <ErrorMessage
               name='email'
               component={() => (
@@ -90,16 +97,23 @@ const SignUpForm = () => {
             />
           </div>
 
-          <div>
+          <div style={{position: "relative"}} className="my-4">
             <Field
               type='password'
               id='password'
               name='password'
-              placeholder='Contraseña'
-              className='text-input my-4'
+              className='text-input'
               onFocus={() => animationPassword.focusAnimation()}
               onBlur={(e) => animationPassword.blurAnimation(e)}
             />
+            <label
+                  htmlFor='password'
+                  className={`${
+                    animationPassword.inputFocus ? 'labelBlur' : 'labelFocus'
+                  }`}
+                >
+                  Contraseña
+            </label>
             <ErrorMessage
               name='email'
               component={() => (
@@ -108,16 +122,23 @@ const SignUpForm = () => {
             />
           </div>
 
-          <div>
+          <div style={{position: 'relative'}} className="my-4">
             <Field
               type='password'
               id='rePassword'
               name='re_password'
-              placeholder='Confirmar contraseña'
-              className='text-input my-4'
+              className='text-input'
               onFocus={() => animationRepeatPassword.focusAnimation()}
               onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
             />
+            <label
+                  htmlFor='rePassword'
+                  className={`${
+                    animationRepeatPassword.inputFocus ? 'labelBlur' : 'labelFocus'
+                  }`}
+                >
+                  Confirmar contraseña
+            </label>
             <ErrorMessage
               name='email'
               component={() => (

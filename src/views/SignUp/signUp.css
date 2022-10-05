@@ -1,4 +1,4 @@
-.label{
+.labelFocus{
     position: absolute;
     left: 10px;
     transition: all 0.2s;
@@ -6,9 +6,24 @@
     z-index: 1;
     font-family: Helvetica;
     font-weight: bold;
-    top: 14px;
+    top: 1px;
     color: rgb(116, 115, 115);
     font-size: 16px;
+    opacity: 1;
+    animation-fill-mode: forwards;
+}
+
+.labelBlur{
+    position: absolute;
+    left: 10px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 1;
+    font-family: Helvetica;
+    font-weight: bold;
+    top: -200px;
+    color: #4744e7;
+    font-size: 14px;
     opacity: 1;
     animation-fill-mode: forwards;
 }
