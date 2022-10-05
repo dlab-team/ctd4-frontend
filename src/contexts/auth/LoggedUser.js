@@ -8,10 +8,8 @@ export const LoggedUserProvider = ({children}) => {
         JSON.parse(localStorage.getItem("user")) ?? false
     );
 
-    const [loader, setLoader] = useState(false);
-
     return(
-        <LoggedUser.Provider value={{loggedUser, loader, setLoader}}>
+        <LoggedUser.Provider value={{loggedUser}}>
             {children}
         </LoggedUser.Provider>
     )
