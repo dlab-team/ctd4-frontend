@@ -1,6 +1,7 @@
 import './css/login.css';
 import { useAnimationInput } from './hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
+import {TypeEffect} from './../../components/typeEffect/TypeEffect'
 
 export const LoginUI = ({functions}) => {
   const animationEmail = useAnimationInput();
@@ -118,11 +119,13 @@ export const LoginUI = ({functions}) => {
             <h1 className='bg-red  text-black font-bold text-4xl font-sans'>
               ¿Buscas talento TI?
             </h1>
-            <p className='text-black text-justify mt-1'>
-              Registrate y te ayudamos a contratar a los mejores en 5 dias, y
-              nosotros los acompañamos por 3 meses con tutores senior para
-              protencias sus habilidades tecnicas
-            </p>
+            <div style={{width: "100%", height: "3em"}}>
+              <TypeEffect>
+                Registrate y te ayudamos a contratar a los mejores en 5 dias, y
+                nosotros los acompañamos por 3 meses con tutores senior para
+                protencias sus habilidades tecnicas.
+              </TypeEffect>
+            </div>
             <div className='flow-root flex justify-center lg:justify-start mt-6'>
               <a
                 href='https://github.com'
