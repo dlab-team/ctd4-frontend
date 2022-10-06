@@ -3,12 +3,17 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "tw-elements";
 import "./index.css";
-import "./App.css";
-import App from "./components/App.js"
-// import App from "./components/App.js";
-import SignUp from "./components/SignUp/signUp";
-import {Login} from './components/login/Login'
-import PerfilUsuario from './components/Perfil/PerfilUsuario'
+import App from "./app/App"
+import  SignUp  from "./views/SignUp/signUp";
+import { Login } from './views/login/Login';
+import DataPersonal from "./views/Perfil/DataPersonal";
+import DatosPersonal from './views/Perfil/pages/DatosPersonal';
+import PerfilEducacion from './views/Perfil/pages/PerfilEducacion';
+import PerfilLaboral from './views/Perfil/pages/PerfilLaboral';
+import TrabajoDeseado from './views/Perfil/pages/TrabajoDeseado';
+import Experiencia from './views/Perfil/pages/Experiencia';
+import Acerca from './views/Perfil/pages/Acerca';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,7 +24,14 @@ root.render(
       {/* <App /> */}
       <Route path='/register' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/perfil' element={<PerfilUsuario />} />
+      <Route path='/perfil' element={<DataPersonal />} />
+      <Route path='/datospersonal' element={<DatosPersonal />} />
+      <Route path='/perfileducacion' element={<PerfilEducacion />} />
+      <Route path='/perfilLaboral' element={<PerfilLaboral />} />
+      <Route path='/experiencia' element={<Experiencia/>} />
+      <Route path='/trabajodeseado' element={<TrabajoDeseado/>} />
+      <Route path='/Acercadeti' element={<Acerca/>} />
+
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
 
+
 const DefaultLayout = React.lazy(() => import('../layout/DefaultLayout'));
 //const IndexPage = React.lazy(() => import('../views/Index/IndexPage'));
 
@@ -15,6 +16,8 @@ function App() {
         </Route>
       </Routes>
     </Suspense>
+
+    
 
   );
 }

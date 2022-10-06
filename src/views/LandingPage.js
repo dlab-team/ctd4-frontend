@@ -4,6 +4,7 @@ import { LandingPage2 } from '../components/LandingPage2';
 import { Landing4 } from '../components/Landing4';
 import { Landing5 } from '../components/Landing5';
 import { Footer } from '../components/Footer';
+import {Sidebar} from '../components/Sidebar';
 
 
 export function LandingPage() {
@@ -15,7 +16,9 @@ export function LandingPage() {
       <Landing3 />
       <Landing4 />
       <Landing5 />
+      <Sidebar />
       <Footer />
+      
       
     </>
   );

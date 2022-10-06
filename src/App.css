@@ -1,8 +1,0 @@
-/* custom classes */
-.containerWithHeader-min-height {
-  min-height: calc(100vh - 64px);
-}
-/* colores */
-.to-purple-600{
-  background-color: #E40764;
-}
