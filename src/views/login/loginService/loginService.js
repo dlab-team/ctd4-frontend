@@ -15,6 +15,5 @@ export const loginService = (credentials, authFail, setLoading) => {
                 authFail(error.message);
             })
         }, 1500);
-
-
+        
 }
