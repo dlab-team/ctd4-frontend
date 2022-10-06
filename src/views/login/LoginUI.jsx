@@ -68,7 +68,7 @@ export const LoginUI = ({functions}) => {
                     animationPassword.inputFocus ? 'labelBlur' : 'labelFocus'
                   }`}
                 >
-                  Password
+                  Contraseña
                 </label>
               </div>
 
