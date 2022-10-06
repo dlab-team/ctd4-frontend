@@ -22,13 +22,13 @@ const SignUpForm = () => {
           .required('El email es obligatorio'),
 
         password: Yup.string()
-          .required('La contraseña es obligatoria')
           .min(6, 'Debe tener al menos 6 caracteres')
+          .required('La contraseña es obligatoria')
           .oneOf([Yup.ref('re_password')], 'Las contraseñas no son iguales'),
 
         re_password: Yup.string()
-          .required('La contraseña es obligatoria')
           .min(6, 'Debe tener al menos 6 caracteres')
+          .required('La contraseña es obligatoria')
           .oneOf([Yup.ref('password')], 'Las contraseñas no son iguales'),
       })}
       onSubmit={(values) => {
@@ -40,16 +40,15 @@ const SignUpForm = () => {
             re_password: values.re_password,
           })
           .then(function (response) {
-            if (response.data.success === true) {
+            if (response.data) {
               console.log('Pasó autenticación usuario', response.data);
             }
-            console.log(response);
           })
           .catch(function (error) {
             alert('ocurrió un error en la validación');
             console.log(error);
           });
-        console.log('values SignUpForm', values);
+        //console.log('values SignUpForm', values);
       }}
     >
       {({ errors }) => (
@@ -101,7 +100,7 @@ const SignUpForm = () => {
               onBlur={(e) => animationPassword.blurAnimation(e)}
             />
             <ErrorMessage
-              name='email'
+              name='password'
               component={() => (
                 <div className='text-red-600'>{errors.password}</div>
               )}
@@ -119,7 +118,7 @@ const SignUpForm = () => {
               onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
             />
             <ErrorMessage
-              name='email'
+              name='re_password'
               component={() => (
                 <div className='text-red-600'>{errors.re_password}</div>
               )}
@@ -127,6 +126,7 @@ const SignUpForm = () => {
           </div>
 
           <button
+            onSubmit={(value) => {}}
             type='submit'
             className='block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2'
           >
