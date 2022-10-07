@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "tw-elements";
 import "./index.css";
+import './alert.css';
 import App from "./app/App"
 import  SignUp  from "./views/SignUp/signUp";
 import { Login } from './views/login/Login';
@@ -13,11 +14,13 @@ import PerfilLaboral from './views/Perfil/pages/PerfilLaboral';
 import TrabajoDeseado from './views/Perfil/pages/TrabajoDeseado';
 import Experiencia from './views/Perfil/pages/Experiencia';
 import Acerca from './views/Perfil/pages/Acerca';
+import {LoggedUserProvider} from './contexts/auth/LoggedUser'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <LoggedUserProvider>
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />} />
@@ -34,6 +37,7 @@ root.render(
 
     </Routes>
     </BrowserRouter>
+    </LoggedUserProvider>
   </React.StrictMode>
 );
 

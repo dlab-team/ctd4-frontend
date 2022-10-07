@@ -1,8 +1,9 @@
 import './css/login.css';
 import { useAnimationInput } from './hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
+import {TypeEffect} from './../../components/typeEffect/TypeEffect'
 
-export const LoginUI = () => {
+export const LoginUI = ({functions}) => {
   const animationEmail = useAnimationInput();
   const animationPassword = useAnimationInput();
 
@@ -13,10 +14,9 @@ export const LoginUI = () => {
         <div className='flex w-full lg:w-1/2 justify-center items-center space-y-8 '>
           <div className='w-full px-8 md:px-32 lg:px-24   '>
             <form
-              className='formcss shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60      bg-white'
-              action='#'
-              method='POST'
+              className='formcss shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60  bg-white'
               id='signincss'
+              onSubmit={functions.getAuthenticationFromBack}
             >
               <div className='my-5'>
                 <img
@@ -42,6 +42,7 @@ export const LoginUI = () => {
                   id='email'
                   onFocus={() => animationEmail.focusAnimation()}
                   onBlur={(e) => animationEmail.blurAnimation(e)}
+                  onChange={e => functions.getDataFormLogin(e)}
                 />
                 <label
                   htmlFor='email'
@@ -60,6 +61,7 @@ export const LoginUI = () => {
                   id='password'
                   onFocus={() => animationPassword.focusAnimation()}
                   onBlur={(e) => animationPassword.blurAnimation(e)}
+                  onChange={e => functions.getDataFormLogin(e)}
                 />
                 <label
                   htmlFor='password'
@@ -67,7 +69,7 @@ export const LoginUI = () => {
                     animationPassword.inputFocus ? 'labelBlur' : 'labelFocus'
                   }`}
                 >
-                  Password
+                  Contraseña
                 </label>
               </div>
 
@@ -117,11 +119,13 @@ export const LoginUI = () => {
             <h1 className='bg-red  text-black font-bold text-4xl font-sans'>
               ¿Buscas talento TI?
             </h1>
-            <p className='text-black text-justify mt-1'>
-              Registrate y te ayudamos a contratar a los mejores en 5 dias, y
-              nosotros los acompañamos por 3 meses con tutores senior para
-              protencias sus habilidades tecnicas
-            </p>
+            <div style={{width: "100%", height: "3em"}}>
+              <TypeEffect>
+                Registrate y te ayudamos a contratar a los mejores en 5 dias, y
+                nosotros los acompañamos por 3 meses con tutores senior para
+                protencias sus habilidades tecnicas.
+              </TypeEffect>
+            </div>
             <div className='flow-root flex justify-center lg:justify-start mt-6'>
               <a
                 href='https://github.com'
