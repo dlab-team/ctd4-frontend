@@ -2,14 +2,21 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useAnimationInput } from '../login/hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react"
+import {FailMessage, Loading} from '../../components/Alerts'
 import axios from 'axios';
 
 const SignUpForm = () => {
   const animationEmail = useAnimationInput();
   const animationPassword = useAnimationInput();
   const animationRepeatPassword = useAnimationInput();
+  const navigate = useNavigate()
+  const [errorMessage, setErrorMessage] = useState(false)
+  const [successMessage, setSuccessMessage] = useState(false)
 
   return (
+    <>
     <Formik
       initialValues={{
         email: '',
@@ -42,10 +49,13 @@ const SignUpForm = () => {
           .then(function (response) {
             if (response.data) {
               console.log('Pasó autenticación usuario', response.data);
+              setSuccessMessage("Pasó autenticación usuario")
+              setTimeout(() => navigate("/", { replace: true }), 2000)
             }
           })
           .catch(function (error) {
-            alert('ocurrió un error en la validación');
+            setErrorMessage(error.message)
+            //alert('ocurrió un error en la validación');
             console.log(error);
           });
         //console.log('values SignUpForm', values);
@@ -153,6 +163,7 @@ const SignUpForm = () => {
           >
             Sing Up
           </button>
+          
           <p className='mt-4 text-center  text-black'>Or</p>
 
           <div className='flex justify-between mt-2'>
@@ -178,6 +189,15 @@ const SignUpForm = () => {
         </Form>
       )}
     </Formik>
+       
+      {successMessage && <FailMessage close={() => setSuccessMessage(null)}>
+      <p>{successMessage}</p>
+      </FailMessage> }
+
+      {errorMessage && <FailMessage close={() => setErrorMessage(null)}>
+      <p>{errorMessage}</p>
+      </FailMessage> }
+    </>
   );
 };
 
