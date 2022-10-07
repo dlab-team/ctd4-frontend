@@ -1,5 +1,6 @@
 import React from 'react';
-import SignUpForm from './SignUpForm'
+import SignUpForm from './SignUpForm';
+import {TypeEffect} from './../../components/typeEffect/TypeEffect'
 
 const SignUp = () => {
 
@@ -23,11 +24,13 @@ const SignUp = () => {
             <h1 className="text-black font-bold text-4xl font-sans">
               ¿Buscas talento TI?
             </h1>
-            <p className="text-black text-justify mt-1">
-              Registrate y te ayudamos a contratar a los mejores en 5 días, y
-              nosotros los acompañamos por 3 meses con tutores senior para
-              potenciar sus habilidades tecnicas.
-            </p>
+            <div style={{width: "100%", height: "3em"}}>
+              <TypeEffect>
+                Registrate y te ayudamos a contratar a los mejores en 5 dias, y
+                nosotros los acompañamos por 3 meses con tutores senior para
+                protencias sus habilidades tecnicas.
+              </TypeEffect>
+            </div>
             <div className="flex justify-center lg:justify-start mt-6">
               <a
                 href="https://github.com"
