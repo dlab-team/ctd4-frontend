@@ -43,7 +43,7 @@ const Experiencia = () => {
                   </div>
 
                   <div className="lg:flex lg:justify-between">
-                     <h1 className="mt-14 ml-20 text-[18px] font-semibold"> Perfil Laboral</h1>
+                     <h1 className="mt-14 ml-20 text-[18px] font-semibold">Experiencia</h1>
                      <h3 className="mt-14 mr-16 text-[14px]">Ultima actualización 16/09/2022</h3>
                   </div>
 

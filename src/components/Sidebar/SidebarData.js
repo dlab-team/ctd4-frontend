@@ -6,14 +6,14 @@ export const SidebarData = [
 
   {
     title: 'Datos Personales',
-    path: '/datospersonal',
+    path: '/datospersonales',
     // icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
  
   {
     title: 'Perfil Educacional',
-    path: '/perfileducacion',
+    path: '/perfileducacional',
     // icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   }, 
@@ -41,7 +41,7 @@ export const SidebarData = [
   
   {
     title: 'Acerca de ti',
-    path: '/acerca',
+    path: '/acercadeti',
     // icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },

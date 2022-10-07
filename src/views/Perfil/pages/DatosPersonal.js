@@ -20,17 +20,14 @@ const DatosPersonal = () => {
 
 {/* sidebar */}
 
-
  <div className="flex">
+   <Sidebar/>
 
- <Sidebar/>
- 
-{/* Formularios */}
          <div className="container mt-10">
 
                <div className="container">
 
-                  {/* Progress bar */}
+               {/* Progress bar */}
 
                   <div className="flex justify-between mt-14">
                      <div className="w-3/5 rounded-full my-auto ml-20">
@@ -47,6 +44,7 @@ const DatosPersonal = () => {
                      <h3 className="mt-14 mr-16 text-[14px]">Ultima actualización 16/09/2022</h3>
                   </div>
 
+               {/* Formularios */}
                   <form>
                      <div className="lg:flex">
 

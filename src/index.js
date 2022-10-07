@@ -25,8 +25,8 @@ root.render(
       <Route path='/register' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
       <Route path='/perfil' element={<DataPersonal />} />
-      <Route path='/datospersonal' element={<DatosPersonal />} />
-      <Route path='/perfileducacion' element={<PerfilEducacion />} />
+      <Route path='/datospersonales' element={<DatosPersonal />} />
+      <Route path='/perfileducacional' element={<PerfilEducacion />} />
       <Route path='/perfilLaboral' element={<PerfilLaboral />} />
       <Route path='/experiencia' element={<Experiencia/>} />
       <Route path='/trabajodeseado' element={<TrabajoDeseado/>} />
