@@ -1,9 +1,9 @@
 /*
-Como hijo del componente Message, debes escribir el texto del mensaje y un <button> con la funcion que 
+Como hijo del componente ShowResponseFromBack, debes escribir el texto del mensaje y un <button> con la funcion que cambiara el estado que hace desaparecer la ventana
 
 <ShowResponseFromBack>
-    <p>{loginFailMessage}</p>
-    <button onClick={() => setLoginFailMessage(false)}>Entendido!</button>
+    <p>{responseFromBack}</p>
+    <button onClick={() => setResponseFromBack(false)}>Entendido!</button>
 </ShowResponseFromBack>
 
 */

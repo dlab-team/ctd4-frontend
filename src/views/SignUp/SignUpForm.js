@@ -4,7 +4,7 @@ import { useAnimationInput } from '../login/hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react"
-import {FailMessage, Loading} from '../../components/Alerts'
+import {ShowResponseFromBack, Loading} from '../../components/Alerts'
 import axios from 'axios';
 
 const SignUpForm = () => {
@@ -12,8 +12,9 @@ const SignUpForm = () => {
   const animationPassword = useAnimationInput();
   const animationRepeatPassword = useAnimationInput();
   const navigate = useNavigate()
-  const [errorMessage, setErrorMessage] = useState(false)
-  const [successMessage, setSuccessMessage] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [successMessage, setSuccessMessage] = useState(null)
+  const [loadingLogup, setLoadingLogup] = useState(false);
 
   return (
     <>
@@ -39,6 +40,7 @@ const SignUpForm = () => {
           .oneOf([Yup.ref('password')], 'Las contraseñas no son iguales'),
       })}
       onSubmit={(values) => {
+        setLoadingLogup(true);
         let url = 'http://localhost:3000/signup';
         axios
           .post(url, {
@@ -47,13 +49,15 @@ const SignUpForm = () => {
             re_password: values.re_password,
           })
           .then(function (response) {
+            setLoadingLogup(false);
             if (response.data) {
               console.log('Pasó autenticación usuario', response.data);
               setSuccessMessage("Pasó autenticación usuario")
-              setTimeout(() => navigate("/", { replace: true }), 2000)
+              // setTimeout(() => navigate("/", { replace: true }), 2000)
             }
           })
           .catch(function (error) {
+            setLoadingLogup(false);
             setErrorMessage(error.message)
             //alert('ocurrió un error en la validación');
             console.log(error);
@@ -190,13 +194,29 @@ const SignUpForm = () => {
       )}
     </Formik>
        
-      {successMessage && <FailMessage close={() => setSuccessMessage(null)}>
-      <p>{successMessage}</p>
-      </FailMessage> }
+      {loadingLogup &&
+        <Loading />
+      }
 
-      {errorMessage && <FailMessage close={() => setErrorMessage(null)}>
-      <p>{errorMessage}</p>
-      </FailMessage> }
+      {successMessage && 
+        <ShowResponseFromBack>
+          <p>{successMessage}</p>
+          <button onClick={() => {
+            setSuccessMessage(null);
+            navigate("/", { replace: true })
+            }}
+          >
+            Entendido!
+          </button>
+        </ShowResponseFromBack> 
+      }
+
+      {errorMessage && 
+        <ShowResponseFromBack>
+          <p>{errorMessage}</p>
+          <button onClick={() => setErrorMessage(null)}>Entendido!</button>
+        </ShowResponseFromBack> 
+      }
     </>
   );
 };
