@@ -1,28 +1,18 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useAnimationInput } from '../login/hooks/useAnimationInput';
 import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
-import { useState } from "react"
-import {ShowResponseFromBack, Loading} from '../../components/Alerts'
-import axios from 'axios';
+import { useAnimationInput } from './hooks/useAnimationInput';
 
-const SignUpForm = () => {
-  const animationEmail = useAnimationInput();
-  const animationPassword = useAnimationInput();
-  const animationRepeatPassword = useAnimationInput();
-  const navigate = useNavigate()
-  const [errorMessage, setErrorMessage] = useState(null)
-  const [successMessage, setSuccessMessage] = useState(null)
-  const [loadingLogup, setLoadingLogup] = useState(false);
 
-  return (
-    <>
-    <Formik
+export const FormLogin = ({request}) => {
+    const animationEmail = useAnimationInput();
+    const animationPassword = useAnimationInput();
+
+    return(
+      <Formik
       initialValues={{
         email: '',
         password: '',
-        re_password: '',
       }}
       validationSchema={Yup.object({
         email: Yup.string()
@@ -32,38 +22,8 @@ const SignUpForm = () => {
         password: Yup.string()
           .min(6, 'Debe tener al menos 6 caracteres')
           .required('La contraseña es obligatoria')
-          .oneOf([Yup.ref('re_password')], 'Las contraseñas no son iguales'),
-
-        re_password: Yup.string()
-          .min(6, 'Debe tener al menos 6 caracteres')
-          .required('La contraseña es obligatoria')
-          .oneOf([Yup.ref('password')], 'Las contraseñas no son iguales'),
       })}
-      onSubmit={(values) => {
-        setLoadingLogup(true);
-        let url = 'http://localhost:3000/signup';
-        axios
-          .post(url, {
-            email: values.email,
-            password: values.password,
-            re_password: values.re_password,
-          })
-          .then(function (response) {
-            setLoadingLogup(false);
-            if (response.data) {
-              console.log('Pasó autenticación usuario', response.data);
-              setSuccessMessage("Pasó autenticación usuario")
-              // setTimeout(() => navigate("/", { replace: true }), 2000)
-            }
-          })
-          .catch(function (error) {
-            setLoadingLogup(false);
-            setErrorMessage(error.message)
-            //alert('ocurrió un error en la validación');
-            console.log(error);
-          });
-        //console.log('values SignUpForm', values);
-      }}
+      onSubmit={(values) => request(values)}
     >
       {({ errors }) => (
         <Form className='shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60 bg-white'>
@@ -76,12 +36,12 @@ const SignUpForm = () => {
               />
             </Link>
             <h2 className='text-black text-center font-bold text-2xl mb-1'>
-              Sign Up
+              Sign In
             </h2>
             <p className='mt-2 text-center text-sm text-black'>
               Or{' '}
               <span className='font-bold'>
-                <Link to='/login'>Sign in</Link>
+                <Link to='/register'>Sign up</Link>
               </span>
             </p>
           </div>
@@ -135,39 +95,13 @@ const SignUpForm = () => {
             />
           </div>
 
-          <div style={{position: 'relative'}} className="my-4">
-            <Field
-              type='password'
-              id='rePassword'
-              name='re_password'
-              className='text-input'
-              onFocus={() => animationRepeatPassword.focusAnimation()}
-              onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
-            />
-            <label
-                  htmlFor='rePassword'
-                  className={`${
-                    animationRepeatPassword.inputFocus ? 'labelBlur' : 'labelFocus'
-                  }`}
-                >
-                  Confirmar contraseña
-            </label>
-            <ErrorMessage
-              name='re_password'
-              component={() => (
-                <div className='text-red-600'>{errors.re_password}</div>
-              )}
-            />
-          </div>
-
           <button
             onSubmit={(value) => {}}
             type='submit'
             className='block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2'
           >
-            Sing Up
+            Sing in
           </button>
-          
           <p className='mt-4 text-center  text-black'>Or</p>
 
           <div className='flex justify-between mt-2'>
@@ -193,32 +127,5 @@ const SignUpForm = () => {
         </Form>
       )}
     </Formik>
-       
-      {loadingLogup &&
-        <Loading />
-      }
-
-      {successMessage && 
-        <ShowResponseFromBack>
-          <p>{successMessage}</p>
-          <button onClick={() => {
-            setSuccessMessage(null);
-            navigate("/", { replace: true })
-            }}
-          >
-            Entendido!
-          </button>
-        </ShowResponseFromBack> 
-      }
-
-      {errorMessage && 
-        <ShowResponseFromBack>
-          <p>{errorMessage}</p>
-          <button onClick={() => setErrorMessage(null)}>Entendido!</button>
-        </ShowResponseFromBack> 
-      }
-    </>
-  );
-};
-
-export default SignUpForm;
+    )
+}
