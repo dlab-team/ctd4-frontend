@@ -4,36 +4,25 @@ import {loginService} from './loginService/loginService'
 import { Navigate } from "react-router-dom";
 import {useLoggedUser} from './../../contexts/auth/LoggedUser'
 import {ShowResponseFromBack, Loading} from '../../components/Alerts'
-import {FormLogupLogin} from './../../components/FormLogupLogin'
+import {FormLogin} from './FormLogin'
 
 export const Login = () => {
 
     const {loggedUser} = useLoggedUser()
 
-    const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
     const [responseFromBack, setResponseFromBack] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const getDataInputs = (e) => {
-        if(e.target.id === "email"){
-            setCredentialsUser({...credentialsUser, email: e.target.value})
-        }
-        if(e.target.id === "password"){
-            setCredentialsUser({...credentialsUser, password: e.target.value})
-        }        
-    }
-
-    const formRequest = (e) => {
-        e.preventDefault()
+    const formRequest = (values) => {
         setLoading(true);
-        loginService(credentialsUser, setResponseFromBack, setLoading);
+        loginService(values, setResponseFromBack, setLoading);
     }
 
     return(
         <>
             {!loggedUser ? 
                 <LoginUI>
-                    <FormLogupLogin request={formRequest} getDataForm={getDataInputs} />
+                    <FormLogin request={formRequest} />
                 </LoginUI>
             :
                 <Navigate to="/" replace={true} />
