@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-export const loginService = (credentials, authFail, setLoading) => {
+export const loginService = (credentials, setResponseFromBack, setLoading) => {
 
         setTimeout(() => {
             return axios
@@ -12,7 +12,7 @@ export const loginService = (credentials, authFail, setLoading) => {
             })
             .catch((error) => {
                 setLoading(false)
-                authFail(error.message);
+                setResponseFromBack(error.message);
             })
         }, 1500);
         

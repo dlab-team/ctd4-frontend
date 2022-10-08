@@ -3,17 +3,18 @@ import {LoginUI} from './LoginUI';
 import {loginService} from './loginService/loginService'
 import { Navigate } from "react-router-dom";
 import {useLoggedUser} from './../../contexts/auth/LoggedUser'
-import {FailMessage, Loading} from '../../components/Alerts'
+import {ShowResponseFromBack, Loading} from '../../components/Alerts'
+import {FormLogupLogin} from './../../components/FormLogupLogin'
 
 export const Login = () => {
 
     const {loggedUser} = useLoggedUser()
 
     const [credentialsUser, setCredentialsUser] = useState({email: null, password: null});
-    const [loginFailMessage, setLoginFailMessage] = useState(null);
+    const [responseFromBack, setResponseFromBack] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const getDataFormLogin = (e) => {
+    const getDataInputs = (e) => {
         if(e.target.id === "email"){
             setCredentialsUser({...credentialsUser, email: e.target.value})
         }
@@ -22,29 +23,27 @@ export const Login = () => {
         }        
     }
 
-    const getAuthenticationFromBack = (e) => {
+    const formRequest = (e) => {
         e.preventDefault()
         setLoading(true);
-        loginService(credentialsUser, setLoginFailMessage, setLoading);
-    }
-
-    const functions = {
-        getDataFormLogin,
-        getAuthenticationFromBack
+        loginService(credentialsUser, setResponseFromBack, setLoading);
     }
 
     return(
         <>
             {!loggedUser ? 
-                <LoginUI functions={functions} />
+                <LoginUI>
+                    <FormLogupLogin request={formRequest} getDataForm={getDataInputs} />
+                </LoginUI>
             :
                 <Navigate to="/" replace={true} />
             }
 
-            {loginFailMessage &&
-                <FailMessage close={() => setLoginFailMessage(null)}>
-                    <p>{loginFailMessage}</p>
-                </FailMessage>
+            {responseFromBack &&
+                <ShowResponseFromBack>
+                    <p>{responseFromBack}</p>
+                    <button onClick={() => setResponseFromBack(false)}>Entendido!</button>
+                </ShowResponseFromBack>
             }
 
             {loading &&
