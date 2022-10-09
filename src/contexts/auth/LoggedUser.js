@@ -4,7 +4,7 @@ const LoggedUser = createContext();
 
 export const LoggedUserProvider = ({children}) => {
 
-    const [loggedUser, setLoggedUser] = useState(
+    const [loggedUser] = useState(
         JSON.parse(localStorage.getItem("user")) ?? false
     );
 

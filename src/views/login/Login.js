@@ -20,13 +20,13 @@ export const Login = () => {
 
     return(
         <>
-            {!loggedUser ? 
+            {!loggedUser  ? 
                 <LoginUI>
                     <FormLogin request={formRequest} />
                 </LoginUI>
-            :
-                <Navigate to="/" replace={true} />
-            }
+             :
+                 <Navigate to="/perfil" replace={true} />
+            } 
 
             {responseFromBack &&
                 <ShowResponseFromBack>
