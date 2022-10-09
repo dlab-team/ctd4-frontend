@@ -7,7 +7,6 @@ import './alert.css';
 import App from "./app/App"
 import  SignUp  from "./views/SignUp/signUp";
 import { Login } from './views/login/Login';
-import DataPersonal from "./views/Perfil/DataPersonal";
 import DatosPersonal from './views/Perfil/pages/DatosPersonal';
 import PerfilEducacion from './views/Perfil/pages/PerfilEducacion';
 import PerfilLaboral from './views/Perfil/pages/PerfilLaboral';
@@ -27,7 +26,6 @@ root.render(
       {/* <App /> */}
       <Route path='/register' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/perfil' element={<DataPersonal />} />
       <Route path='/datospersonales' element={<DatosPersonal />} />
       <Route path='/perfileducacional' element={<PerfilEducacion />} />
       <Route path='/perfilLaboral' element={<PerfilLaboral />} />
