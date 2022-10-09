@@ -1,38 +1,21 @@
 /*
-FailMessage es un componente que puede escribirse en cualquier jsx y que no es necesario posicionarlo con css ya que esta renderizado con un portal, y tiene un posicionamiento en relacion al navegador.
-Nunca rompera la maquetacion que tu creaste ya que no se renderiza en el lugar que lo posicionas.
+Como hijo del componente ShowResponseFromBack, debes escribir el texto del mensaje y un <button> con la funcion que cambiara el estado que hace desaparecer la ventana
 
-return(
-    <>
-        {!loggedUser ? 
-            <LoginUI />
-        :
+<ShowResponseFromBack>
+    <p>{responseFromBack}</p>
+    <button onClick={() => setResponseFromBack(false)}>Entendido!</button>
+</ShowResponseFromBack>
 
-            <Navigate to="/profileUser" replace={true} />
-        }
-        
-        {loginFailMessage &&
-            <FailMessage close={() => setLoginFailMessage(null)}>
-                <p>{loginFailMessage}</p>
-            </FailMessage>
-        }
-    </>
-)
-
-FailMessage debe llevar un prop llamado close con una funcion anonima en donde debes escribir la funcion que cambiara el estado que quitara la alerta de la pantalla.
-La informacion que mostrara la alerta debe ir como html hijo del componente donde lo posicionas
 */
-
 
 import ReactDOM from "react-dom";
 
-function FailMessage({ children, close }){
+function ShowResponseFromBack({ children }){
 
     return ReactDOM.createPortal(
         <div className="alerta">
             <div className="message">
                 {children}
-                <button onClick={close}>Entendido!</button>
             </div>
         </div>,
         document.getElementById("modal")
@@ -59,4 +42,4 @@ function Loading(){
     );
 }
 
-export {FailMessage, Loading}; 
+export {ShowResponseFromBack, Loading}; 

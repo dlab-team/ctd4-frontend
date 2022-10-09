@@ -1,19 +1,21 @@
 const axios = require('axios').default;
 
-export const loginService = (credentials, authFail, setLoading) => {
-
-        setTimeout(() => {
-            return axios
-            .post("http://localhost:3000/login/", credentials, {'Content-Type': 'application/json'})
-            .then((response) => {
-                window.localStorage.setItem("user", JSON.stringify(response.data));
-                setLoading(false)
-                window.location.reload();
-            })
-            .catch((error) => {
-                setLoading(false)
-                authFail(error.message);
-            })
-        }, 1500);
-        
-}
+export const loginService = (values, setResponseFromBack, setLoading) => {
+    let url = 'http://localhost:3000/login/';
+    axios
+      .post(url, {
+        email: values.email,
+        password: values.password,
+      })
+      .then(function (response) {
+        if (response.data) {
+            window.localStorage.setItem("user", JSON.stringify(response.data));
+            setLoading(false)
+            window.location.reload();
+        }
+      })
+      .catch(function (error) {
+        setLoading(false)
+        setResponseFromBack(error.message);
+      });
+  }
