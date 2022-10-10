@@ -41,7 +41,7 @@ const SignUpForm = () => {
       })}
       onSubmit={(values) => {
         setLoadingLogup(true);
-        let url = 'http://localhost:3000/login';
+        let url = 'http://localhost:3000/signup';
         setTimeout(() => {
           axios
             .post(url, {
