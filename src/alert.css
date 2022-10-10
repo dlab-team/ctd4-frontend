@@ -60,7 +60,7 @@
     width: 274px;
     height: 88px;
     animation-name: kick;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-timing-function: steps(16);
     animation-iteration-count: infinite;
     background-repeat: no-repeat;
@@ -75,10 +75,10 @@
     50%{
         background-position: 0 -1358.12px;
     }
-    75%{
+    100%{
         background-position: 0 -1358.12px;
     }
-    100%{
+    /*100%{
         background-position: 0 0;
-    }
+    }*/
 }
