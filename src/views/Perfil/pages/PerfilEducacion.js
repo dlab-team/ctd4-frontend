@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React from 'react';
 // import { Header } from '../../components/Header';
 import { Footer } from '../../../components/Footer';
@@ -10,7 +9,18 @@ const PerfilEducacion = () => {
    return (
       
       <>
+
+{/* <Header /> */}
+<header className="flex items-center justify-center md:justify-between space-x-8 bg-hero-gradient h-20">
+      <div className="ml-6 logo w-37">
+        <img src={logo} alt="" />
+      </div>
+      <nav className="text-white hidden lg:block space-x-8">
+      </nav>
+    </header>
+
 {/* sidebar */}
+
 
 <div className="flex">
 
