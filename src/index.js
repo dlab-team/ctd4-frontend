@@ -7,11 +7,10 @@ import './alert.css';
 import App from "./app/App"
 import  SignUp  from "./views/SignUp/signUp";
 import { Login } from './views/login/Login';
-import DataPersonal from "./views/Perfil/DataPersonal";
+import PerfilHome from './views/Perfil/pages/PerfilHome';
 import DatosPersonal from './views/Perfil/pages/DatosPersonal';
 import PerfilEducacion from './views/Perfil/pages/PerfilEducacion';
 import PerfilLaboral from './views/Perfil/pages/PerfilLaboral';
-import TrabajoDeseado from './views/Perfil/pages/TrabajoDeseado';
 import Experiencia from './views/Perfil/pages/Experiencia';
 import Acerca from './views/Perfil/pages/Acerca';
 import {LoggedUserProvider} from './contexts/auth/LoggedUser'
@@ -33,7 +32,7 @@ root.render(
       {/* <App /> */}
       <Route path='/register' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/perfil' element={isAuthenticated ? <DataPersonal /> : <Navigate replace to="/login" />} />
+      <Route path='/perfil' element={isAuthenticated ? <PerfilHome /> : <Navigate replace to="/login" />} />
       <Route path='/datospersonales' element={isAuthenticated ? <DatosPersonal /> : <Navigate replace to="/login" />} />
       <Route path='/perfileducacional' element={isAuthenticated ? <PerfilEducacion /> : <Navigate replace to="/login" />} />
       <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />

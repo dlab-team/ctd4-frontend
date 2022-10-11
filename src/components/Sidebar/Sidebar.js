@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../Sidebar/Sidebar.css';
-import { IconContext } from 'react-icons';
+// import { IconContext } from 'react-icons';
 
 function Sidebar() {
   const [sidebar, setSidebar] = useState(false);
@@ -14,22 +14,24 @@ function Sidebar() {
   return (
     <>
       <nav className="flex">
-      <div className="flex-col w-60 py-8 bg-[#F6F5FF]">
-          <ul className='side-items mt-10' onClick={showSidebar}>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                      <span className="">{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+        <div className="flex-col w-[73px] md:w-72 py-8 bg-[#F6F5FF]">
+            <ul className='side-items mt-6' onClick={showSidebar}>
+              {SidebarData.map((item, index) => {
+                return (
+                  <li key={index} className={item.cName}>
+                    <Link to={item.path}>
+                      <div className="w-14 md:w-5">
+                      {item.icon}
+                      </div>
+                        <span className="hidden md:block md:text-[16px]">{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
         </div>
       </nav>
-     
+
     </>
   );
 }
