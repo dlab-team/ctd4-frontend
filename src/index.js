@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "tw-elements";
 import "./index.css";
 import './alert.css';
@@ -17,6 +17,12 @@ import {LoggedUserProvider} from './contexts/auth/LoggedUser'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const isAuthenticated = true /*JSON.parse(window.localStorage.getItem("user"))*/;
+/*
+Esta parte esta comentada para que la proteccion de rutas no interfiera con el trabajo de los desarrolladores.
+Ya que para entrar a cualquier seccion de la pagina, tendrian que logearse a través de un servidor
+*/
+
 root.render(
   <React.StrictMode>
     <LoggedUserProvider>
@@ -26,13 +32,13 @@ root.render(
       {/* <App /> */}
       <Route path='/register' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/perfil' element={<PerfilHome />} />
-      <Route path='/datospersonales' element={<DatosPersonal />} />
-      <Route path='/perfileducacional' element={<PerfilEducacion />} />
-      <Route path='/perfilLaboral' element={<PerfilLaboral />} />
-      <Route path='/experiencia' element={<Experiencia/>} />
-      <Route path='/Acercade' element={<Acerca/>} />
-
+      <Route path='/perfil' element={isAuthenticated ? <DataPersonal /> : <Navigate replace to="/login" />} />
+      <Route path='/datospersonales' element={isAuthenticated ? <DatosPersonal /> : <Navigate replace to="/login" />} />
+      <Route path='/perfileducacional' element={isAuthenticated ? <PerfilEducacion /> : <Navigate replace to="/login" />} />
+      <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />
+      <Route path='/experiencia' element={isAuthenticated ? <Experiencia /> : <Navigate replace to="/login" />} />
+      <Route path='/trabajodeseado' element={isAuthenticated ? <TrabajoDeseado /> : <Navigate replace to="/login" />} />
+      <Route path='/Acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
     </Routes>
     </BrowserRouter>
     </LoggedUserProvider>
