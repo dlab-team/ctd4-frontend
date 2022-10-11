@@ -7,10 +7,10 @@ import './alert.css';
 import App from "./app/App"
 import  SignUp  from "./views/SignUp/signUp";
 import { Login } from './views/login/Login';
+import PerfilHome from './views/Perfil/pages/PerfilHome';
 import DatosPersonal from './views/Perfil/pages/DatosPersonal';
 import PerfilEducacion from './views/Perfil/pages/PerfilEducacion';
 import PerfilLaboral from './views/Perfil/pages/PerfilLaboral';
-import TrabajoDeseado from './views/Perfil/pages/TrabajoDeseado';
 import Experiencia from './views/Perfil/pages/Experiencia';
 import Acerca from './views/Perfil/pages/Acerca';
 import {LoggedUserProvider} from './contexts/auth/LoggedUser'
@@ -26,12 +26,12 @@ root.render(
       {/* <App /> */}
       <Route path='/register' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/perfil' element={<PerfilHome />} />
       <Route path='/datospersonales' element={<DatosPersonal />} />
       <Route path='/perfileducacional' element={<PerfilEducacion />} />
       <Route path='/perfilLaboral' element={<PerfilLaboral />} />
       <Route path='/experiencia' element={<Experiencia/>} />
-      <Route path='/trabajodeseado' element={<TrabajoDeseado/>} />
-      <Route path='/Acercadeti' element={<Acerca/>} />
+      <Route path='/Acercade' element={<Acerca/>} />
 
     </Routes>
     </BrowserRouter>

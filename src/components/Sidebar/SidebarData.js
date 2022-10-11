@@ -1,50 +1,49 @@
 import React from 'react';
-// import * as FaIcons from 'react-icons/fa';
-// import * as IoIcons from 'react-icons/io';
+import { HomeIcon, UserIcon, ClipboardIcon, BriefcaseIcon, AcademicCapIcon, DocumentDuplicateIcon  } from '@heroicons/react/outline';
 
 export const SidebarData = [
 
   {
-    title: 'Datos Personales',
+    title: 'Mi Perfil',
+    path: '/perfil',
+    icon: <HomeIcon />, 
+    cName: 'nav-text'
+  },
+ 
+
+  {
+    title: 'Mis Datos Personales',
     path: '/datospersonales',
-    // icon: <FaIcons.FaCartPlus />,
+    icon: <ClipboardIcon />,
     cName: 'nav-text'
   },
  
   {
-    title: 'Perfil Educacional',
+    title: 'Mi Perfil Educacional',
     path: '/perfileducacional',
-    // icon: <IoIcons.IoIosPaper />,
+    icon: <AcademicCapIcon />,  
     cName: 'nav-text'
   }, 
   
   {
-    title: 'Perfil Laboral',
+    title: 'Mi Perfil Laboral',
     path: '/perfilLaboral',
-    // icon: <IoIcons.IoIosPaper />,
+    icon: <BriefcaseIcon />, 
     cName: 'nav-text'
   },
 
   {
-    title: 'Experiencia',
+    title: 'Mi Experiencia',
     path: '/experiencia',
-    // icon: <IoIcons.IoIosPaper />,
+    icon: <DocumentDuplicateIcon />, 
     cName: 'nav-text'
   },
-
-  {
-    title: 'Trabajo Deseado',
-    path: '/trabajodeseado',
-    // icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },  
   
   {
-    title: 'Acerca de ti',
-    path: '/acercadeti',
-    // icon: <IoIcons.IoIosPaper />,
+    title: 'Acerca de mi',
+    path: '/acercade',
+    icon: <UserIcon />,
     cName: 'nav-text'
   },
-
 
 ];
