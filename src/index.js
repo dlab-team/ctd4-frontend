@@ -34,7 +34,6 @@ root.render(
       <Route path='/experiencia' element={<Experiencia/>} />
       <Route path='/trabajodeseado' element={<TrabajoDeseado/>} />
       <Route path='/Acercadeti' element={<Acerca/>} />
-
     </Routes>
     </BrowserRouter>
     </LoggedUserProvider>

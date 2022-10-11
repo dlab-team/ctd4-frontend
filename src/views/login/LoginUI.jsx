@@ -2,7 +2,6 @@ import './css/login.css';
 import {TypeEffect} from './../../components/typeEffect/TypeEffect'
 
 export const LoginUI = ({children}) => {
-  
 
   return (
     <div>
