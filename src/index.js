@@ -37,8 +37,7 @@ root.render(
       <Route path='/perfileducacional' element={isAuthenticated ? <PerfilEducacion /> : <Navigate replace to="/login" />} />
       <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />
       <Route path='/experiencia' element={isAuthenticated ? <Experiencia /> : <Navigate replace to="/login" />} />
-      <Route path='/trabajodeseado' element={isAuthenticated ? <TrabajoDeseado /> : <Navigate replace to="/login" />} />
-      <Route path='/Acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
+      <Route path='/acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
     </Routes>
     </BrowserRouter>
     </LoggedUserProvider>
