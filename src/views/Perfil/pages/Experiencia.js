@@ -11,7 +11,7 @@ const Experiencia = () => {
 
 {/* <Header /> */}
 <header className="flex items-center justify-center md:justify-between space-x-8 bg-hero-gradient h-20">
-      <div className="logo w-37">
+      <div className="ml-6 logo w-37">
         <img src={logo} alt="" />
       </div>
       <nav className="text-white hidden lg:block space-x-8">
@@ -29,8 +29,8 @@ const Experiencia = () => {
 
                <div className="container">
 
-                  {/* Progress bar */}
-
+                  
+            {/* Progress bar */}
                   <div className="flex justify-between mt-14">
                      <div className="w-3/5 rounded-full my-auto ml-20">
                         <span className="text-[14px] font-semibold">Progreso del perfil</span>
