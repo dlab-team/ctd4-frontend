@@ -18,7 +18,7 @@ export const loginService = (values, setResponseFromBack, setLoading) => {
         })
         .catch(function (error) {
           setLoading(false)
-          setResponseFromBack(error.message);
+          setResponseFromBack(error.response.data.message);
         });
         
     }, 1500);
