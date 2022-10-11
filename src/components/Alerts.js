@@ -33,9 +33,9 @@ Loading debe condicionarse a un estado que se active cuando se haga una llamada 
 function Loading(){
 
     return ReactDOM.createPortal(
-        <div className="alerta">
-            <div className="message">
-                <p>Espere..........</p>
+        <div className="containerLoading">
+            <div className="loading">
+                
             </div>
         </div>,
         document.getElementById("modal")

@@ -42,27 +42,24 @@ const SignUpForm = () => {
       onSubmit={(values) => {
         setLoadingLogup(true);
         let url = 'http://localhost:3000/signup';
-        axios
-          .post(url, {
-            email: values.email,
-            password: values.password,
-            re_password: values.re_password,
-          })
-          .then(function (response) {
-            setLoadingLogup(false);
-            if (response.data) {
-              console.log('Pasó autenticación usuario', response.data);
-              setSuccessMessage("Pasó autenticación usuario")
-              // setTimeout(() => navigate("/", { replace: true }), 2000)
-            }
-          })
-          .catch(function (error) {
-            setLoadingLogup(false);
-            setErrorMessage(error.message)
-            //alert('ocurrió un error en la validación');
-            console.log(error);
-          });
-        //console.log('values SignUpForm', values);
+        setTimeout(() => {
+          axios
+            .post(url, {
+              email: values.email,
+              password: values.password,
+              re_password: values.re_password,
+            })
+            .then(function (response) {
+              setLoadingLogup(false);
+              if (response.data) {
+                setSuccessMessage("La autenticacion a sido exitosa!")
+              }
+            })
+            .catch(function (error) {
+              setLoadingLogup(false);
+              setErrorMessage(error.message)
+            });
+        }, 1500);
       }}
     >
       {({ errors }) => (
@@ -201,12 +198,9 @@ const SignUpForm = () => {
       {successMessage && 
         <ShowResponseFromBack>
           <p>{successMessage}</p>
-          <button onClick={() => {
-            setSuccessMessage(null);
-            navigate("/", { replace: true })
-            }}
-          >
-            Entendido!
+          <p>Haga login para confirmar</p>
+          <button onClick={() => navigate("/login", { replace: true })}>
+            Ir al login
           </button>
         </ShowResponseFromBack> 
       }
@@ -214,7 +208,9 @@ const SignUpForm = () => {
       {errorMessage && 
         <ShowResponseFromBack>
           <p>{errorMessage}</p>
-          <button onClick={() => setErrorMessage(null)}>Entendido!</button>
+          <button onClick={() => setErrorMessage(null)}>
+            Volver a intentar
+          </button>
         </ShowResponseFromBack> 
       }
     </>
