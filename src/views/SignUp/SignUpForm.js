@@ -18,6 +18,28 @@ const SignUpForm = () => {
 
   return (
     <>
+    {loadingLogup &&
+        <Loading />
+      }
+
+      {successMessage && 
+        <ShowResponseFromBack>
+          <p>{successMessage}</p>
+          <p>Haga login para confirmar</p>
+          <button onClick={() => navigate("/login", { replace: true })}>
+            Ir al login
+          </button>
+        </ShowResponseFromBack> 
+      }
+
+      {errorMessage && 
+        <ShowResponseFromBack>
+          <p>{errorMessage}</p>
+          <button onClick={() => setErrorMessage(null)}>
+            Volver a intentar
+          </button>
+        </ShowResponseFromBack> 
+      }
     <Formik
       initialValues={{
         email: '',
@@ -190,29 +212,6 @@ const SignUpForm = () => {
         </Form>
       )}
     </Formik>
-       
-      {loadingLogup &&
-        <Loading />
-      }
-
-      {successMessage && 
-        <ShowResponseFromBack>
-          <p>{successMessage}</p>
-          <p>Haga login para confirmar</p>
-          <button onClick={() => navigate("/login", { replace: true })}>
-            Ir al login
-          </button>
-        </ShowResponseFromBack> 
-      }
-
-      {errorMessage && 
-        <ShowResponseFromBack>
-          <p>{errorMessage}</p>
-          <button onClick={() => setErrorMessage(null)}>
-            Volver a intentar
-          </button>
-        </ShowResponseFromBack> 
-      }
     </>
   );
 };

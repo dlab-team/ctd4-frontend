@@ -1,13 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
-import Profile from '../assets/images/Profile.jpg'
+import Profile from '../assets/images/Profile.jpg';
+import {ShowResponseFromBack} from './../components/Alerts'
+import {closeSession} from './../utils/utils'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Dropdown() {
+
+  const [logOut, setLogOut] = useState(false);
+
   return (
 
     <>
@@ -74,16 +79,30 @@ export default function Dropdown() {
             <div className="py-1">
               <Menu.Item>
                 {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                  <a href="#" onClick={() => setLogOut(true)} className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
                     Sign out
                   </a>
                 )}
+
               </Menu.Item>
             </div>
           </Menu.Items>
         </Transition>
       </Menu>
-
+      { logOut && 
+        <ShowResponseFromBack>
+          <p>¿Seguro que desea cerrar su sesion?</p>
+          <div>
+            <div>
+              <button style={{width: "100%"}} onClick={() => setLogOut(false)}> No quiero salir</button>
+            </div>
+            <div>
+              <button onClick={() => closeSession()}>Quiero cerrar sesion</button>
+            </div>
+          </div>
+          
+        </ShowResponseFromBack> 
+      }
     </div>
 
     </>
