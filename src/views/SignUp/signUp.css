@@ -3,7 +3,7 @@
     left: 10px;
     transition: all 0.2s;
     padding: 0 2px;
-    z-index: 1;
+    z-index: 801;
     font-family: Helvetica;
     font-weight: bold;
     top: 1px;
@@ -18,7 +18,7 @@
     left: 10px;
     transition: all 0.2s;
     padding: 0 2px;
-    z-index: 1;
+    z-index: 800;
     font-family: Helvetica;
     font-weight: bold;
     top: -200px;
@@ -36,7 +36,7 @@
     left: 0px;
     top: 10px;
     width: 100%;
-    z-index: -1;
+    z-index: 900;
 }
 
 .text-input{
@@ -53,10 +53,12 @@
 
 .text-input:focus{
     border: 2px solid #4744e7;
+    z-index: 900;
 }
 
 .text-input:focus + .label, .label:focus{
     top: -10px;
     font-size: 14px;
     color: #4744e7;
+    z-index: 900;
 }

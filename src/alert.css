@@ -23,7 +23,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8.1px);
     -webkit-backdrop-filter: blur(8.1px);
-    z-index: 200;
+    z-index: 1;
 }
 
 .message button{
@@ -32,6 +32,16 @@
     border-radius: 10px;
     padding: 1rem;
     color: white;
+}
+
+.message .buttonGlow{
+    margin-top: 2rem;
+    background-color: blue;
+    border-radius: 10px;
+    padding: 1rem;
+    color: white;
+    animation-name: buttonLight;
+    animation-duration: 2s;
 }
 
 @keyframes in{

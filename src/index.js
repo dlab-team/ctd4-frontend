@@ -17,7 +17,7 @@ import {LoggedUserProvider} from './contexts/auth/LoggedUser'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const isAuthenticated = true /*JSON.parse(window.localStorage.getItem("user"))*/;
+const isAuthenticated = JSON.parse(window.localStorage.getItem("user"));
 /*
 Esta parte esta comentada para que la proteccion de rutas no interfiera con el trabajo de los desarrolladores.
 Ya que para entrar a cualquier seccion de la pagina, tendrian que logearse a través de un servidor
