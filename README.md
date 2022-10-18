@@ -27,24 +27,20 @@ Con este comando ejecutaremos nuestro proyecto en nuestro servidor local que est
 TL: [Sebastián Vidal Aedo](https://github.com/sebavidal10)  
 
 Team Frontend:  
-FS: [Paul Levy Díaz](https://github.com/Strike2-ux)  
-FS: [Daniela Hernández Gajardo](https://github.com/DanyBeth-Dev)  
 FE: [Antoni Perez](https://github.com/antoniPrz)  
 FE: [Carlos Araya Salfate](https://github.com/Charlie2208)  
 FS: [Viviana Vera Ceballos](https://github.com/vverac)  
 FE: [Andrea Leal](https://github.com/andrelealr)  
 FE: [Matías González Lorca](https://github.com/MatiasGonzalezL)  
-FS:[Angela Medina](https://github.com/angelamedina)  
+FS: [David Aravena Poblete](https://github.com/david-aravena)  
 
 Team Backend:  
+FS: [Angela Medina](https://github.com/angelamedina)  
 FS: [Juan Esteban Echeverria](https://github.com/Juan-Esteban-Echeverria)  
 FS: [Paul Levy Diaz](https://github.com/Strike2-ux)  
 FS: [Sebastian Vera](https://github.com/Verastian)  
-FS: [Emerson Espinoza Aguirre](https://github.com/emersonxinay)  
-FS: [David Aravena Poblete](https://github.com/david-aravena)  
 FS: [Katherine Cornejo Tejeda](https://github.com/Kathecot)  
-FS: [Nicolás Fariña](https://github.com/nico-ras)  
-FS: [Daniela Hernández Gajardo](https://github.com/DanyBeth-Dev)
+FS: [Emerson Espinoza Aguirre](https://github.com/emersonxinay)  
 
 ## Características:
 
