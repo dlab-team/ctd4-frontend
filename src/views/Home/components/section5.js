@@ -5,7 +5,7 @@ export function Section5() {
 
     return (
         
-<div className="flex justify-center ">
+<div className="flex justify-center">
     <div className="container">
         <div className="flex w-full mt-10 mb-24 lg:mt-40 block gap-x-10">
 
