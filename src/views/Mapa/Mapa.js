@@ -3,6 +3,11 @@ import {MapaUI} from './MapaUI';
 import {Cards} from './Cards'
 
 
+/*
+Cards es un componente que generara una card por cada etiqueta con texto que se le pase como hijo.
+El texto corresponde al texto de la card y el numero de la card se genera automaticamente.
+*/
+
 export const Mapa = () => {
     return(
         <div className="flex">
