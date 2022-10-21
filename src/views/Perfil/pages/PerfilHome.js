@@ -29,18 +29,15 @@ const PerfilHome = () => {
 
 
       <div className="container mt-10">
-
+      
          <div className="container">
 
+         
                
          {/* Fecha actualizacion */}
             <div className="flex justify-end mr-10">
                <h3 className="mt-2 content-end text-[14px]">Ultima actualización 16/09/2022</h3>
             </div>
-
-
-
-
 
 
          {/* Progress bar */}
