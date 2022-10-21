@@ -11,19 +11,19 @@ export function Section5() {
 
             <div className="">
                 <div>
-                    <h1 className="mx-40 text-[5px] md:text-[32px] font-semibold text-[#000000]">DEVsafiamos el sistema</h1>
+                    <h1 className="mx-32 text-[5px] md:text-[32px] font-semibold text-[#000000]">DEVsafiamos el sistema</h1>
                 </div>
                 <div>
-                    <p className="mt-16 mx-40 text-[5px] md:text-[20px] text-[#000000]">¿Escasez de talento Senior? No te preocupes, en <a href="#" className="font-semibold text-[#2738F5] ">Devsafio</a> encontrarás el talento que necesitas en nuestro programa Mentorías.</p>
+                    <p className="mt-16 mx-32 text-[5px] md:text-[20px] text-[#000000]">¿Escasez de talento Senior? No te preocupes, en <a href="#" className="font-semibold text-[#2738F5] ">Devsafio</a> encontrarás el talento que necesitas en nuestro programa Mentorías.</p>
                 </div>
                 <div>
-                    <p className="mt-10 mx-40 text-[5px] md:text-[20px] text-[#000000]">Completa el formulario y te contactaremos en breve para acompañarte en la búsqueda de Talento TI que necesitas.</p>
+                    <p className="mt-10 mx-32 text-[5px] md:text-[20px] text-[#000000]">Completa el formulario y te contactaremos en breve para acompañarte en la búsqueda de Talento TI que necesitas.</p>
                 </div>
                     <img src={imageForm} className="mx-auto my-10 w-[443px] h-[372px]" alt="" />
             
-                    <p className="mx-40 text-[5px] md:text-[20px] text-[#000000] font-bold">¡Agenda una asesoría con nosotros si quieres saber más sobre cómo acelerar y potenciar tu próximo Talento TI!</p>
+                    <p className="mx-32 text-[5px] md:text-[20px] text-[#000000] font-bold">¡Agenda una asesoría con nosotros si quieres saber más sobre cómo acelerar y potenciar tu próximo Talento TI!</p>
 
-                <div className="flex items-start mx-40 mt-10">
+                <div className="flex items-start mx-32 mt-10">
                     <button className="h-[68px] w-[166px] bg-[#2738F5] hover:bg-blue-700 text-[#FFFFFF] text-[24px] font-bold py-2 px-4 rounded-3xl">AGENDAR</button>
                 </div>    
             </div>
