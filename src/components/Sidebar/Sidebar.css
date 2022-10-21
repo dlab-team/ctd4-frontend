@@ -1,7 +1,6 @@
-
 .nav-text {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
@@ -10,9 +9,9 @@
 
 .nav-text a {
   text-decoration: none;
-  color: black ;
+  color: #2738F5 ;
   font-size: 17px;
-  width: 95%;
+  width: 70%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -21,7 +20,8 @@
 }
 
 .nav-text a:hover {
-  background-color: #d3d3d3;
+  background-color: #008FF7;
+  color:#FFFFFF;
 }
 
 .nav-menu-items {
