@@ -13,8 +13,13 @@ function Sidebar() {
 
   return (
     <>
-      <nav className="flex">
-        <div className="flex-col w-[73px] md:w-72 py-8 bg-[#F6F5FF]">
+      <nav className="flex side-bar">
+        <div className="flex-col w-[73px] md:w-72 py-6 bg-[#E2F2FE] rounded-tr-3xl mt-6">
+          <div className="flex justify-center">
+            <button className="hidden md:block btn bg-white border-blue-700 mt-5 py-2 rounded-2xl hover:bg-[#008FF7] hover:text-white hover:-translate-y-1 transition-all duration-500 text-blue-800 font-semibold ">
+              Job Ready
+            </button>
+          </div>
             <ul className='side-items mt-6' onClick={showSidebar}>
               {SidebarData.map((item, index) => {
                 return (
