@@ -8,82 +8,34 @@ export function Section5() {
 
     return (
 
-        <div className="Reviews">
+<div className="container">
+        <div className="flex  mt-20 lg:mt-40 block">
 
-            <div className="flex flex-col justify-center mt-20 lg:mt-40">
-                <h1 className="text-4xl md:text-5xl text-center font-bold text-[#000000]">¿Que dicen de nosotros?</h1>
+            <div className="">
+                
+                <h1 className="text-[5px] md:text-[32px] font-[600] text-[#000000]">DEVsafiamos el sistema</h1>
+                
             </div>
+                
+            <div className="">
+                
+                <p className="text-[5px] md:text-[32px] font-[600] text-[#000000]">¿Escasez de talento Senior? No te preocupes, en Devsafio encontrarás el talento que necesitas en nuestro programa Mentorías.</p>
+                <p className="text-[5px] md:text-[32px] font-[600] text-[#000000]">Completa el formulario y te contactaremos en breve para acompañarte en la búsqueda de Talento TI que necesitas.</p>
 
-            {/* Reviews General*/}
+        {/* Agregar imagen */}
+                <p className="text-[5px] md:text-[32px] font-[600] text-[#000000]">¡Agenda una asesoría con nosotros si quieres saber más sobre cómo acelerar y potenciar tu próximo Talento TI!</p>
 
-            <div className="lg:flex items-center lg:gap-6 lg:justify-center my-12 lg:my-20">
-
-                {/* Reviews 1 */}
-
-
-                <div className="w-[340px] h-[367px] mb-6 ml-8 lg:ml-0 mb-6 lg:mb-0 py-4 px-8 bg-white shadow-lg rounded-lg">
-
-                    <div className="Imagen grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
-                        <img className="" src={Rating} />
-                    </div>
-
-                    <div className="text-[15px] lg:text-[16px] text-[#000000] leading-relaxed">
-                        <p className="mt-8 mr-16 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna</p>
-                    </div>
-
-                    <div className="mt-10 flex items-center">
-                        <img className="w-[60px] h-[60px] object-cover rounded-full" src={Review1} />
-                        <div className="mt-2">
-                            <p className="ml-4 text-[14px] font-semibold text-[#000000] leading-relaxed">Marian Rivero</p>
-                            <p className="ml-4 text-[13px] font-light text-[#000000] leading-relaxed">Santiago, Chile</p>
-                        </div>
-                    </div>
+                <div className="flex flex-col justify-center items-center">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white text-[14px] font-semibold py-2 px-4 rounded">Guardar</button>
                 </div>
 
-
-                {/* Reviews 2 */}
-
-                <div className="w-[340px] h-[367px] mb-6 ml-8 lg:ml-0 lg:mb-0 py-4 px-8 bg-white shadow-lg rounded-lg">
-
-                    <div className="Imagen grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
-                        <img className="" src={Rating} />
-                    </div>
-
-                    <div className="text-[15px] lg:text-[16px] text-[#000000] leading-relaxed">
-                        <p className="mt-8 mr-16 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna</p>
-                    </div>
-
-                    <div className="mt-10 flex items-center">
-                        <img className="w-[60px] h-[60px] object-cover rounded-full" src={Review2} />
-                        <div className="mt-2">
-                            <p className="ml-4 text-[14px] font-semibold text-[#000000] leading-relaxed">Carlos González</p>
-                            <p className="ml-4 text-[13px] font-light text-[#000000] leading-relaxed">Santiago, Chile</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Reviews 3 */}
-
-                <div className="w-[340px] h-[367px] ml-8 lg:ml-0 lg:mb-0 py-4 px-8 bg-white shadow-lg rounded-lg"> {/*sin mb-6*/}
-
-                    <div className="Imagen grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
-                        <img className="" src={Rating} />
-                    </div>
-
-                    <div className="text-[15px] lg:text-[16px] text-[#000000] leading-relaxed">
-                        <p className="mt-8 mr-16 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna</p>
-                    </div>
-
-                    <div className="mt-10 flex items-center">
-                        <img className="w-[60px] h-[60px] object-cover rounded-full" src={Review3} />
-                        <div className="mt-2">
-                            <p className="ml-4 text-[14px] font-semibold text-[#000000] leading-relaxed">Sebastian López</p>
-                            <p className="ml-4 text-[13px] font-light text-[#000000] leading-relaxed">Santiago, Chile</p>
-                        </div>
-                    </div>
-                </div>
-
+                
             </div>
+</div>
+    
+
+            
+
 
         </div>
 
