@@ -14,10 +14,11 @@ import PerfilLaboral from './views/Perfil/pages/PerfilLaboral';
 import Experiencia from './views/Perfil/pages/Experiencia';
 import Acerca from './views/Perfil/pages/Acerca';
 import {LoggedUserProvider} from './contexts/auth/LoggedUser'
+import {Mapa} from './views/Mapa/Mapa';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const isAuthenticated = true /*JSON.parse(window.localStorage.getItem("user"))*/;
+const isAuthenticated = JSON.parse(window.localStorage.getItem("user"));
 /*
 Esta parte esta comentada para que la proteccion de rutas no interfiera con el trabajo de los desarrolladores.
 Ya que para entrar a cualquier seccion de la pagina, tendrian que logearse a través de un servidor
@@ -38,6 +39,7 @@ root.render(
       <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />
       <Route path='/experiencia' element={isAuthenticated ? <Experiencia /> : <Navigate replace to="/login" />} />
       <Route path='/Acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
+      <Route path='/mapa' element={isAuthenticated ? <Mapa /> : <Navigate replace to="/login" />} />
     </Routes>
     </BrowserRouter>
     </LoggedUserProvider>
