@@ -18,7 +18,7 @@ export function Section5() {
                             <p className="mt-10 mx-32 text-[5px] md:text-[20px] text-[#000000]">Completa el formulario y te contactaremos en breve para acompañarte en la búsqueda de Talento TI que necesitas.</p>
                         </div>
                     {/* imagen */}
-                        <img src={imageForm} className="hidde mx-auto my-10 w-[443px] h-[372px]" alt="" />
+                        <img src={imageForm} className="hidden mx-auto my-10 w-[443px] h-[372px]" alt="" />
                         <p className="mx-32 text-[5px] md:text-[20px] text-[#000000] font-bold">¡Agenda una asesoría con nosotros si quieres saber más sobre cómo acelerar y potenciar tu próximo Talento TI!</p>
                     {/* button */}
                         <div className="flex items-start mx-32 mt-10">
