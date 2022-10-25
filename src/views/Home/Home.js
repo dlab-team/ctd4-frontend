@@ -1,7 +1,7 @@
 import { Section1 } from './components/Section1';
 import { Section3 } from './components/section3';
 import { Section2 } from './components/Section2';
-import { Section5 } from './components/Section5';
+import { Section5 } from './components/section5';
 import { Footer } from '../../components/Footer';
 
 export function Home() {

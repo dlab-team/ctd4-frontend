@@ -1,25 +1,28 @@
+import {useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useAnimationInput } from '../login/hooks/useAnimationInput';
+import { useAnimationInput } from './../hooks/useAnimationInput';
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react"
-import {ShowResponseFromBack, Loading} from '../../components/Alerts'
+import {ShowResponseFromBack, Loading} from './../../../components/Alerts'
 import axios from 'axios';
 
-export const SignUpForm = () => {
-  const animationName = useAnimationInput();
+
+
+export const FormLogupUI = ({request}) => {
   const animationEmail = useAnimationInput();
   const animationPassword = useAnimationInput();
   const animationRepeatPassword = useAnimationInput();
   const navigate = useNavigate()
-  
+
+
   const [errorMessage, setErrorMessage] = useState(null)
   const [successMessage, setSuccessMessage] = useState(null)
   const [loadingLogup, setLoadingLogup] = useState(false);
 
   return (
     <>
-      {loadingLogup &&
+    {loadingLogup &&
         <Loading />
       }
 
@@ -41,10 +44,8 @@ export const SignUpForm = () => {
           </button>
         </ShowResponseFromBack> 
       }
-      
     <Formik
       initialValues={{
-        name: '',
         email: '',
         password: '',
         re_password: '',
@@ -70,7 +71,6 @@ export const SignUpForm = () => {
         setTimeout(() => {
           axios
             .post(url, {
-              name: values.name,
               email: values.email,
               password: values.password,
               re_password: values.re_password,
@@ -89,32 +89,25 @@ export const SignUpForm = () => {
       }}
     >
       {({ errors }) => (
-        <Form className='w-5/6 p-5 rounded-xl border-1 border-zinc-300/60'>
-          <div style={{position: "relative"}} className="my-4">
-            <Field
-              type='text'
-              id='name'
-              name='name'
-              className='text-input'
-              onFocus={() => animationName.focusAnimation()}
-              onBlur={(e) => animationName.blurAnimation(e)}
-            />
-            <label
-              htmlFor='name'
-              className={`${
-                animationName.inputFocus ? 'labelBlur' : 'labelFocus'
-              }`}
-            >
-              Nombre
-            </label>
-            <ErrorMessage
-              name='name'
-              component={() => (
-                <div className='text-red-600'>{errors.name}</div>
-              )}
-            />
+        <Form className='shadow-2xl p-5 rounded-xl border-1 border-zinc-300/60 bg-white'>
+          <div className='my-5'>
+            <Link to='/'>
+              <img
+                className='mx-auto h-12 w-auto my-5'
+                src='https://devsafio.com/wp-content/uploads/2022/02/DEV-IMAGOTIPO-COLOR-HORIZONTAL.png'
+                alt='DevSafio'
+              />
+            </Link>
+            <h2 className='text-black text-center font-bold text-2xl mb-1'>
+              Sign Up
+            </h2>
+            <p className='mt-2 text-center text-sm text-black'>
+              Or{' '}
+              <span className='font-bold'>
+                <Link to='/login'>Sign in</Link>
+              </span>
+            </p>
           </div>
-          
           <div style={{position: "relative"}} className="my-4">
             <Field
               type='text'
@@ -125,12 +118,12 @@ export const SignUpForm = () => {
               onBlur={(e) => animationEmail.blurAnimation(e)}
             />
             <label
-              htmlFor='email'
-              className={`${
-                animationEmail.inputFocus ? 'labelBlur' : 'labelFocus'
-              }`}
-            >
-              Email
+                  htmlFor='email'
+                  className={`${
+                    animationEmail.inputFocus ? 'labelBlur' : 'labelFocus'
+                  }`}
+                >
+                  Email
             </label>
             <ErrorMessage
               name='email'
@@ -150,12 +143,12 @@ export const SignUpForm = () => {
               onBlur={(e) => animationPassword.blurAnimation(e)}
             />
             <label
-              htmlFor='password'
-              className={`${
-                animationPassword.inputFocus ? 'labelBlur' : 'labelFocus'
-              }`}
-            >
-              Contraseña
+                  htmlFor='password'
+                  className={`${
+                    animationPassword.inputFocus ? 'labelBlur' : 'labelFocus'
+                  }`}
+                >
+                  Contraseña
             </label>
             <ErrorMessage
               name='password'
@@ -165,7 +158,7 @@ export const SignUpForm = () => {
             />
           </div>
 
-          <div style={{position: "relative"}} className="my-4">
+          <div style={{position: 'relative'}} className="my-4">
             <Field
               type='password'
               id='rePassword'
@@ -175,12 +168,12 @@ export const SignUpForm = () => {
               onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
             />
             <label
-              htmlFor='rePassword'
-              className={`${
-                animationRepeatPassword.inputFocus ? 'labelBlur' : 'labelFocus'
-              }`}
-            >
-              Repita la contraseña
+                  htmlFor='rePassword'
+                  className={`${
+                    animationRepeatPassword.inputFocus ? 'labelBlur' : 'labelFocus'
+                  }`}
+                >
+                  Confirmar contraseña
             </label>
             <ErrorMessage
               name='re_password'
@@ -195,11 +188,12 @@ export const SignUpForm = () => {
             type='submit'
             className='block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2'
           >
-            Sing up
+            Sing Up
           </button>
         </Form>
-        )}
+      )}
     </Formik>
     </>
   );
 };
+
