@@ -12,7 +12,7 @@ El texto corresponde al texto de la card y el numero de la card se genera automa
 
 export const Mapa = () => {
     return(
-        <div className="w-[100vw] h-[100vh] bg-black">
+        <div className="w-[100vw] h-[100vh]">
             <NavPerfil />
             <div className="flex">
                 <Sidebar />
@@ -25,7 +25,9 @@ export const Mapa = () => {
                     </Cards>
                 </MapaUI>
             </div>
-            <Footer />
+            <div style={{width: "100vw", position:"absolute", bottom:0}}>
+                <Footer />
+            </div>
         </div>
     )
 }
