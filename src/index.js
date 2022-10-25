@@ -33,7 +33,7 @@ root.render(
           {/* <App /> */}
           <Route path='/register' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/perfil' element={isAuthenticated ? <PerfilHome /> : <Navigate replace to="/login" />} />
+          <Route path='/perfil' element={<PerfilHome />} />
           <Route path='/datospersonales' element={isAuthenticated ? <DatosPersonal /> : <Navigate replace to="/login" />} />
           <Route path='/perfileducacional' element={isAuthenticated ? <PerfilEducacion /> : <Navigate replace to="/login" />} />
           <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />
