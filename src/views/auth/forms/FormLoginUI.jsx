@@ -1,10 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useAnimationInput } from './hooks/useAnimationInput';
-import './css/login.css';
+import { useAnimationInput } from './../hooks/useAnimationInput';
+import './../css/login.css';
 
 
-export const FormLogin = ({request}) => {
+export const FormLoginUI = ({request}) => {
     const animationEmail = useAnimationInput();
     const animationPassword = useAnimationInput();
 

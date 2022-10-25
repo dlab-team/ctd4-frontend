@@ -1,15 +1,16 @@
 import Typewriter from 'typewriter-effect';
 
 export const TypeEffect = ({children}) => {
+    
     return(
         <Typewriter
             options={{
-                strings: [`${children}`, 'Los profesionales......', 'estan aqui!'],
+                strings: [children],
                 autoStart: true,
                 loop: true,
-                delay: 30,
+                delay: 10,
                 deleteSpeed: 0,
-                pauseFor: 2000
+                pauseFor: 1000000
             }}
         />
     )
