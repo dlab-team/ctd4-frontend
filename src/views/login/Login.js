@@ -20,11 +20,14 @@ export const Login = () => {
 
     return(
         <>
-            {!loggedUser  ? 
-                <LoginUI>
+            {!loggedUser ? 
+                <LoginUI 
+                    title={"Únete a Devsafío"}
+                    textAnimated={"Crea tu cuenta profesional en Devsafío para que seas parte de distintas ofertas laborales que tenemos junto a importantes empresas en latinoamérica"}
+                >
                     <FormLogin request={formRequest} />
                 </LoginUI>
-             :
+            :
                  <Navigate to="/perfil" replace={true} />
             } 
 
