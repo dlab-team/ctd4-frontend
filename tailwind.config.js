@@ -13,7 +13,8 @@ module.exports = {
         galaxy: "url('/bkg-web.png')",
         'nlw-gradient': 'linear-gradient(89.86deg, #A172FC 23.08%, #43E7AD 33.94%, #E1D55D 44.57%)',
         'game-gradient': 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 67.08%)',
-        'hero-gradient': 'linear-gradient(106.75deg, #2272FF 0%, #0D03C3 100%)'
+        'hero-gradient': 'linear-gradient(106.75deg, #2272FF 0%, #0D03C3 100%)',
+        'hero-gradient2': 'linear-gradient(180deg, #2738F5 0%, #1E239A 51.04%, #140B34 99.98%)'
 
       }
     },
