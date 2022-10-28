@@ -15,6 +15,7 @@ import Experiencia from './views/Perfil/pages/Experiencia';
 import Acerca from './views/Perfil/pages/Acerca';
 import {LoggedUserProvider} from './contexts/auth/LoggedUser'
 import {Mapa} from './views/Mapa/Mapa';
+import Formulario from './views/Formulario/Formulario'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,6 +37,7 @@ root.render(
       <Route path='/experiencia' element={isAuthenticated ? <Experiencia /> : <Navigate replace to="/login" />} />
       <Route path='/Acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
       <Route path='/mapa' element={isAuthenticated ? <Mapa /> : <Navigate replace to="/login" />} />
+      <Route path='/formulario' element={<Formulario />} />
     </Routes>
     </BrowserRouter>
     </LoggedUserProvider>
