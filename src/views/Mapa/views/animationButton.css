@@ -1,0 +1,10 @@
+.button{
+    cursor: pointer;
+}
+
+@keyframes pressButton{
+    100%{
+        background: #b5dfff; 
+        transform: scale(0.95);      
+    }
+}
