@@ -15,14 +15,11 @@ import Experiencia from './views/Perfil/pages/Experiencia';
 import Acerca from './views/Perfil/pages/Acerca';
 import { LoggedUserProvider } from './contexts/auth/LoggedUser'
 import { Mapa } from './views/Mapa/Mapa';
+import Formulario from './views/Formulario/Formulario'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const isAuthenticated = JSON.parse(window.localStorage.getItem("user"));
-/*
-Esta parte esta comentada para que la proteccion de rutas no interfiera con el trabajo de los desarrolladores.
-Ya que para entrar a cualquier seccion de la pagina, tendrian que logearse a través de un servidor
-*/
 
 root.render(
   <React.StrictMode>
@@ -33,13 +30,14 @@ root.render(
           {/* <App /> */}
           <Route path='/register' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/perfil' element={<PerfilHome />} />
+          <Route path='/perfil' element={isAuthenticated ? <PerfilHome /> : <Navigate replace to="/login" />} />
           <Route path='/datospersonales' element={isAuthenticated ? <DatosPersonal /> : <Navigate replace to="/login" />} />
           <Route path='/perfileducacional' element={isAuthenticated ? <PerfilEducacion /> : <Navigate replace to="/login" />} />
           <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />
           <Route path='/experiencia' element={isAuthenticated ? <Experiencia /> : <Navigate replace to="/login" />} />
           <Route path='/Acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
           <Route path='/mapa' element={isAuthenticated ? <Mapa /> : <Navigate replace to="/login" />} />
+          <Route path='/formulario' element={<Formulario />} />
         </Routes>
       </BrowserRouter>
     </LoggedUserProvider>

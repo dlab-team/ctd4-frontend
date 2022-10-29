@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {LoginUI} from './LoginUI';
 import {loginService} from './loginService/loginService'
+import {FormSocialNetworks} from "./FormSocialNetwork"
 import { Navigate } from "react-router-dom";
 import {useLoggedUser} from './../../contexts/auth/LoggedUser'
 import {ShowResponseFromBack, Loading} from '../../components/Alerts'
@@ -9,7 +10,6 @@ import {FormLogin} from './FormLogin'
 export const Login = () => {
 
     const {loggedUser} = useLoggedUser()
-
     const [responseFromBack, setResponseFromBack] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -20,11 +20,17 @@ export const Login = () => {
 
     return(
         <>
-            {!loggedUser  ? 
-                <LoginUI>
-                    <FormLogin request={formRequest} />
+            {!loggedUser ? 
+                <LoginUI 
+                    title={"Únete a Devsafío"}
+                    textAnimated={"Crea tu cuenta profesional en Devsafío para que seas parte de distintas ofertas laborales que tenemos junto a importantes empresas en latinoamérica"}
+                >
+                    <div className="w-full flex justify-between">
+                        <FormLogin request={formRequest} />
+                        <FormSocialNetworks />
+                    </div>
                 </LoginUI>
-             :
+            :
                  <Navigate to="/perfil" replace={true} />
             } 
 

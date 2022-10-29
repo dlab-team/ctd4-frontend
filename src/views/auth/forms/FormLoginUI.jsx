@@ -1,10 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useAnimationInput } from './hooks/useAnimationInput';
-import './css/login.css';
+import { useAnimationInput } from './../hooks/useAnimationInput';
+import './../css/login.css';
 
 
-export const FormLogin = ({request}) => {
+export const FormLoginUI = ({request}) => {
     const animationEmail = useAnimationInput();
     const animationPassword = useAnimationInput();
 
@@ -23,7 +23,7 @@ export const FormLogin = ({request}) => {
         
         >
           {({ errors }) => (
-            <Form className='w-2/3 p-10 rounded-xl border-1 border-zinc-300/60'>
+            <Form className='w-5/6 p-5 rounded-xl border-1 border-zinc-300/60'>
               <div style={{position: "relative"}} className="my-4">
                 <Field
                   type='text'
@@ -84,6 +84,6 @@ export const FormLogin = ({request}) => {
             </Form>
           )}
       </Formik>
-  )
+    )
 }
 
