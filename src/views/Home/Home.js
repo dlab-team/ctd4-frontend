@@ -11,6 +11,7 @@ export function Home() {
   return (
     <>
       <div className="text-zinc-100">
+        <Header />
         <Section1 />
         <Section2 />
         <Section3 />
