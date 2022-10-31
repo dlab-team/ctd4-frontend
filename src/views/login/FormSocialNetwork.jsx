@@ -3,7 +3,7 @@ import './css/formSocialNetwork.css'
 
 export const FormSocialNetworks = () => {
     return(
-        <div className="flex flex-wrap justify-around" >
+        <div className="flex flex-wrap justify-around my-5" >
             <button className="px-8 py-2 my-2 border-[#243c5a] flex justify-center items-center rounded-md botonSocialNetwork">
                <span className='justify-self-start'><AiFillGoogleCircle size={30} /></span> <p>Google</p>
             </button>
