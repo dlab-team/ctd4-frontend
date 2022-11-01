@@ -95,7 +95,7 @@ export const SignUpForm = () => {
               type='text'
               id='name'
               name='name'
-              className='text-input'
+              className={`text-input ${animationName.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationName.focusAnimation()}
               onBlur={(e) => animationName.blurAnimation(e)}
             />
@@ -120,7 +120,7 @@ export const SignUpForm = () => {
               type='text'
               id='email'
               name='email'
-              className='text-input'
+              className={`text-input ${animationEmail.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationEmail.focusAnimation()}
               onBlur={(e) => animationEmail.blurAnimation(e)}
             />
@@ -145,7 +145,7 @@ export const SignUpForm = () => {
               type='password'
               id='password'
               name='password'
-              className='text-input'
+              className={`text-input ${animationPassword.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationPassword.focusAnimation()}
               onBlur={(e) => animationPassword.blurAnimation(e)}
             />
@@ -170,7 +170,7 @@ export const SignUpForm = () => {
               type='password'
               id='rePassword'
               name='re_password'
-              className='text-input'
+              className={`text-input ${animationRepeatPassword.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationRepeatPassword.focusAnimation()}
               onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
             />

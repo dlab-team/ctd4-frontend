@@ -1,5 +1,4 @@
 import { AiFillGoogleCircle, AiFillTwitterCircle, AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
-import './css/formSocialNetwork.css'
 
 export const FormSocialNetworks = () => {
     return(
