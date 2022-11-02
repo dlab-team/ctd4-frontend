@@ -3,7 +3,7 @@
     left: 10px;
     transition: all 0.2s;
     padding: 0 2px;
-    z-index: 900;
+    z-index: 100;
     font-family: Helvetica;
     font-weight: bold;
     top: 14px;
@@ -18,7 +18,7 @@
     left: 10px;
     transition: all 0.2s;
     padding: 0 2px;
-    z-index: 900;
+    z-index: 100;
     font-family: Helvetica;
     font-weight: bold;
     top: 35px;
@@ -59,6 +59,7 @@
     outline: none;
     transition: all 0.3s;
     color: rgb(63, 63, 63);
+    z-index: 100;
 }
 
 .text-inputBlur{
