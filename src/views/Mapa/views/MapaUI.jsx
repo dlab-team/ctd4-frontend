@@ -21,7 +21,7 @@ export const MapaUI = ({children}) => {
                     </div>
                 </div>
             </div>
-            <div style={{width: "100vw", bottom:0}}>
+            <div>
                 <Footer />
             </div>
         </div>
