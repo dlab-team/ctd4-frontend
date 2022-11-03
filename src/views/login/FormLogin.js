@@ -32,6 +32,7 @@ export const FormLogin = ({request}) => {
                   className={`text-input ${animationEmail.inputFocus && 'text-inputBlur'}`}
                   onFocus={() => animationEmail.focusAnimation()}
                   onBlur={(e) => animationEmail.blurAnimation(e)}
+                  autocomplete="off"
                 />
                 <label
                   htmlFor='email'

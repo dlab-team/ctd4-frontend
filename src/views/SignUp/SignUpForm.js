@@ -98,6 +98,7 @@ export const SignUpForm = () => {
               className={`text-input ${animationName.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationName.focusAnimation()}
               onBlur={(e) => animationName.blurAnimation(e)}
+              autocomplete="off"
             />
             <label
               htmlFor='name'
@@ -123,6 +124,7 @@ export const SignUpForm = () => {
               className={`text-input ${animationEmail.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationEmail.focusAnimation()}
               onBlur={(e) => animationEmail.blurAnimation(e)}
+              autocomplete="off"
             />
             <label
               htmlFor='email'
