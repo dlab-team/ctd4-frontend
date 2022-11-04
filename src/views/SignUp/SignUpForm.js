@@ -89,15 +89,16 @@ export const SignUpForm = () => {
       }}
     >
       {({ errors }) => (
-        <Form className='w-5/6 p-5 rounded-xl border-1 border-zinc-300/60'>
+        <Form className='w-full md:px-10 rounded-xl border-1 border-zinc-300/60'>
           <div style={{position: "relative"}} className="my-4">
             <Field
               type='text'
               id='name'
               name='name'
-              className='text-input'
+              className={`text-input ${animationName.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationName.focusAnimation()}
               onBlur={(e) => animationName.blurAnimation(e)}
+              autocomplete="off"
             />
             <label
               htmlFor='name'
@@ -120,9 +121,10 @@ export const SignUpForm = () => {
               type='text'
               id='email'
               name='email'
-              className='text-input'
+              className={`text-input ${animationEmail.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationEmail.focusAnimation()}
               onBlur={(e) => animationEmail.blurAnimation(e)}
+              autocomplete="off"
             />
             <label
               htmlFor='email'
@@ -145,7 +147,7 @@ export const SignUpForm = () => {
               type='password'
               id='password'
               name='password'
-              className='text-input'
+              className={`text-input ${animationPassword.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationPassword.focusAnimation()}
               onBlur={(e) => animationPassword.blurAnimation(e)}
             />
@@ -170,7 +172,7 @@ export const SignUpForm = () => {
               type='password'
               id='rePassword'
               name='re_password'
-              className='text-input'
+              className={`text-input ${animationRepeatPassword.inputFocus && 'text-inputBlur'}`}
               onFocus={() => animationRepeatPassword.focusAnimation()}
               onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
             />

@@ -23,15 +23,16 @@ export const FormLogin = ({request}) => {
         
         >
           {({ errors }) => (
-            <Form className='w-2/3 p-10 rounded-xl border-1 border-zinc-300/60'>
+            <Form className='w-full md:px-10 rounded-xl border-1 border-zinc-300/60'>
               <div style={{position: "relative"}} className="my-4">
                 <Field
                   type='text'
                   id='email'
                   name='email'
-                  className='text-input'
+                  className={`text-input ${animationEmail.inputFocus && 'text-inputBlur'}`}
                   onFocus={() => animationEmail.focusAnimation()}
                   onBlur={(e) => animationEmail.blurAnimation(e)}
+                  autocomplete="off"
                 />
                 <label
                   htmlFor='email'
@@ -54,7 +55,7 @@ export const FormLogin = ({request}) => {
                   type='password'
                   id='password'
                   name='password'
-                  className='text-input'
+                  className={`text-input ${animationPassword.inputFocus && 'text-inputBlur'}`}
                   onFocus={() => animationPassword.focusAnimation()}
                   onBlur={(e) => animationPassword.blurAnimation(e)}
                 />

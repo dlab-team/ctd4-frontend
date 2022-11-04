@@ -25,7 +25,7 @@ export const Login = () => {
                     title={"Únete a Devsafío"}
                     textAnimated={"Crea tu cuenta profesional en Devsafío para que seas parte de distintas ofertas laborales que tenemos junto a importantes empresas en latinoamérica"}
                 >
-                    <div className="w-full flex justify-between">
+                    <div className="w-full">
                         <FormLogin request={formRequest} />
                         <FormSocialNetworks />
                     </div>
