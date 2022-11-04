@@ -51,9 +51,51 @@ const InfoPersonalForm = () => {
                     situacionActual:"",
                     visa:"",
 
+                    
+
 
 
                 }}
+
+                validationSchema={Yup.object({
+                    name: Yup.string().required("Obligatorio"),
+                    lastName:Yup.string().required("Obligatorio"),
+                    email:Yup.string().required("Obligatorio"),
+                    phone:Yup.string().required("Obligatorio"),
+                    city:Yup.string().required("Obligatorio"),
+                    country:Yup.string().required("Obligatorio"),
+                    gender:Yup.string().required("Obligatorio"),
+                    radio:Yup.string().required("Obligatorio"),
+                    workArea:Yup.string().required("Obligatorio"),
+                    levelEducation:Yup.string().required("Obligatorio"),
+                    institution2:Yup.string().required("Obligatorio"),
+                    institution1:Yup.string().required("Obligatorio"),
+                    typeinstitution1:Yup.string().required("Obligatorio"),
+                    institution2:Yup.string().required("Obligatorio"),
+                    institution2:Yup.string().required("Obligatorio"),
+                    typeinstitution1:Yup.string().required("Obligatorio"),
+                    actualSituation:Yup.string().required("Obligatorio"),
+                    englishLevel:Yup.string().required("Obligatorio"),
+                    languageLevel1:Yup.string().required("Obligatorio"),
+                    dbFramework1:Yup.string().required("Obligatorio"),
+                    toolsLevel1:Yup.string().required("Obligatorio"),
+                    languageLevel1:Yup.string().required("Obligatorio"),
+                    languageLevel2:Yup.string().required("Obligatorio"),
+                    languageLevel3:Yup.string().required("Obligatorio"),
+                    competenciaImportante:Yup.string().required("Obligatorio"),
+                    urlCv:Yup.string().required("Obligatorio"),
+                    urlLinkedin:Yup.string().required("Obligatorio"),
+                    urlGithub:Yup.string().required("Obligatorio"),
+                    urlPortafolio:Yup.string().required("Obligatorio"),
+                    proyectoImportante:Yup.string().required("Obligatorio"),
+                    habilidadesBlandas:Yup.string().required("Obligatorio"),
+                    añosExperiencia:Yup.string().required("Obligatorio"),
+                    trabajoIdeal:Yup.string().required("Obligatorio"),
+                    dispobilidad:Yup.string().required("Obligatorio"),
+                    situacionActual:Yup.string().required("Obligatorio"),
+                    visa:Yup.string().required("Obligatorio"),
+
+                })}
                 onSubmit={values => console.log(values)}
                 >
 
