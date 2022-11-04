@@ -24,12 +24,14 @@ const InfoPersonalForm = () => {
                     radio:"",
                     workArea:"",
                     levelEducation:"",
+                    carrera1:"",
+                    carrera2:"",
                     institution2:"",
                     institution1:"",
                     typeinstitution1:"",
                     institution2:"",
                     institution2:"",
-                    typeinstitution1:"",
+                    typeinstitution2:"",
                     actualSituation:"",
                     englishLevel:"",
                     languageLevel1:"",
@@ -68,12 +70,14 @@ const InfoPersonalForm = () => {
                     radio:Yup.string().required("Obligatorio"),
                     workArea:Yup.string().required("Obligatorio"),
                     levelEducation:Yup.string().required("Obligatorio"),
+                    carrera1:Yup.string().required("Obligatorio"),
+                    carrera2:Yup.string().required("Obligatorio"),
                     institution2:Yup.string().required("Obligatorio"),
                     institution1:Yup.string().required("Obligatorio"),
                     typeinstitution1:Yup.string().required("Obligatorio"),
                     institution2:Yup.string().required("Obligatorio"),
                     institution2:Yup.string().required("Obligatorio"),
-                    typeinstitution1:Yup.string().required("Obligatorio"),
+                    typeinstitution2:Yup.string().required("Obligatorio"),
                     actualSituation:Yup.string().required("Obligatorio"),
                     englishLevel:Yup.string().required("Obligatorio"),
                     languageLevel1:Yup.string().required("Obligatorio"),
@@ -169,9 +173,9 @@ const InfoPersonalForm = () => {
                             </Select>
 
                             <h3>Nombre de la carrera, curso, bootcamp o certificación 2:</h3>
-                            <TextInput name="carrera2" label="Nombre de la carrera, curso, bootcamp o certificación 1:"  /> 
-                            <TextInput name="institution2" label="Nombre institución 1:"  /> 
-                            <Select label="Tipo de institución 1" name="typeinstitution2">
+                            <TextInput name="carrera2" label="Nombre de la carrera, curso, bootcamp o certificación 2:"  /> 
+                            <TextInput name="institution2" label="Nombre institución 2:"  /> 
+                            <Select label="Tipo de institución 2" name="typeinstitution2">
                             <option value=''>Seleccionar</option>
                             <option value="universidad">Universidad</option>
                             <option value="cft">CFT</option>
@@ -497,7 +501,7 @@ const InfoPersonalForm = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                                 <TextInput name="urlCv" label="URL CV"  />     
                                 <TextInput name="urlLinkedin" label="URL de LinkedIn"  />
-                                <TextInput name="UrlGithub" label="URL de GitHub"  />
+                                <TextInput name="urlGithub" label="URL de GitHub"  />
                                 <TextInput name="urlPortafolio" label="URL de Portafolio/Sitio web"  />
 
                             </div>
