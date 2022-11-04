@@ -1,17 +1,19 @@
+import { AiFillGoogleCircle, AiFillTwitterCircle, AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+
 export const FormSocialNetworks = () => {
     return(
-        <div className="w-1/3 flex flex-col justify-center">
-            <button className="p-2 my-2 border-[#243c5a] border flex justify-center w-[100%] rounded-md">
-                <p>Google</p>
+        <div className="flex flex-wrap justify-around my-5" >
+            <button className="max-sm:w-[100%] px-8 py-2 my-2 border-[#243c5a] flex justify-center items-center rounded-md botonSocialNetwork">
+               <span className='justify-self-start'><AiFillGoogleCircle size={30} /></span> <p>Google</p>
             </button>
-            <button className="p-2 my-2 border-[#243c5a] border flex justify-center w-[100%] bg-sky-500/75 text-white rounded-md">
-                <p>Twitter</p>
+            <button className="max-sm:w-[100%] px-8 py-2 my-2 border-[#243c5a] flex justify-center items-center bg-sky-500/75 text-white rounded-md botonSocialNetwork">
+               <span><AiFillTwitterCircle size={30} /></span> <p>Twitter</p>
             </button>
-            <button className="p-2 my-2 border-[#243c5a] border flex justify-center w-[100%] bg-[#140B34] text-white rounded-md">
-                <p>Linkedin</p>
+            <button className="max-sm:w-[100%] px-8 py-2 my-2 border-[#243c5a] flex justify-center items-center bg-[#140B34] text-white rounded-md botonSocialNetwork">
+               <span><AiFillLinkedin size={30} /></span> <p>Linkedin</p>
             </button>
-            <button className="p-2 my-2 border-[#243c5a] border flex justify-center w-[100%] bg-[#140B34] text-white rounded-md">
-                <p>Github</p>
+            <button className="max-sm:w-[100%] px-8 py-2 my-2 border-[#243c5a] flex justify-center items-center bg-[#140B34] text-white rounded-md botonSocialNetwork">
+               <span><AiFillGithub size={30} /></span> <p>Github</p>
             </button>
         </div>
     )
