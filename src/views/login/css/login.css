@@ -22,7 +22,7 @@
     font-family: Helvetica;
     font-weight: bold;
     top: -12px;
-    color: blue;
+    color: rgb(65, 65, 253);
     font-size: 14px;
     opacity: 1;
     animation-fill-mode: forwards;
@@ -65,11 +65,11 @@
 }
 
 .text-inputBlur{
-    border: 1px solid blue;
+    border: 1px solid rgb(65, 65, 253);
 }
 
 .text-input:focus{
-    border: 2px solid blue;
+    border: 2px solid rgb(65, 65, 253);
     z-index: 900;
 }
 
