@@ -8,12 +8,12 @@ export function Section1() {
 
     <>
 
-      <div className="bg-hero-gradient2 flex " >
+      <div className="bg-hero-gradient2 flex font-[Poppins]" >
         <div className="flex-col">
           <h1 className=" text-7xl font-bold mt-20 ml-20">¿Buscas talento TI?</h1>
 
           <div className="content flex">
-            <div className="hero  mt-4 mb-[15rem] flex flex-col  items-start ml-24 ">
+            <div className="hero  mt-4 mb-[15rem] flex flex-col  items-start ml-24">
               <p className=" font-medium  text-4xl  mt-10 leading-[3.37rem]">Contrata <b className="text-[#008FF7]"> Talento TI </b>rápido,</p>
               <p className=" font-medium  text-4xl ">  inteligente y eficiente </p>
               <p className=" font-medium  text-xl    mt-8 leading-8">Te encontramos profesionales en 5 días y los acompañamos por 3 meses con tutores senior para potenciar y acelerar sus habilidades técnicas</p>
