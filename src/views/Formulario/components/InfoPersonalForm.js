@@ -128,7 +128,7 @@ const InfoPersonalForm = () => {
                         </div>
                         
                         <div>
-                            <h3 className="ml-24">
+                            <h3 className="mt ml-24">
                             ¿Cuál o cuáles cargos te gustaría optar?
                             </h3>
                             <p className="ml-24">
@@ -147,9 +147,9 @@ const InfoPersonalForm = () => {
                         </div>
 
                         <div>
-                            <h1 className="font-bold text-xl py-5">INFORMACION EDUCACIONAL</h1>
+                            <h1 className="font-[700] text-[30px] py-5 mt-14 font-[Poppins]">INFORMACION EDUCACIONAL</h1>
                         </div>
-                        <div>
+                        <div className="w-[1020px] ml-24 mt-6">
                         <Select label="¿Cual es tu máximo nivel educacional?" name="levelEducation">
                             <option value=''>Seleccionar</option>
                             <option value="universitaria completa">Universitaria completa</option>
@@ -157,47 +157,54 @@ const InfoPersonalForm = () => {
                             <option value="bootcamp">Bootcamp</option>
                         </Select>
                         </div>
-                        <div>
-                            <h2>
+                        <div className="ml-24 mt-10">
+                            <h2 className="font-[600] text-[24px] font-[Poppins]">
                             A continuación, indícanos 2 (dos) carreras profesionales, cursos, bootcamp o certificaciones cursadas relacionadas al desarrollo de software, diseño o TI (puedes indicarnos las más importantes o actuales):
 
                             </h2>
                         </div>
-                        <div>
-                            <h3>Nombre de la carrera, curso, bootcamp o certificación 1:</h3>
-                            <TextInput name="carrera1" label="Nombre de la carrera, curso, bootcamp o certificación 1:"  /> 
-                            <TextInput name="institution1" label="Nombre institución 1:"  /> 
+                        <div className="w-[1020px] ml-24 mt-8">
+                            <h3 className="font-[600] text-[16px] font-[Poppins]">Nombre de la carrera, curso, bootcamp o certificación 1:</h3>
+                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" />
+                            <label className="mt-4 mb-4 text-[16px]">Nombre institución 1</label>
+                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" /> 
                             <Select label="Tipo de institución 1" name="typeinstitution1">
                             <option value=''>Seleccionar</option>
                             <option value="universidad">Universidad</option>
                             <option value="cft">CFT</option>
                             <option value="bootcamp">Bootcamp</option>
                             </Select>
-
-                            <h3>Nombre de la carrera, curso, bootcamp o certificación 2:</h3>
-                            <TextInput name="carrera2" label="Nombre de la carrera, curso, bootcamp o certificación 2:"  /> 
-                            <TextInput name="institution2" label="Nombre institución 2:"  /> 
-                            <Select label="Tipo de institución 2" name="typeinstitution2">
+                      
+                            <h3 className="mt-4 font-[600] text-[16px] font-[Poppins]">Nombre de la carrera, curso, bootcamp o certificación 2:</h3>
+                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" />
+                            <label className="mt-4 mb-4 text-[16px]">Nombre institución 2</label>
+                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" /> 
+                            <Select label="Tipo de institución 2" name="typeinstitution1">
                             <option value=''>Seleccionar</option>
                             <option value="universidad">Universidad</option>
                             <option value="cft">CFT</option>
                             <option value="bootcamp">Bootcamp</option>
                             </Select>
+                            
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-                            <Select label="¿Cuál es tu.... " name="actualSituation">
+                            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                            <div className="w-[550px]">
+                            <Select label="¿¿Cuál es tu situación educacional actual (Bootcamp, diplomados, universidad, cursos u otros)? " name="actualSituation">
                             <option value=''>Seleccionar</option>
                             <option value="universidad">Universidad</option>
                             <option value="cft">CFT</option>
                             <option value="bootcamp">Bootcamp</option>
                             </Select>
+                            </div>
 
+                            <div className="w-[420px] ml-20 mt-6">
                             <Select label="Nivel de ingles" name="englishLevel">
                             <option value=''>Seleccionar</option>
                             <option value="basico">Básico</option>
                             <option value="medio">Medio</option>
                             <option value="avanzado">Avanzado</option>
                             </Select>
+                            </div>
                             </div>
 
                         </div>
