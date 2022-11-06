@@ -104,32 +104,34 @@ const InfoPersonalForm = () => {
                 >
 
                     <Form>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-                            <TextInput name="name" label="Nombre"  />     
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 font-[400] font-[Poppins] ">
+                            <TextInput name="name" label="Nombre"  />   
                             <TextInput name="lastName" label="Apellido"  />
                             <TextInput name="email" label="Email"  />
-                            <TextInput name="phone" label="Teléfono"  />
+                            <TextInput name="phone" label="Número de teléfono móvil"  />
                             <TextInput name="city" label="Ciudad"  />
-                            <TextInput name="country" label="Ciudad/País"  />
+                            <TextInput name="country" label="País/Región"  />
+                            <div className="w-[386px] h-[48px] mx-auto mt-8">
                             <Select label="¿Con qué género te identificas?" name="gender">
                                 <option value=''>Seleccionar</option>
                                 <option value="male">Masculino</option>
                                 <option value="female">Femenino</option>
                                 <option value="other">Otro</option>
                             </Select>
+                            </div>
                         <div>
-                            <h3>¿Cuál es tu estado laboral actual?</h3>
-                        <Radio name="radio" value="Cesante Buscando empleo en TI por primera vez" label="Cesante Buscando empleo en TI por primera vez" />
+                            <h3 className="ml-24 mt-10">¿Cuál es tu estado laboral actual?</h3>
+                        <Radio name="radio" value="Cesante Buscando empleo en TI por primera vez" label="Cesante Buscando empleo en TI por primera vez." />
                         <Radio name="radio" value="Cesante, ya he trabajado antes en TI." label="Cesante, ya he trabajado antes en TI." />
                         <Radio name="radio" value="Tengo trabajo en TI, pero busco otro." label="Tengo trabajo en TI, pero busco otro." />
                         <Radio name="radio" value="Tengo trabajo (en otras áreas), pero busco en TI." label="Tengo trabajo (en otras áreas), pero busco en TI." />
                         </div>
                         
                         <div>
-                            <h3>
+                            <h3 className="ml-24">
                             ¿Cuál o cuáles cargos te gustaría optar?
                             </h3>
-                            <p>
+                            <p className="ml-24">
                             Ten en cuenta: De acuerdo al cargo que postules, te pediremos que seas capaz de demostrarlo de manera práctica durante el proceso de selección.
                             </p>
                         <Checkbox name="workArea" value="Desarrollador/a Full Stack">Desarrollador/a Full Stack</Checkbox>

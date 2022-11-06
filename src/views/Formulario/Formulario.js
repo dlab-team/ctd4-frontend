@@ -3,7 +3,7 @@ import InformacionPersonal from './components/InformacionPersonal'
 
 const Formulario = () => {
     return(
-        <div className="py-5">
+        <div className="py-5 font-[Poppins]">
             <Card />
             <InformacionPersonal />
         </div>

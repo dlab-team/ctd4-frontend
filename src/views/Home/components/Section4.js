@@ -53,47 +53,47 @@ export function Section4() {
               </div>
             </div>
             <div>
-              <label for="business" className="mt-2 mb-4 mx-10 md:mx-14 text-[16px] font-medium text-[#FFFFFF]">¿A que empresa perteneces? *</label>
+              <label className="mt-2 mb-4 mx-10 md:mx-14 text-[16px] font-medium text-[#FFFFFF]">¿A que empresa perteneces? *</label>
               <input type="tel" id="business" className="mx-10 md:mx-14 bg-[#E2F2FE] mb-3 mt-3 w-[18rem] md:w-[30rem] text-gray-900 text-[14px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
             </div>
             <div className="text-center md:text-left mx-10 md:mx-14 mt-4 mb-6">
-              <label for="business" className="text-[16px] font-medium text-[#FFFFFF]">Cargo/área de preferencia que buscas contratar *</label>
+              <label className="text-[16px] font-medium text-[#FFFFFF]">Cargo/área de preferencia que buscas contratar *</label>
             </div>
 
             {/* checkbox */}
             <div className="mx-14">
               <div className="flex items-center mb-2">
-                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
-                <label for="checkbox" className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Desarrollador FrontEnd</label>
+                <input className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
+                <label className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Desarrollador FrontEnd</label>
               </div>
               <div className="flex items-center mb-2">
-                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
-                <label for="checkbox" className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Desarrollador Fullstack / Backend</label>
+                <input className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
+                <label className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Desarrollador Fullstack / Backend</label>
               </div>
               <div className="flex items-center mb-2">
-                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
-                <label for="checkbox" className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Diseñador UX/UI</label>
+                <input className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
+                <label className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Diseñador UX/UI</label>
               </div>
               <div className="flex items-center mb-2">
-                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
-                <label for="checkbox" className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Analista QA</label>
+                <input className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
+                <label className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Analista QA</label>
               </div>
               <div className="flex items-center mb-2">
-                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
-                <label for="checkbox" className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Desarrollador Mobile</label>
+                <input className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
+                <label className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Desarrollador Mobile</label>
               </div>
               <div className="flex items-center mb-2">
-                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
-                <label for="checkbox" className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Datos</label>
+                <input className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
+                <label className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Datos</label>
               </div>
               <div className="flex items-center mb-2">
-                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
-                <label for="checkbox" className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Otra</label>
+                <input className="w-4 h-4 text-[#2738F5] bg-[#E2F2FE] border-gray-300 focus:ring-blue-500 focus:ring-1" />
+                <label className="ml-6 text-[16px] font-regular text-[#FFFFFF]">Otra</label>
               </div>
             </div>
             <div className="mx-10 md:mx-14 mt-8 hidden md:block">
-              <label for="business" className=" mb-6 text-[16px] font-medium text-[#FFFFFF]">¿Dudas? Déjalas acá!</label>
-              <textarea id="message" rows="4" className="mt-3 p-2.5 w-full text-sm text-gray-900 bg-[#E2F2FE] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder=""></textarea>
+              <label className=" mb-6 text-[16px] font-medium text-[#FFFFFF]">¿Dudas? Déjalas acá!</label>
+              <textarea rows="4" className="mt-3 p-2.5 w-full text-sm text-gray-900 bg-[#E2F2FE] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder=""></textarea>
             </div>
 
             {/* button */}
