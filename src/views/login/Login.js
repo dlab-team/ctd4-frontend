@@ -12,6 +12,7 @@ export const Login = () => {
     const {loggedUser} = useLoggedUser()
     const [responseFromBack, setResponseFromBack] = useState(null);
     const [loading, setLoading] = useState(false);
+    console.log(loggedUser);
 
     const formRequest = (values) => {
         setLoading(true);
