@@ -38,6 +38,12 @@ const InfoPersonalForm = () => {
         const datos = res.data;
         setCountries(datos)
     })
+    const [cities, setCities ] = useState([])
+    axios.get('http://localhost:3000/cities')
+    .then(res => {
+        const datos = res.data;
+        setCities(datos)
+    })
     return(
         <>
             <div>
@@ -47,8 +53,8 @@ const InfoPersonalForm = () => {
                     lastName:"",
                     email:"",
                     phone:"",
-                    city:"",
-                    country:"",
+                    cities:"",
+                    countries:"",
                     gender:"",
                     radio:"",
                     charges:"",
@@ -137,13 +143,22 @@ const InfoPersonalForm = () => {
                             <TextInput name="lastName" label="Apellido" value="aaaaaa" />
                             <TextInput name="email" label="Email" value={user.email}  />
                             <TextInput name="phone" label="Teléfono"  />
-                            <Select label="Pais" name="countrie"> 
+                            <Select label="Pais" name="countries">
+                            <option value=''>Seleccionar</option> 
                             {countries.map((item,id)=>{
                                         return(
                                         <option value={item.name} key={id}>{item.name}</option>)
                             })}
                             </Select>
-                            <TextInput name="city" label="Ciudad"  />
+
+                            <Select label="Ciudad" name="cities"> 
+                            <option value=''>Seleccionar</option> 
+                            {cities.map((item,id)=>{
+                                        return(
+                                        <option value={item.name} key={id}>{item.name}</option>)
+                            })}
+                            </Select>
+                            
                             
                             <Select label="¿Con qué género te identificas?" name="gender">
                                 <option value=''>Seleccionar</option>
