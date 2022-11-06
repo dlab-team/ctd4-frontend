@@ -17,10 +17,10 @@ export const Mapa = () => {
     return(
         <MapaUI>
             <CardGenerator animationClickCard={animationClickCard}>
-                <Card href="/perfil" text={"Completa tu perfil de usuario"} />
-                <Card href="/datospersonales" text={"Realiza tests tecnicos"} />
-                <Card href="/perfileducacional" text={"Participa en show de codes"} />
-                <Card href="/perfileducacional" text={"Recibe ofertas de trabajo"} />
+                <Card href="/datospersonales" text={"Completa tu perfil de usuario"} />
+                <Card href="" text={"Realiza tests tecnicos"} />
+                <Card href="" text={"Participa en show de codes"} />
+                <Card href="" text={"Recibe ofertas de trabajo"} />
             </CardGenerator>
         </MapaUI>
     )
