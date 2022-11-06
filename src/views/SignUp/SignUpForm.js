@@ -83,7 +83,7 @@ export const SignUpForm = () => {
             })
             .catch(function (error) {
               setLoadingLogup(false);
-              setErrorMessage(error.message)
+              setErrorMessage(error.response.data.message)
             });
         }, 1500);
       }}
