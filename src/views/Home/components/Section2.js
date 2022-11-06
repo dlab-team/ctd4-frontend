@@ -8,9 +8,9 @@ export function Section2() {
   return (
     <>
 
-      <div className=" flex  flex-col  justify-center">
+      <div className="flex flex-col justify-center">
 
-        <div className="container">
+        <div className="container mx-auto">
           <div
             className="flex flex-col lg:flex-row place-content-center justify-around content-center items-center  mt-14 mb-24"
             id="program"

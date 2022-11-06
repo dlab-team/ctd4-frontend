@@ -54,7 +54,7 @@ export default function Dropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-300' : 'text-gray-700', 'block px-4 py-2 text-sm font-medium')}>
-                  Sing in as camila05
+                  Camila05 en linea
                   </a>
                   
                 )}
@@ -80,7 +80,7 @@ export default function Dropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <a href="#" onClick={() => setLogOut(true)} className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
-                    Sign out
+                    Cerrar Sesion
                   </a>
                 )}
 
@@ -94,10 +94,10 @@ export default function Dropdown() {
           <p>¿Seguro que desea cerrar su sesion?</p>
           <div>
             <div>
-              <button style={{width: "100%"}} onClick={() => setLogOut(false)}> No quiero salir</button>
+              <button style={{width: "100%"}} onClick={() => setLogOut(false)}> Cancelar </button>
             </div>
             <div>
-              <button onClick={() => closeSession()}>Quiero cerrar sesion</button>
+              <button onClick={() => closeSession()}>Cerrar sesión</button>
             </div>
           </div>
           
