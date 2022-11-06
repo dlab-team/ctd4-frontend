@@ -78,7 +78,7 @@ export const SignUpForm = () => {
             .then(function (response) {
               setLoadingLogup(false);
               if (response.data) {
-                setSuccessMessage("El registro a sido exitoso!")
+                setSuccessMessage("El registro ha sido exitoso!")
               }
             })
             .catch(function (error) {
