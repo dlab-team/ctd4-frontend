@@ -8,42 +8,52 @@ import PerfilLaboral from './PerfilLaboral';
 import TituloConocimiento from './TituloConocimiento';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 
 const InfoPersonalForm = () => {
 
+   const userToken = JSON.parse(localStorage.getItem('user'))
+   
+   
    
    
      const [user, setUser] = useState([])
-    axios.get('http://localhost:3000/user/', {
-        headers: {
-            'Content-Type': 'Application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc190ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjY3NjgxNTQ5LCJleHAiOjE2Njc2ODg3NDl9.1xk1DNZ0Rv95zJrD2TKNgxD9ryeh9gOzVV_O9BXOczs',
-          }
-})
-    .then((res) => {
-    const datos = res.data
-    setUser(datos)   
-    })
+   
 
+    useEffect(()=> {
+        axios.get('http://localhost:3000/user/', {
+            headers: {
+                'Content-Type': 'Application/json',
+                Authorization: `Bearer ${userToken.token}`
+              }
+    })
+        .then((res) => {
+        const datos = res.data
+        setUser(datos)   
+        })
+
+        axios.get('http://localhost:3000/charges')
+        .then(res => {
+            const datos = res.data;
+            setCharges(datos)
+        })
+
+        axios.get('http://localhost:3000/countries')
+        .then(res => {
+            const datos = res.data;
+            setCountries(datos)
+        })
+        axios.get('http://localhost:3000/cities')
+        .then(res => {
+            const datos = res.data;
+            setCities(datos)
+        })
+    },[])
     const [charges, setCharges ] = useState([])
-    axios.get('http://localhost:3000/charges')
-    .then(res => {
-        const datos = res.data;
-        setCharges(datos)
-    })
     const [countries, setCountries ] = useState([])
-    axios.get('http://localhost:3000/countries')
-    .then(res => {
-        const datos = res.data;
-        setCountries(datos)
-    })
     const [cities, setCities ] = useState([])
-    axios.get('http://localhost:3000/cities')
-    .then(res => {
-        const datos = res.data;
-        setCities(datos)
-    })
+    
     return(
         <>
             <div>
@@ -140,7 +150,7 @@ const InfoPersonalForm = () => {
                     <Form>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                             <TextInput name="name" label="Nombre"  />     
-                            <TextInput name="lastName" label="Apellido" value="aaaaaa" />
+                            <TextInput name="lastName" label="Apellido" />
                             <TextInput name="email" label="Email" value={user.email}  />
                             <TextInput name="phone" label="Teléfono"  />
                             <Select label="Pais" name="countries">
