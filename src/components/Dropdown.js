@@ -94,10 +94,10 @@ export default function Dropdown() {
           <p>¿Seguro que desea cerrar su sesion?</p>
           <div>
             <div>
-              <button style={{width: "100%"}} onClick={() => setLogOut(false)}> No estoy seguro</button>
+              <button style={{width: "100%"}} onClick={() => setLogOut(false)}> Cancelar </button>
             </div>
             <div>
-              <button onClick={() => closeSession()} className="bg-gradient-to-r from-pink-600 to-yellow-400">Quiero cerrar sesion</button>
+              <button onClick={() => closeSession()}>Cerrar sesión</button>
             </div>
           </div>
           
