@@ -148,7 +148,7 @@ const InfoPersonalForm = () => {
                 >
 
                     <Form>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-6 ">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-10 ">
                             <TextInput name="name" label="Nombre"  />     
                             <TextInput name="lastName" label="Apellido" />
                             <TextInput name="email" label="Email" value={user.email}  />
@@ -169,14 +169,15 @@ const InfoPersonalForm = () => {
                             })}
                             </Select>
                             
-                            
+                            <div className='mt-6'>
                             <Select label="¿Con qué género te identificas?" name="gender">
                                 <option value=''>Seleccionar</option>
                                 <option value="male">Masculino</option>
                                 <option value="female">Femenino</option>
                                 <option value="other">Otro</option>
                             </Select>
-                        <div className="pl-4 mx-8 mt-4 text-[18px] text-[#140B34]">
+                            </div>
+                        <div className="pl-4 mx-8 mt-4 text-[20px] text-[#140B34]">
                             <h3 className="my-6">¿Cuál es tu estado laboral actual?</h3>
                         <Radio name="radio" value="Cesante Buscando empleo en TI por primera vez" label="Cesante Buscando empleo en TI por primera vez" />
                         <Radio name="radio" value="Cesante, ya he trabajado antes en TI." label="Cesante, ya he trabajado antes en TI." />
@@ -185,7 +186,7 @@ const InfoPersonalForm = () => {
                         </div>
                         
                         <div className="pl-2 mx-6 mt-4">
-                            <h3 className="font-[400] mb-4 text-[18px] text-[#140B34]">
+                            <h3 className="font-[400] mb-4 text-[20px] text-[#140B34]">
                             ¿Cuál o cuáles cargos te gustaría optar?
                             </h3>
                             <p className="font-[300] text-[16px] text-[#575253] mb-4">
@@ -258,8 +259,8 @@ const InfoPersonalForm = () => {
                             </Select>
                             </div>
 
-                            <div className="mt-14 mx-10">
-                            <Select label="Nivel de ingles" name="englishLevel">
+                            <div className="mt-6 mx-10">
+                            <Select label="Nivel de inglés" name="englishLevel">
                             <option value=''>Seleccionar</option>
                             <option value="basico">Básico</option>
                             <option value="medio">Medio</option>
@@ -464,7 +465,8 @@ const InfoPersonalForm = () => {
                             </div>
 
                             <TituloConocimiento text="Indícanos tus conocimientos a Nivel 3"
-                        text2="(Tengo poca experiencia laboral, menos de dos años, necesito supervisión constante):" 
+                        text2="(tengo experiencia laboral (+2 años) y/o autonomía completa a la hora de desarrollar proyectos):
+                        :" 
                         />
                         
 
@@ -556,20 +558,19 @@ const InfoPersonalForm = () => {
                             </div>
 
                             
-                            <div className="py-5">
-                            <TextArea name="competenciaImportante" 
-                            label="Indícanos alguna otra competencia, herramienta o tecnología que conozcas que creas importante agregar:"
-                            />
+                            <div className="py-5 mx-20">
+                            <p className="text-bold text-[20px] mb-4">Indícanos alguna otra competencia, herramienta o tecnología que conozcas que creas importante agregar:</p>
+                            <TextArea name="competenciaImportante" />
                             </div>
 
                             </div>
 
                             <div>
-                                <h1 className="font-bold text-xl py-5">EXPERIENCIA Y TRABAJO</h1> 
+                                <h1 className="font-[700] py-5 mt-10 text-[32px]">EXPERIENCIA Y TRABAJO</h1> 
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-                                <TextInput name="urlCv" label="URL CV"  />     
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-20 gap-x-20 mx-10 ">
+                                <TextInput name="urlCv" label="URL CV"  />    
                                 <TextInput name="urlLinkedin" label="URL de LinkedIn"  />
                                 <TextInput name="urlGithub" label="URL de GitHub"  />
                                 <TextInput name="urlPortafolio" label="URL de Portafolio/Sitio web"  />
@@ -577,15 +578,13 @@ const InfoPersonalForm = () => {
                             </div>
                             
                             
-                            <div className="mt-8">
-                                <TextArea name="proyectoImportante" 
-                                label="Explícanos en detalle algún proyecto que te enorgullece
-                                Describe de que trató, tu rol en el proyecto y por qué lo elegiste (por ejemplo: arquitectura de desarrollo, equipo y tu rol en el proyecto, tecnologías utilizadas, dificultades y soluciones, funcionalidades, objetivos, etc. Recuerda NO esperamos link, sino explicación)
-                                "
-                                />
+                            <div className="mt-20 font-[400] mx-20">
+                                <p className="text-bold text-[20px]">Explícanos en detalle algún proyecto que te enorgullece</p>
+                                <p className="text-[14px] mb-4">Describe de que trató, tu rol en el proyecto y por qué lo elegiste (por ejemplo: arquitectura de desarrollo, equipo y tu rol en el proyecto, tecnologías utilizadas, dificultades y soluciones, funcionalidades, objetivos, etc. Recuerda NO esperamos link, sino explicación)</p>
+                                <TextArea name="proyectoImportante" />
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mx-20">
                                 <div>
                                     <h3 className="font-bold py-5">
                                     Selecciona 3 habilidades blandas que te representen:
@@ -616,18 +615,18 @@ const InfoPersonalForm = () => {
                             </div>  
 
                                 <div>
-                                    <h1 className="font-bold text-xl py-5">¿QUÉ TIPO DE TRABAJO ESTÁS BUSCANDO?</h1> 
+                                    <h1 className="font-[700] py-5 mt-10 text-[32px]">¿QUÉ TIPO DE TRABAJO ESTÁS BUSCANDO?</h1> 
                                 </div>  
 
-                                <div className="mt-4">
+                                <div className="mt-10 mx-20">
                                     <TextArea name="trabajoIdeal" 
                                     label="Déjanos una breve descripción con respecto tu trabajo ideal"
                                     />
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-3">
-                                    <div>
-                                        <h3 className="font-bold">
+                                <div className="grid grid-cols-1 md:grid-cols-3 mt-6 mx-20">
+                                    <div className="">
+                                        <h3 className="font-bold mb-4">
                                             Indícanos tu disponibilidad laboral:
                                         </h3>
 
@@ -638,7 +637,7 @@ const InfoPersonalForm = () => {
                                     </div>
 
                                     <div>
-                                        <h3 className="font-bold">
+                                        <h3 className="font-bold mb-4">
                                             ¿Qué describe mejor tu situación actual?:
                                         </h3>
                                         <Radio name="situacionActual" value="Quiero trabajo desde mi ciudad actual" label="Quiero trabajo desde mi ciudad actual" />
@@ -646,8 +645,8 @@ const InfoPersonalForm = () => {
                                         <Radio name="situacionActual" value="Estoy disponible para migrar a otro país" label="Estoy disponible para migrar a otro país" />
                                     </div>
 
-                                    <div>
-                                        <h3 className="font-bold">
+                                    <div className="ml-10">
+                                        <h3 className="font-bold mb-4">
                                         ¿Cuentas con Visa de trabajo activa en?
                                         </h3>
 
@@ -659,8 +658,10 @@ const InfoPersonalForm = () => {
                                     </div>
                                 </div>
                         
+                        <div className="grid justify-end mx-20 mt-20 font-[Poppins]">
+                        <button type='submit' className="h-[58px] w-[156px] bg-[#2738F5] hover:bg-blue-600 text-[#FFFFFF] text-[22px] font-bold py-2 px-4 rounded-3xl">GUARDAR</button>
+                        </div>
             
-                        <button type='submit' className="btn py-3 mt-5">Guardar</button>
                     </Form> 
                 </Formik>
            </div>
