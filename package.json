@@ -1,4 +1,5 @@
 {
+  "homepage": "https://dlab-team.github.io/ctd4-frontend",
   "name": "devsafio-web",
   "version": "0.1.0",
   "private": true,
@@ -26,7 +27,9 @@
     "serve": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +52,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "cross-env": "^7.0.3",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.13",
     "tailwindcss": "^3.0.24"
   }
