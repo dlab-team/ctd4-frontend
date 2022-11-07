@@ -8,7 +8,8 @@ const TextInput = ({ label, ...props}) => {
             <label>{label}</label>
             <input 
                 className="text-input bg-[#E2F2FE] border-sky-800 mt-4"
-                {...field} 
+                
+                {...field} {...props}
             />
              {meta.touched && meta.error ? (
                     <div className="error text-red-500 text-[13px]">{meta.error}</div>

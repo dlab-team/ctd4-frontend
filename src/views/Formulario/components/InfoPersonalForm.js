@@ -7,8 +7,53 @@ import TextArea from './TextArea';
 import PerfilLaboral from './PerfilLaboral';
 import TituloConocimiento from './TituloConocimiento';
 import * as Yup from 'yup';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
 
 const InfoPersonalForm = () => {
+
+   const userToken = JSON.parse(localStorage.getItem('user'))
+   
+   
+   
+   
+     const [user, setUser] = useState([])
+   
+
+    useEffect(()=> {
+        axios.get('http://localhost:3000/user/', {
+            headers: {
+                'Content-Type': 'Application/json',
+                Authorization: `Bearer ${userToken.token}`
+              }
+    })
+        .then((res) => {
+        const datos = res.data
+        setUser(datos)   
+        })
+
+        axios.get('http://localhost:3000/charges')
+        .then(res => {
+            const datos = res.data;
+            setCharges(datos)
+        })
+
+        axios.get('http://localhost:3000/countries')
+        .then(res => {
+            const datos = res.data;
+            setCountries(datos)
+        })
+        axios.get('http://localhost:3000/cities')
+        .then(res => {
+            const datos = res.data;
+            setCities(datos)
+        })
+    },[])
+    const [charges, setCharges ] = useState([])
+    const [countries, setCountries ] = useState([])
+    const [cities, setCities ] = useState([])
+    
     return(
         <>
             <div>
@@ -18,11 +63,11 @@ const InfoPersonalForm = () => {
                     lastName:"",
                     email:"",
                     phone:"",
-                    city:"",
-                    country:"",
+                    cities:"",
+                    countries:"",
                     gender:"",
                     radio:"",
-                    workArea:"",
+                    charges:"",
                     levelEducation:"",
                     carrera1:"",
                     carrera2:"",
@@ -53,11 +98,10 @@ const InfoPersonalForm = () => {
                     situacionActual:"",
                     visa:"",
 
-                    
-
-
 
                 }}
+
+                               
 
                 validationSchema={Yup.object({
                     name: Yup.string().required("Obligatorio"),
@@ -68,7 +112,7 @@ const InfoPersonalForm = () => {
                     country:Yup.string().required("Obligatorio"),
                     gender:Yup.string().required("Obligatorio"),
                     radio:Yup.string().required("Obligatorio"),
-                    workArea:Yup.string().required("Obligatorio"),
+                    // charges:Yup.required("Obligatorio"),
                     levelEducation:Yup.string().required("Obligatorio"),
                     carrera1:Yup.string().required("Obligatorio"),
                     carrera2:Yup.string().required("Obligatorio"),
@@ -104,13 +148,28 @@ const InfoPersonalForm = () => {
                 >
 
                     <Form>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-48 gap-y-8 ">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-6 ">
                             <TextInput name="name" label="Nombre"  />     
-                            <TextInput name="lastName" label="Apellido"  />
-                            <TextInput name="email" label="Email"  />
-                            <TextInput name="phone" label="Teléfono"  />
-                            <TextInput name="country" label="País"  />
-                            <TextInput name="city" label="Ciudad"  />
+                            <TextInput name="lastName" label="Apellido" />
+                            <TextInput name="email" label="Email" value={user.email}  />
+                            <TextInput name="phone" label="Número de teléfono móvil"  />
+                            <Select label="País" name="countries">
+                            <option value=''>Seleccionar</option> 
+                            {countries.map((item,id)=>{
+                                        return(
+                                        <option value={item.name} key={id}>{item.name}</option>)
+                            })}
+                            </Select>
+
+                            <Select label="Ciudad" name="cities"> 
+                            <option value=''>Seleccionar</option> 
+                            {cities.map((item,id)=>{
+                                        return(
+                                        <option value={item.name} key={id}>{item.name}</option>)
+                            })}
+                            </Select>
+                            
+                            
                             <Select label="¿Con qué género te identificas?" name="gender">
                                 <option value=''>Seleccionar</option>
                                 <option value="male">Masculino</option>
@@ -118,7 +177,7 @@ const InfoPersonalForm = () => {
                                 <option value="other">Otro</option>
                             </Select>
                         <div className="pl-4 mx-8 mt-4 text-[18px] text-[#140B34]">
-                            <h3 className="mb-4">¿Cuál es tu estado laboral actual?</h3>
+                            <h3 className="my-6">¿Cuál es tu estado laboral actual?</h3>
                         <Radio name="radio" value="Cesante Buscando empleo en TI por primera vez" label="Cesante Buscando empleo en TI por primera vez" />
                         <Radio name="radio" value="Cesante, ya he trabajado antes en TI." label="Cesante, ya he trabajado antes en TI." />
                         <Radio name="radio" value="Tengo trabajo en TI, pero busco otro." label="Tengo trabajo en TI, pero busco otro." />
@@ -129,16 +188,15 @@ const InfoPersonalForm = () => {
                             <h3 className="font-[400] mb-4 text-[18px] text-[#140B34]">
                             ¿Cuál o cuáles cargos te gustaría optar?
                             </h3>
-                            <p className="font-[300] text-[16px] text-[#575253] mb-2">
+                            <p className="font-[300] text-[16px] text-[#575253] mb-4">
                             <b className="font-[600]">Ten en cuenta: </b>De acuerdo al cargo que postules, te pediremos que seas capaz de demostrarlo de manera práctica durante el proceso de selección.
                             </p>
-                        <Checkbox name="workArea" value="Desarrollador/a Full Stack">Desarrollador/a Full Stack</Checkbox>
-                        <Checkbox name="workArea"  value="Desarrollador/a Back End">Desarrollador/a Back End</Checkbox>
-                        <Checkbox name="workArea" value="Desarrollador/a Front End">Desarrollador/a Front End</Checkbox>
-                        <Checkbox name="workArea" value="Diseñador/a UX / UX Research o UI">Diseñador/a UX / UX Research o UI</Checkbox>
-                        <Checkbox name="workArea" value="Desarrollador/a Móvil">Desarrollador/a Móvil</Checkbox>
-                        <Checkbox name="workArea" value="Data Scientist o especialista machine learning">Data Scientist o especialista machine learning</Checkbox>
-                        <Checkbox name="workArea" value="Ingeniería de Datos">Ingeniería de Datos</Checkbox>
+                            {charges.map((item,id) => {
+                                return(
+                                 <Checkbox name="charges" key={id} value={item.name}>{item.name}</Checkbox>)
+                            })}
+                       
+                        
                         </div>
                         
                          
@@ -190,15 +248,17 @@ const InfoPersonalForm = () => {
                             </Select>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 mt-8">
+                            <div className="">
                             <Select label="¿Cuál es tu situación educacional actual (Bootcamp, diplomados, universidad, cursos u otros)?" name="actualSituation">
                             <option value=''>Seleccionar</option>
                             <option value="universidad">Universidad</option>
                             <option value="cft">CFT</option>
                             <option value="bootcamp">Bootcamp</option>
                             </Select>
+                            </div>
 
-                            <div className="mt-6">
+                            <div className="mt-14 mx-10">
                             <Select label="Nivel de ingles" name="englishLevel">
                             <option value=''>Seleccionar</option>
                             <option value="basico">Básico</option>
@@ -224,7 +284,7 @@ const InfoPersonalForm = () => {
                         />
                         <div className="grid grid-cols-1 md:grid-cols-3 mx-12 mt-6 mb-6">
                             <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Lenguaje nivel 1:
                             </h3>
                             <Checkbox name="languageLevel1" value="python" label="Python" >Python</Checkbox>
@@ -245,7 +305,7 @@ const InfoPersonalForm = () => {
                             <Checkbox name="languageLevel1" value="Bash/Shell" label="Bash/Shell" >Bash/Shell</Checkbox>
                             </div>
                             <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Bases o frameworks nivel 1:
                             </h3>
                             <Checkbox name="dbFramework1" value="Oracle" label="Oracle">Oracle</Checkbox>
@@ -255,7 +315,7 @@ const InfoPersonalForm = () => {
                             <Checkbox name="dbFramework1" value="MongoDB" label="MongoDB">MongoDB</Checkbox>
                             <Checkbox name="dbFramework1" value="MySQL" label="MySQL">MySQL</Checkbox>
                             <Checkbox name="dbFramework1" value="Firebase Realtime Database">Firebase Realtime Database</Checkbox>
-                            <Checkbox name="dbFramework1" value="MariaDB" label="MariaDB"></Checkbox>
+                            <Checkbox name="dbFramework1" value="MariaDB" label="MariaDB">MariaDB</Checkbox>
                             <Checkbox name="dbFramework1" value="Microsoft SQL Server">Microsoft SQL Server</Checkbox>
                             <Checkbox name="dbFramework1" value="JQuery" label="JQuery">JQuery</Checkbox>
                             <Checkbox name="dbFramework1" value="React" label="React">React</Checkbox>
@@ -274,7 +334,7 @@ const InfoPersonalForm = () => {
                             </div>
 
                             <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Herramientas nivel 1:
                             </h3>
                             <Checkbox name="toolsLevel1" value="Github" label="Github">Github</Checkbox>
@@ -316,10 +376,10 @@ const InfoPersonalForm = () => {
                         />
                         
 
-                        <div className="grid grid-cols-1 md:grid-cols-3">
+                        <div className="grid grid-cols-1 md:grid-cols-3 mx-12 mt-6 mb-6">
                             
                         <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Lenguaje nivel 2:
                             </h3>
                             <Checkbox name="languageLevel2" value="python" label="Python" >Python</Checkbox>
@@ -340,7 +400,7 @@ const InfoPersonalForm = () => {
                             <Checkbox name="languageLevel2" value="Bash/Shell" label="Bash/Shell" >Bash/Shell</Checkbox>
                             </div>
                             <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Bases o frameworks nivel 2:
                             </h3>
                             <Checkbox name="dbFramework2" value="Oracle" label="Oracle">Oracle</Checkbox>
@@ -350,7 +410,7 @@ const InfoPersonalForm = () => {
                             <Checkbox name="dbFramework2" value="MongoDB" label="MongoDB">MongoDB</Checkbox>
                             <Checkbox name="dbFramework2" value="MySQL" label="MySQL">MySQL</Checkbox>
                             <Checkbox name="dbFramework2" value="Firebase Realtime Database">Firebase Realtime Database</Checkbox>
-                            <Checkbox name="dbFramework2" value="MariaDB" label="MariaDB"></Checkbox>
+                            <Checkbox name="dbFramework2" value="MariaDB" label="MariaDB">MariaDB</Checkbox>
                             <Checkbox name="dbFramework2" value="Microsoft SQL Server">Microsoft SQL Server</Checkbox>
                             <Checkbox name="dbFramework2" value="JQuery" label="JQuery">JQuery</Checkbox>
                             <Checkbox name="dbFramework2" value="React" label="React">React</Checkbox>
@@ -369,7 +429,7 @@ const InfoPersonalForm = () => {
                             </div>
 
                             <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Herramientas nivel 2:
                             </h3>
                             <Checkbox name="toolsLevel2" value="Github" label="Github">Github</Checkbox>
@@ -403,15 +463,15 @@ const InfoPersonalForm = () => {
                             </div>
                             </div>
 
-                            <TituloConocimiento text="Indícanos tus conocimientos a Nivel 2"
+                            <TituloConocimiento text="Indícanos tus conocimientos a Nivel 3"
                         text2="(Tengo poca experiencia laboral, menos de dos años, necesito supervisión constante):" 
                         />
                         
 
-                        <div className="grid grid-cols-1 md:grid-cols-3">
+                        <div className="grid grid-cols-1 md:grid-cols-3 mx-12 mt-6 mb-6">
                             
                         <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Lenguaje nivel 3:
                             </h3>
                             <Checkbox name="languageLevel3" value="python" label="Python" >Python</Checkbox>
@@ -432,7 +492,7 @@ const InfoPersonalForm = () => {
                             <Checkbox name="languageLevel3" value="Bash/Shell" label="Bash/Shell" >Bash/Shell</Checkbox>
                             </div>
                             <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Bases o frameworks nivel 3:
                             </h3>
                             <Checkbox name="dbFramework3" value="Oracle" label="Oracle">Oracle</Checkbox>
@@ -461,7 +521,7 @@ const InfoPersonalForm = () => {
                             </div>
 
                             <div>
-                            <h3 className="font-bold">
+                            <h3 className="font-bold mb-4">
                             Herramientas nivel 3:
                             </h3>
                             <Checkbox name="toolsLevel3" value="Github" label="Github">Github</Checkbox>
