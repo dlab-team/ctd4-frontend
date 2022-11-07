@@ -1,6 +1,7 @@
 import Card from './components/Card'
 import InformacionPersonal from './components/InformacionPersonal'
 import NavPerfil from './../../components/perfil/NavPerfil'
+import {Footer} from "./../../components/Footer"
 
 
 const Formulario = () => {
@@ -11,6 +12,7 @@ const Formulario = () => {
             </div>
             <Card />
             <InformacionPersonal />
+            <Footer />
         </div>
     )
 }
