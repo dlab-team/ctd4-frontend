@@ -26,9 +26,9 @@ export const SignUpForm = () => {
       {successMessage && 
         <ShowResponseFromBack>
           <p>{successMessage}</p>
-          <p>Haga login para confirmar</p>
+          <p>Inicie sesion para confirmar</p>
           <button onClick={() => navigate("/login", { replace: true })}>
-            Ir al login
+            Iniciar sesion
           </button>
         </ShowResponseFromBack> 
       }
@@ -78,12 +78,12 @@ export const SignUpForm = () => {
             .then(function (response) {
               setLoadingLogup(false);
               if (response.data) {
-                setSuccessMessage("La autenticacion a sido exitosa!")
+                setSuccessMessage("El registro ha sido exitoso!")
               }
             })
             .catch(function (error) {
               setLoadingLogup(false);
-              setErrorMessage(error.message)
+              setErrorMessage(error.response.data.message)
             });
         }, 1500);
       }}
@@ -197,7 +197,7 @@ export const SignUpForm = () => {
             type='submit'
             className='block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2'
           >
-            Sing up
+            Crear cuenta
           </button>
         </Form>
         )}

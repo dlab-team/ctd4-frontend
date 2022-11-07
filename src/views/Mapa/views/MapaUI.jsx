@@ -9,7 +9,7 @@ export const MapaUI = ({children}) => {
             <NavPerfil />
             <div className="flex">
                 <Sidebar />
-                <div className="w-[100%]">
+                <div className="w-[70%]">
                     <div className="px-20 my-10">
                         <h2 className="text-[32px] font-[600]">¡Bienvenido!</h2>
                     </div>

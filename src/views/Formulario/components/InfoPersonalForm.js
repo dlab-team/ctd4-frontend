@@ -7,8 +7,53 @@ import TextArea from './TextArea';
 import PerfilLaboral from './PerfilLaboral';
 import TituloConocimiento from './TituloConocimiento';
 import * as Yup from 'yup';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
 
 const InfoPersonalForm = () => {
+
+   const userToken = JSON.parse(localStorage.getItem('user'))
+   
+   
+   
+   
+     const [user, setUser] = useState([])
+   
+
+    useEffect(()=> {
+        axios.get('http://localhost:3000/user/', {
+            headers: {
+                'Content-Type': 'Application/json',
+                Authorization: `Bearer ${userToken.token}`
+              }
+    })
+        .then((res) => {
+        const datos = res.data
+        setUser(datos)   
+        })
+
+        axios.get('http://localhost:3000/charges')
+        .then(res => {
+            const datos = res.data;
+            setCharges(datos)
+        })
+
+        axios.get('http://localhost:3000/countries')
+        .then(res => {
+            const datos = res.data;
+            setCountries(datos)
+        })
+        axios.get('http://localhost:3000/cities')
+        .then(res => {
+            const datos = res.data;
+            setCities(datos)
+        })
+    },[])
+    const [charges, setCharges ] = useState([])
+    const [countries, setCountries ] = useState([])
+    const [cities, setCities ] = useState([])
+    
     return(
         <>
             <div>
@@ -18,11 +63,11 @@ const InfoPersonalForm = () => {
                     lastName:"",
                     email:"",
                     phone:"",
-                    city:"",
-                    country:"",
+                    cities:"",
+                    countries:"",
                     gender:"",
                     radio:"",
-                    workArea:"",
+                    charges:"",
                     levelEducation:"",
                     carrera1:"",
                     carrera2:"",
@@ -53,11 +98,10 @@ const InfoPersonalForm = () => {
                     situacionActual:"",
                     visa:"",
 
-                    
-
-
 
                 }}
+
+                               
 
                 validationSchema={Yup.object({
                     name: Yup.string().required("Obligatorio"),
@@ -68,7 +112,7 @@ const InfoPersonalForm = () => {
                     country:Yup.string().required("Obligatorio"),
                     gender:Yup.string().required("Obligatorio"),
                     radio:Yup.string().required("Obligatorio"),
-                    workArea:Yup.string().required("Obligatorio"),
+                    // charges:Yup.required("Obligatorio"),
                     levelEducation:Yup.string().required("Obligatorio"),
                     carrera1:Yup.string().required("Obligatorio"),
                     carrera2:Yup.string().required("Obligatorio"),
@@ -106,11 +150,26 @@ const InfoPersonalForm = () => {
                     <Form>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                             <TextInput name="name" label="Nombre"  />     
-                            <TextInput name="lastName" label="Apellido"  />
-                            <TextInput name="email" label="Email"  />
+                            <TextInput name="lastName" label="Apellido" />
+                            <TextInput name="email" label="Email" value={user.email}  />
                             <TextInput name="phone" label="Teléfono"  />
-                            <TextInput name="city" label="Ciudad"  />
-                            <TextInput name="country" label="Ciudad/País"  />
+                            <Select label="Pais" name="countries">
+                            <option value=''>Seleccionar</option> 
+                            {countries.map((item,id)=>{
+                                        return(
+                                        <option value={item.name} key={id}>{item.name}</option>)
+                            })}
+                            </Select>
+
+                            <Select label="Ciudad" name="cities"> 
+                            <option value=''>Seleccionar</option> 
+                            {cities.map((item,id)=>{
+                                        return(
+                                        <option value={item.name} key={id}>{item.name}</option>)
+                            })}
+                            </Select>
+                            
+                            
                             <Select label="¿Con qué género te identificas?" name="gender">
                                 <option value=''>Seleccionar</option>
                                 <option value="male">Masculino</option>
@@ -132,13 +191,12 @@ const InfoPersonalForm = () => {
                             <p>
                             Ten en cuenta: De acuerdo al cargo que postules, te pediremos que seas capaz de demostrarlo de manera práctica durante el proceso de selección.
                             </p>
-                        <Checkbox name="workArea" value="Desarrollador/a Full Stack">Desarrollador/a Full Stack</Checkbox>
-                        <Checkbox name="workArea"  value="Desarrollador/a Back End">Desarrollador/a Back End</Checkbox>
-                        <Checkbox name="workArea" value="Desarrollador/a Front End">Desarrollador/a Front End</Checkbox>
-                        <Checkbox name="workArea" value="Diseñador/a UX / UX Research o UI">Diseñador/a UX / UX Research o UI</Checkbox>
-                        <Checkbox name="workArea" value="Desarrollador/a Móvil">Desarrollador/a Móvil</Checkbox>
-                        <Checkbox name="workArea" value="Data Scientist o especialista machine learning">Data Scientist o especialista machine learning</Checkbox>
-                        <Checkbox name="workArea" value="Ingeniería de Datos">Ingeniería de Datos</Checkbox>
+                            {charges.map((item,id) => {
+                                return(
+                                 <Checkbox name="charges" key={id} value={item.name}>{item.name}</Checkbox>)
+                            })}
+                       
+                        
                         </div>
                         
                          
