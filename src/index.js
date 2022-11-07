@@ -36,7 +36,7 @@ root.render(
           <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />
           <Route path='/experiencia' element={isAuthenticated ? <Experiencia /> : <Navigate replace to="/login" />} />
           <Route path='/Acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
-          <Route path='/formulario' element={<Formulario />} />
+          <Route path='/formulario' element={isAuthenticated ? <Formulario /> : <Navigate replace to="/login" />} />
         </Routes>
       </BrowserRouter>
     </LoggedUserProvider>

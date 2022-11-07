@@ -14,7 +14,7 @@ function ShowResponseFromBack({ children }){
 
     return ReactDOM.createPortal(
         <div className="alerta">
-            <div className="message">
+            <div className="message text-[#232323] font-[400] text-2xl">
                 {children}
             </div>
         </div>,

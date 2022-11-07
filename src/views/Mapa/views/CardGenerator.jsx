@@ -23,7 +23,7 @@ export const CardGenerator = ({children, animationClickCard}) => {
             {notAccess && 
                 <ShowResponseFromBack>
                     <p>Para acceder a este paso debes completar el anterior</p>
-                    <button onClick={() => setNotAccess(false)}>Entendido!</button>
+                    <button onClick={() => setNotAccess(false)}>Entendido</button>
                 </ShowResponseFromBack>
             }
         </>
