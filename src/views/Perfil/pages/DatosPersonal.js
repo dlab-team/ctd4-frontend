@@ -5,6 +5,8 @@ import NavPerfil from '../../../components/perfil/NavPerfil';
 import Bienvenido from '../../../components/perfil/Bienvenido';
 import Sidebar from '../../../components/Sidebar/Sidebar';
 import Profile from '../../../assets/images/Profile.jpg'
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 //import ListBox1 from '../../../components/ListBox1';
 
@@ -35,7 +37,25 @@ const DatosPersonal = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                </svg>
  
- 
+   const userToken = JSON.parse(localStorage.getItem('user'))
+      
+      
+      
+      
+   const [user, setUser] = useState([])
+
+   useEffect(()=>{
+      axios.get('http://localhost:3000/user/', {
+            headers: {
+                'Content-Type': 'Application/json',
+                Authorization: `Bearer ${userToken.token}`
+              }
+    })
+        .then((res) => {
+        const datos = res.data
+        setUser(datos)   
+        })
+   },[])
  
  
    return (
@@ -80,7 +100,7 @@ const DatosPersonal = () => {
                         <div className="flex my-4">
                            <img className="w-14 h-14 inline object-cover rounded-full" src={Profile} alt="" />
                            <div className="ml-5">
-                              <h3 className="font-semibold">Nombre Apellido</h3>
+                              <h3 className="font-semibold">{user.name}</h3>
                               <p className="pt-3">País</p>
                            </div>
                         </div>
@@ -91,7 +111,7 @@ const DatosPersonal = () => {
                      <div className="flex-wrap justify-center md:flex  md:justify-between  border-b-2 border-[#817E7E] py-3">
                         <div className="flex-wrap flex md:">
                            {mail} 
-                           <span>ejemplo@correo.com</span>
+                           <span>{user.email}</span>
                         </div>
                         <div className="flex">
                            {phone}
