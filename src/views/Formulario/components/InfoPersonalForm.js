@@ -104,35 +104,33 @@ const InfoPersonalForm = () => {
                 >
 
                     <Form>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 font-[400] font-[Poppins] ">
-                            <TextInput name="name" label="Nombre"  />   
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-48 gap-y-8 ">
+                            <TextInput name="name" label="Nombre"  />     
                             <TextInput name="lastName" label="Apellido"  />
                             <TextInput name="email" label="Email"  />
-                            <TextInput name="phone" label="Número de teléfono móvil"  />
+                            <TextInput name="phone" label="Teléfono"  />
+                            <TextInput name="country" label="País"  />
                             <TextInput name="city" label="Ciudad"  />
-                            <TextInput name="country" label="País/Región"  />
-                            <div className="w-[386px] h-[48px] mx-auto mt-8">
                             <Select label="¿Con qué género te identificas?" name="gender">
                                 <option value=''>Seleccionar</option>
                                 <option value="male">Masculino</option>
                                 <option value="female">Femenino</option>
                                 <option value="other">Otro</option>
                             </Select>
-                            </div>
-                        <div>
-                            <h3 className="ml-24 mt-10">¿Cuál es tu estado laboral actual?</h3>
-                        <Radio name="radio" value="Cesante Buscando empleo en TI por primera vez" label="Cesante Buscando empleo en TI por primera vez." />
+                        <div className="pl-4 mx-8 mt-4 text-[18px] text-[#140B34]">
+                            <h3 className="mb-4">¿Cuál es tu estado laboral actual?</h3>
+                        <Radio name="radio" value="Cesante Buscando empleo en TI por primera vez" label="Cesante Buscando empleo en TI por primera vez" />
                         <Radio name="radio" value="Cesante, ya he trabajado antes en TI." label="Cesante, ya he trabajado antes en TI." />
                         <Radio name="radio" value="Tengo trabajo en TI, pero busco otro." label="Tengo trabajo en TI, pero busco otro." />
                         <Radio name="radio" value="Tengo trabajo (en otras áreas), pero busco en TI." label="Tengo trabajo (en otras áreas), pero busco en TI." />
                         </div>
                         
-                        <div>
-                            <h3 className="mt ml-24">
+                        <div className="pl-2 mx-6 mt-4">
+                            <h3 className="font-[400] mb-4 text-[18px] text-[#140B34]">
                             ¿Cuál o cuáles cargos te gustaría optar?
                             </h3>
-                            <p className="ml-24">
-                            Ten en cuenta: De acuerdo al cargo que postules, te pediremos que seas capaz de demostrarlo de manera práctica durante el proceso de selección.
+                            <p className="font-[300] text-[16px] text-[#575253] mb-2">
+                            <b className="font-[600]">Ten en cuenta: </b>De acuerdo al cargo que postules, te pediremos que seas capaz de demostrarlo de manera práctica durante el proceso de selección.
                             </p>
                         <Checkbox name="workArea" value="Desarrollador/a Full Stack">Desarrollador/a Full Stack</Checkbox>
                         <Checkbox name="workArea"  value="Desarrollador/a Back End">Desarrollador/a Back End</Checkbox>
@@ -147,9 +145,9 @@ const InfoPersonalForm = () => {
                         </div>
 
                         <div>
-                            <h1 className="font-[700] text-[30px] py-5 mt-14 font-[Poppins]">INFORMACION EDUCACIONAL</h1>
+                            <h1 className="mt-10 font-[700] py-5 text-[32px]">INFORMACION EDUCACIONAL</h1>
                         </div>
-                        <div className="w-[1020px] ml-24 mt-6">
+                        <div>
                         <Select label="¿Cual es tu máximo nivel educacional?" name="levelEducation">
                             <option value=''>Seleccionar</option>
                             <option value="universitaria completa">Universitaria completa</option>
@@ -157,39 +155,19 @@ const InfoPersonalForm = () => {
                             <option value="bootcamp">Bootcamp</option>
                         </Select>
                         </div>
-                        <div className="ml-24 mt-10">
-                            <h2 className="font-[600] text-[24px] font-[Poppins]">
+                        <div>
+                            <h2 className="mt-14 mb-10 mx-10 font-[600] text-[#140B34] text-[24px]">
                             A continuación, indícanos 2 (dos) carreras profesionales, cursos, bootcamp o certificaciones cursadas relacionadas al desarrollo de software, diseño o TI (puedes indicarnos las más importantes o actuales):
 
                             </h2>
                         </div>
-                        <div className="w-[1020px] ml-24 mt-8">
-                            <h3 className="font-[600] text-[16px] font-[Poppins]">Nombre de la carrera, curso, bootcamp o certificación 1:</h3>
-                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" />
-                            <label className="mt-4 mb-4 text-[16px]">Nombre institución 1</label>
-                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" /> 
+                        <div>
+                            <TextInput name="carrera1" label="Nombre de la carrera, curso, bootcamp o certificación 1:"  /> 
+                            <div className="mt-8">
+                            <TextInput name="institution1" label="Nombre institución 1:"  /> 
+                            </div>
+                            <div className="mt-8"> 
                             <Select label="Tipo de institución 1" name="typeinstitution1">
-                            <option value=''>Seleccionar</option>
-                            <option value="universidad">Universidad</option>
-                            <option value="cft">CFT</option>
-                            <option value="bootcamp">Bootcamp</option>
-                            </Select>
-                      
-                            <h3 className="mt-4 font-[600] text-[16px] font-[Poppins]">Nombre de la carrera, curso, bootcamp o certificación 2:</h3>
-                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" />
-                            <label className="mt-4 mb-4 text-[16px]">Nombre institución 2</label>
-                            <input className="text-input font-[Poppins] bg-[#E2F2FE] border-sky-800 mt-4 mb-4" /> 
-                            <Select label="Tipo de institución 2" name="typeinstitution1">
-                            <option value=''>Seleccionar</option>
-                            <option value="universidad">Universidad</option>
-                            <option value="cft">CFT</option>
-                            <option value="bootcamp">Bootcamp</option>
-                            </Select>
-                            
-
-                            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 ">
-                            <div className="w-[550px]">
-                            <Select label="¿¿Cuál es tu situación educacional actual (Bootcamp, diplomados, universidad, cursos u otros)? " name="actualSituation">
                             <option value=''>Seleccionar</option>
                             <option value="universidad">Universidad</option>
                             <option value="cft">CFT</option>
@@ -197,7 +175,30 @@ const InfoPersonalForm = () => {
                             </Select>
                             </div>
 
-                            <div className="w-[420px] ml-20 mt-6">
+                            <div className="mt-8"> 
+                            <TextInput name="carrera2" label="Nombre de la carrera, curso, bootcamp o certificación 2:"  />
+                            </div>
+                            <div className="mt-8"> 
+                            <TextInput name="institution2" label="Nombre institución 2:"  /> 
+                            </div>
+                            <div className="mt-8"> 
+                            <Select label="Tipo de institución 2" name="typeinstitution2">
+                            <option value=''>Seleccionar</option>
+                            <option value="universidad">Universidad</option>
+                            <option value="cft">CFT</option>
+                            <option value="bootcamp">Bootcamp</option>
+                            </Select>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <Select label="¿Cuál es tu situación educacional actual (Bootcamp, diplomados, universidad, cursos u otros)?" name="actualSituation">
+                            <option value=''>Seleccionar</option>
+                            <option value="universidad">Universidad</option>
+                            <option value="cft">CFT</option>
+                            <option value="bootcamp">Bootcamp</option>
+                            </Select>
+
+                            <div className="mt-6">
                             <Select label="Nivel de ingles" name="englishLevel">
                             <option value=''>Seleccionar</option>
                             <option value="basico">Básico</option>
@@ -221,7 +222,7 @@ const InfoPersonalForm = () => {
                         <TituloConocimiento text="Indícanos tus conocimientos a Nivel 1"
                         text2="(No tengo experiencia laboral, pero he desarrollado proyectos utilizado esta tecnología/herramienta):" 
                         />
-                        <div className="grid grid-cols-1 md:grid-cols-3">
+                        <div className="grid grid-cols-1 md:grid-cols-3 mx-12 mt-6 mb-6">
                             <div>
                             <h3 className="font-bold">
                             Lenguaje nivel 1:
