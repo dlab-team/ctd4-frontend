@@ -1,9 +1,10 @@
 import logo from "../../assets/images/devSafio-logo.svg"
 import Dropdown from "../Dropdown"
+import {DropdownBurguer} from "../DropdownBurguer ";
 
 const NavPerfil = () => {
     return(
-            <header className="flex items-center px-10 justify-center md:justify-between bg-[#2738F5] h-20">
+            <header className="flex items-center px-4 justify-between bg-[#2738F5] h-20">
                 <div className="ml-6 logo w-37">
                     <img src={logo} alt="" />
                 </div>
@@ -11,6 +12,9 @@ const NavPerfil = () => {
                 </nav>
         
                 <Dropdown/>
+                <div className="md:hidden">
+                <DropdownBurguer/>
+                </div>
 
         </header>
     )
