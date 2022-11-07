@@ -149,7 +149,7 @@ const InfoPersonalForm = () => {
 
                     <Form>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-10 ">
-                            <TextInput name="name" label="Nombre"  />     
+                            <TextInput name="name" label="Nombre" value={user.name}   />     
                             <TextInput name="lastName" label="Apellido" />
                             <TextInput name="email" label="Email" value={user.email}  />
                             <TextInput name="phone" label="Número de teléfono móvil"  />
