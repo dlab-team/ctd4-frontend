@@ -13,7 +13,6 @@ const Formulario = () => {
             <Card />
             <InformacionPersonal />
             <Footer />
-
         </div>
     )
 }
