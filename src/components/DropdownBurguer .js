@@ -1,7 +1,5 @@
-import React, { Fragment, useState } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
-import Profile from '../assets/images/Profile.jpg';
+import { Fragment, useState } from 'react'
+import { Menu, Transition } from '@headlessui/react'
 import {ShowResponseFromBack} from './../components/Alerts'
 import {closeSession} from './../utils/utils'
 
@@ -9,7 +7,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Dropdown() {
+export function DropdownBurguer() {
 
   const [logOut, setLogOut] = useState(false);
 
@@ -17,30 +15,18 @@ export default function Dropdown() {
 
     <>
 
-  {/*Notificacion*/}
-    <div class="absolute inset-y-0 right-0 flex justify-center items-center md:pr-2 md:static md:inset-auto md:ml-6 md:pr-0 md:space-x-6">
-        <button type="button" className="hidden md:bg-none md:p-1 md:text-white md:hover:text-white md:flex md:outline-none md:hover:opacity-80">
-            <span class="sr-only">View notifications</span>
-            {/*Icon Bell*/}
-            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-            </svg>
-        </button>
-    
+    <Menu as="div" className="relative inline-block text-left mr-6">
+      <div>
+        <Menu.Button className="inline-flex w-full justify-center rounded-md bg-zinc-100 py-4 px-4  rounded-md inline  hover:opacity-80" >
+          <div class="space-y-2">
+            <div class="w-6 h-0.5 bg-[#2738F5] opacity-80"></div>
+            <div class="w-6 h-0.5 bg-[#2738F5] opacity-80"></div>
+            <div class="w-6 h-0.5 bg-[#2738F5] opacity-80"></div>
+          </div>
+        </Menu.Button>
+      </div>
 
-    {/*Dropdown*/}
-      <Menu as="div" className="md:relative md:inline-block md:text-left hidden">
-        <div>
-          <Menu.Button className="inline-flex  text-base font-medium text-gray-700">
-            <div className="mt-10 flex rounded-full outline-none ring-1 ring-offset-1 ring-gray-500 rounded-full hover:opacity-80">
-              <img className="w-12 h-12 inline object-cover rounded-full" src={Profile} />
-            </div>
-            {/* object-cover */}
-            <ChevronDownIcon className="mr-6 ml-2 h-32 w-5 fill-white" aria-hidden="true" />
-          </Menu.Button>
-        </div>
-
-        <Transition
+      <Transition
           as={Fragment}
           enter="transition ease-out duration-100"
           enterFrom="transform opacity-0 scale-95"
@@ -49,7 +35,7 @@ export default function Dropdown() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-6 z-10 -mt-8 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-1 z-10  mt-1 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="py-1">
               <Menu.Item>
                 {({ active }) => (
@@ -64,7 +50,7 @@ export default function Dropdown() {
             <Menu.Item>
                 {({ active }) => (
                   <a href="/perfil" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
-                    Home
+                    Inicio
                   </a>
                 )}
               </Menu.Item>
@@ -115,11 +101,9 @@ export default function Dropdown() {
             </div>
           </div>
           
-        </ShowResponseFromBack> 
+        </ShowResponseFromBack>
       }
-    </div>
 
-    </>
+  </>
   )
-};
-
+}

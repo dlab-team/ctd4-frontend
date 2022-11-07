@@ -21,12 +21,12 @@ export function Section2() {
                 ¿Cómo funcionamos?
               </p>
 
-              <p className="text-[#232323] font-[400] text-2xl text-center mt-16">
+              <p className="text-[#232323] font-[400] text-2xl text-center mt-16 mx-28">
                 Da click a nuestro video y en sólo 60 segundos conoce <b className="text-[#2738F5]"> Devsafio </b>y cómo estamos <b className="text-[#2738F5]"> cambiando el mundo TI</b>, acelerando y potenciando las células tecnológicas.
               </p>
 
             </div>
-            <div className="box-border p-3 ">
+            <div className="box-border p-3 mr-20">
               <iframe
                 className=" w-[25rem] h-[14rem] md:w-[39.18rem] md:h-[26.43rem] rounded-2xl"
                 src="https://youtube.com/embed/z5NPi7WrViU"
@@ -48,7 +48,7 @@ export function Section2() {
               Sin Juniors no hay Seniors
 
             </p>
-            <p className="text-[#232323] text-2xl leading-9 mt-10 mx-28 ">
+            <p className="text-[#232323] text-2xl leading-9 mt-10 mx-32">
               En este programa unimos la <b className="text-[#2738F5]"> rapidez, eficiencia y visión de un desarrollador junior </b>junto con <b className="text-[#2738F5]">la experiencia y liderazgo de un senior TI</b>, quien acompañará al talento junior contratado para potenciar tu área digital, acá te explicamos cómo:
             </p>
           </div>
@@ -59,7 +59,7 @@ export function Section2() {
             <div className=" flex flex-col gap-10 text-center items-center max-w-[64]">
               <img src={imagen1} alt="" className="items-center pt-4" />
               <p className="text-[#140B34] text-2xl font-[600] leading-9 w-[64]">Aceleramos</p>
-              <p className="text-[#232323] text-xl font-[400] leading-8 max-w-[64]"> <b> Aceleramos el proceso de contratación. </b> Una vez que nos envíes tu necesidad de talento digital recibirás un listado con los mejores candidatos en <b> 5 días.</b></p>
+              <p className="text-[#232323] text-xl font-[400] leading-8 max-w-[64] mx-16"> <b> Aceleramos el proceso de contratación. </b> Una vez que nos envíes tu necesidad de talento digital recibirás un listado con los mejores candidatos en <b> 5 días.</b></p>
             </div>
 
 
@@ -68,7 +68,7 @@ export function Section2() {
               <p className="text-[#140B34] text-2xl font-[600] leading-9 w-[64]">Acompañamos</p>
 
               <div className="">
-                <p className="text-[#232323] text-xl font-[400] leading-8">Nosotros nos hacemos cargo, tú creces. Todos los desarrolladores que contrates <b> serán guiados y apoyados a nivel técnico </b> por un mentor senior TI experto en tu área <b> sin ningún costo ($0). </b> </p>
+                <p className="text-[#232323] text-xl font-[400] leading-8 mx-20">Nosotros nos hacemos cargo, tú creces. Todos los desarrolladores que contrates <b> serán guiados y apoyados a nivel técnico </b> por un mentor senior TI experto en tu área <b> sin ningún costo ($0). </b> </p>
 
               </div>
             </div>
@@ -77,7 +77,7 @@ export function Section2() {
             <div className=" flex flex-col gap-10 text-center items-center max-w-[64]">
               <img src={imagen3} alt="" className="items-center pt-4" />
               <p className="text-[#140B34] text-2xl font-[600] leading-9 w-[64]">Potenciamos</p>
-              <p className="text-[#232323] text-xl font-[400] leading-8 max-w-[64]">
+              <p className="text-[#232323] text-xl font-[400] leading-8 max-w-[64] mx-20">
                 Potenciamos y retenemos el talento. Realizamos un <b>seguimiento</b>  de alta calidad para <b>potenciar el crecimiento y desarrollo técnico</b>  de todos los desarrolladores contratados.
               </p>
 

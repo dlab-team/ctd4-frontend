@@ -27,61 +27,15 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           {/* <App /> */}
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/perfil"
-            element={
-              isAuthenticated ? <Mapa /> : <Navigate replace to="/login" />
-            }
-          />
-          <Route
-            path="/datospersonales"
-            element={
-              isAuthenticated ? (
-                <DatosPersonal />
-              ) : (
-                <Navigate replace to="/login" />
-              )
-            }
-          />
-          <Route
-            path="/perfileducacional"
-            element={
-              isAuthenticated ? (
-                <PerfilEducacion />
-              ) : (
-                <Navigate replace to="/login" />
-              )
-            }
-          />
-          <Route
-            path="/perfilLaboral"
-            element={
-              isAuthenticated ? (
-                <PerfilLaboral />
-              ) : (
-                <Navigate replace to="/login" />
-              )
-            }
-          />
-          <Route
-            path="/experiencia"
-            element={
-              isAuthenticated ? (
-                <Experiencia />
-              ) : (
-                <Navigate replace to="/login" />
-              )
-            }
-          />
-          <Route
-            path="/Acercadeti"
-            element={
-              isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />
-            }
-          />
-          <Route path="/formulario" element={<Formulario />} />
+          <Route path='/register' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/perfil' element={isAuthenticated ? <Mapa /> : <Navigate replace to="/login" />} />
+          <Route path='/datospersonales' element={isAuthenticated ? <DatosPersonal /> : <Navigate replace to="/login" />} />
+          <Route path='/perfileducacional' element={isAuthenticated ? <PerfilEducacion /> : <Navigate replace to="/login" />} />
+          <Route path='/perfilLaboral' element={isAuthenticated ? <PerfilLaboral /> : <Navigate replace to="/login" />} />
+          <Route path='/experiencia' element={isAuthenticated ? <Experiencia /> : <Navigate replace to="/login" />} />
+          <Route path='/Acercadeti' element={isAuthenticated ? <Acerca /> : <Navigate replace to="/login" />} />
+          <Route path='/formulario' element={isAuthenticated ? <Formulario /> : <Navigate replace to="/login" />} />
         </Routes>
       </BrowserRouter>
     </LoggedUserProvider>
