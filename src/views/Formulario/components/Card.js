@@ -2,7 +2,7 @@
 
 const Card = () => {
     return(
-        <div className="flex justify-center">
+        <div className="hidden md:flex md:justify-center">
             <div className="container h-[798px] w-[1200px] mx-auto bg-[#140B34E5] text-[#ffff] text-[20px] rounded-lg">
                 <div className="py-5 px-10 mx-12 mt-8 mb-10">
                     <h1 className="font-[600] text-[30px] py-5">

@@ -4,7 +4,7 @@ import { HomeIcon, UserIcon, ClipboardIcon, BriefcaseIcon, AcademicCapIcon, Docu
 export const SidebarData = [
 
   {
-    title: 'Home',
+    title: 'Inicio',
     path: '/perfil',
     icon: <HomeIcon />, 
     cName: 'nav-text'
