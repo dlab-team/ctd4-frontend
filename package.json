@@ -1,6 +1,7 @@
 {
   "name": "devsafio-web",
   "version": "0.1.0",
+  "homepage": "https://dlab-team.github.io/ctd4-frontend/",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.6.1",
