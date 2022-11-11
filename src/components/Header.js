@@ -7,7 +7,9 @@ export function Header() {
   return (<>
     <header className="flex items-center justify-between bg-[#2738F5] h-24 text-zinc-100">
       <div className="logo ml-24">
-        <img src={logo} alt="" className="w-44" />
+        <a href="http://localhost:3001/">
+          <img src={logo} alt=""/>
+        </a>
       </div>
 
       <nav className=" flex items-center gap-8 mr-24 text-xl">
