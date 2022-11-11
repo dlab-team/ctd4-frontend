@@ -1,0 +1,64 @@
+/* .labelFocus{
+    position: absolute;
+    left: 10px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 801;
+    font-family: Helvetica;
+    font-weight: bold;
+    top: 10px;
+    color: rgb(116, 115, 115);
+    font-size: 16px;
+    opacity: 1;
+    animation-fill-mode: forwards;
+}
+
+.labelBlur{
+    position: absolute;
+    left: 10px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 800;
+    font-family: Helvetica;
+    font-weight: bold;
+    top: -200px;
+    color: #4744e7;
+    font-size: 14px;
+    opacity: 1;
+    animation-fill-mode: forwards;
+}
+
+.label::before{
+    content: "";
+    height: 5px;
+    background: white;
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 100%;
+    z-index: 900;
+}
+
+.text-input{
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(116, 115, 115);
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    transition: all 0.3s;
+    color: rgb(63, 63, 63);
+}
+
+.text-input:focus{
+    border: 2px solid #4744e7;
+    z-index: 900;
+}
+
+.text-input:focus + .label, .label:focus{
+    top: -10px;
+    font-size: 14px;
+    color: #4744e7;
+    z-index: 900;
+} */
