@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/ctd4-frontend/static/css/main.dd030fa7.css",
+    "main.js": "/ctd4-frontend/static/js/main.84cd1d35.js",
+    "static/js/968.0b346026.chunk.js": "/ctd4-frontend/static/js/968.0b346026.chunk.js",
+    "static/media/imageLanding3.png": "/ctd4-frontend/static/media/imageLanding3.88ae17ab3664adada9c8.png",
+    "static/media/Development.png": "/ctd4-frontend/static/media/Development.3fd21921dec72b2d1d90.png",
+    "static/media/sprite.png": "/ctd4-frontend/static/media/sprite.49655601eaf4043c034d.png",
+    "static/media/imageForm.png": "/ctd4-frontend/static/media/imageForm.8c2d3be92e7291ffd2d0.png",
+    "static/media/Profile.jpg": "/ctd4-frontend/static/media/Profile.6657bace623efe2d960a.jpg",
+    "static/media/pablita-636 1.png": "/ctd4-frontend/static/media/pablita-636 1.b3323f5b19a1b808349c.png",
+    "static/media/pablita-girls-holding-hourglass 1.png": "/ctd4-frontend/static/media/pablita-girls-holding-hourglass 1.4af2ce9ff25ced00adf1.png",
+    "static/media/devSafio-logo.svg": "/ctd4-frontend/static/media/devSafio-logo.8be83059fb82622f73b66ce5fd171ff2.svg",
+    "static/media/pablita-people-holding-pieces-of-puzzle 1.png": "/ctd4-frontend/static/media/pablita-people-holding-pieces-of-puzzle 1.cec41e6098b94b60c90d.png",
+    "static/media/message.svg": "/ctd4-frontend/static/media/message.f9d81459748d243657f6709511ec3ea2.svg",
+    "static/media/clock.svg": "/ctd4-frontend/static/media/clock.d0a186c04eb6c305f7f0c32dae682501.svg",
+    "static/media/flag.svg": "/ctd4-frontend/static/media/flag.cba416129ad2cb814313593fbcda336d.svg",
+    "index.html": "/ctd4-frontend/index.html",
+    "main.dd030fa7.css.map": "/ctd4-frontend/static/css/main.dd030fa7.css.map",
+    "main.84cd1d35.js.map": "/ctd4-frontend/static/js/main.84cd1d35.js.map",
+    "968.0b346026.chunk.js.map": "/ctd4-frontend/static/js/968.0b346026.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd030fa7.css",
+    "static/js/main.84cd1d35.js"
+  ]
+}
