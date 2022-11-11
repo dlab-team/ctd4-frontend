@@ -14,7 +14,6 @@ export function Header() {
 
       <nav className=" flex items-center gap-8 mr-24 text-xl">
         <Link to="/login">Inicia sesión</Link>
-        <a href="">Administra la página</a>
         <Link to="/register" className="border-solid border-zinc-100 border py-4 px-4  rounded-md inline hover:opacity-80">Regístrate</Link>
         <Link to="" className="bg-zinc-100 py-4 px-4  rounded-md inline hover:opacity-80 text-[#2738F5]" >Contáctanos</Link>
       </nav>
