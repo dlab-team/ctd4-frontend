@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import * as FaIcons from 'react-icons/fa';
 // import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../Sidebar/Sidebar.css';
 // import { IconContext } from 'react-icons';
+import {activeItemSidebar} from './../../utils/activeItemSidebar'
 
 function Sidebar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  useEffect(() => {
+    activeItemSidebar()
+  }, [])
 
   return (
     <>
@@ -26,9 +31,9 @@ function Sidebar() {
                   <li key={index} className={item.cName}>
                     <Link to={item.path}>
                       <div className="w-14 md:w-5">
-                      {item.icon}
+                        {item.icon}
                       </div>
-                        <span className="hidden md:block md:text-[16px]">{item.title}</span>
+                      <span className="hidden md:block md:text-[16px]">{item.title}</span>
                     </Link>
                   </li>
                 );

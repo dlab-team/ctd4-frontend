@@ -169,8 +169,10 @@ export const SignUpForm = () => {
                   <div className="text-red-600">{errors.password}</div>
                 )}
               />
+              <div className="acordion">
+                  <p>La contraseña debe tener mayuscuylas y signo peso </p>
+              </div>
             </div>
-
             <div style={{ position: 'relative' }} className="my-4">
               <Field
                 type="password"

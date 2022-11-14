@@ -6,7 +6,6 @@ export function Footer() {
         <footer className="flex w-full bg-[#2738F5]">
             <div className="h-[120px]">
             </div>
-            
         </footer>
 
     );

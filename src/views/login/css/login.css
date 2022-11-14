@@ -93,3 +93,14 @@
 input{
     background: none;
 }
+
+.acordion{
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    transition: 0.5s;
+}
+
+#password:focus ~ .acordion{
+    height: 2em;
+}
