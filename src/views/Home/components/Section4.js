@@ -26,9 +26,9 @@ export function Section4() {
             </div>
           </div>
 
-          {/* formulario */}
+          {/* Formulario */}
 
-          <div className="bg-[#140B34] h-[1050px] w-[360px] md:w-[590px] rounded-2xl mx-auto md:mx-24">
+          <div className="bg-[#140B34] h-[1150px] w-[360px] md:w-[590px] rounded-2xl mx-auto md:mx-24">
             <div>
               <h1 className="mx-6 md:mx-14 my-10 text-center md:text-left font-[600] text-[20px] text-[#FFFFFF] mb-6">Si eres empresa y buscas talento TI, déjanos tu información en este formulario. En breve te contactaremos:</h1>
             </div>
@@ -97,7 +97,7 @@ export function Section4() {
             </div>
 
             {/* button */}
-            <div className="flex items-start mx-14 mt-10 mb-6">
+            <div className="flex items-start mx-28 mt-10 mb-6">
               <button className="h-[60px] w-[137px] bg-[#FFFFFF] hover:bg-gray-200 text-[#2738F5] text-[24px] font-bold py-2 px-4 rounded-3xl">ENVIAR</button>
             </div>
 
