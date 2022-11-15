@@ -102,5 +102,5 @@ input{
 }
 
 #password:focus ~ .acordion{
-    height: 2em;
+    height: 6em;
 }
