@@ -20,7 +20,7 @@ export const SidebarData = [
  
   {
     title: 'Test técnicos',
-    path: '',
+    path: '/test',
     icon: <AcademicCapIcon />,  
     cName: 'nav-text'
   }, 
