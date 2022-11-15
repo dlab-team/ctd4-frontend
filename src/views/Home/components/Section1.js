@@ -10,7 +10,7 @@ export function Section1() {
 
       <div className="bg-hero-gradient2 flex font-[Poppins]" >
         <div className="flex-col">
-          <h1 className=" text-7xl font-bold mt-20 ml-20">¿Buscas talento TI?</h1>
+          <h1 className="md:text-5xl md:text-7xl font-bold mt-20 md:mt-20 md:ml-20">¿Buscas talento TI?</h1>
 
           <div className="content flex">
             <div className="hero  mt-4 mb-[15rem] flex flex-col  items-start ml-24">
@@ -21,8 +21,8 @@ export function Section1() {
             </div>
 
 
-            <div className=" flex-col ">
-              <img src={heroImage} alt="" className='w-[98rem]  mt-[4rem] mb-8' />
+            <div className="hidden md:block flex-col ">
+              <img src={heroImage} alt="" className='w-[98rem] mt-[4rem] mb-8' />
             </div>
 
           </div>
