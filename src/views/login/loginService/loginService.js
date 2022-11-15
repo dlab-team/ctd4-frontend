@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 
 export const loginService = (values, setResponseFromBack, setLoading) => {
-  let url = process.env.REACT_APP_BACKEND_URL + '/login/';
+  let url ="http://localhost:3000" + '/login/';
   setTimeout(() => {
     axios
       .post(url, {

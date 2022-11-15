@@ -40,3 +40,20 @@
 span {
   margin-left: 16px;
 }
+
+.activeItemIcon{
+  background-color: orange;
+  padding: 3px;
+  color: white;
+  width: 35px;
+  height: 100%;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2), -5px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.backgroundActiveItem{
+  background-color: #008FF7;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
