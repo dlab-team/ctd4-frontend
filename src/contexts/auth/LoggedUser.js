@@ -1,21 +1,16 @@
-import {createContext, useContext, useState} from 'react';
+import {createContext, useState} from 'react';
 
-const LoggedUser = createContext();
+export const LoggedUser = createContext();
 
 export const LoggedUserProvider = ({children}) => {
 
-    const [loggedUser] = useState(
+    const [user] = useState(
         JSON.parse(localStorage.getItem("user")) ?? false
     );
 
     return(
-        <LoggedUser.Provider value={{loggedUser}}>
+        <LoggedUser.Provider value={{user}}>
             {children}
         </LoggedUser.Provider>
     )
-}
-
-//hook para consumir el estado con los datos del usuario
-export const useLoggedUser = () => {
-    return useContext(LoggedUser)
 }
