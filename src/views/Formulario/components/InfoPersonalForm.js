@@ -36,14 +36,30 @@ const InfoPersonalForm = () => {
       const datos = res.data;
       setCountries(datos);
     });
-    axios.get(process.env.REACT_APP_BACKEND_URL + '/cities').then((res) => {
-      const datos = res.data;
-      setCities(datos);
-    });
   }, []);
   const [charges, setCharges] = useState([]);
   const [countries, setCountries] = useState([]);
   const [cities, setCities] = useState([]);
+  const [countryId, setCountryId] = useState('')
+
+
+  const handleChangeSelect = (event) =>{
+    const getCountryId = (event.target.value)
+    setCountryId(getCountryId)
+  }
+
+
+  useEffect(()=>{
+    axios.get(process.env.REACT_APP_BACKEND_URL + '/cities').then((res) => {
+      const datos = res.data;
+      setCities(datos);
+      
+    });
+  },[countryId])
+ 
+  const resultadoFiltro = cities.filter(citi => citi.countryId == countryId)
+
+  
 
   return (
     <>
@@ -94,8 +110,8 @@ const InfoPersonalForm = () => {
             lastName: Yup.string().required('Obligatorio'),
             email: Yup.string().required('Obligatorio'),
             phone: Yup.string().required('Obligatorio'),
-            city: Yup.string().required('Obligatorio'),
-            country: Yup.string().required('Obligatorio'),
+            //city: Yup.string().required('Obligatorio'),
+            //country: Yup.string().required('Obligatorio'),
             gender: Yup.string().required('Obligatorio'),
             radio: Yup.string().required('Obligatorio'),
             // charges:Yup.required("Obligatorio"),
@@ -137,11 +153,11 @@ const InfoPersonalForm = () => {
               <TextInput name="lastName" label="Apellido" />
               <TextInput name="email" label="Email" value={user.email} />
               <TextInput name="phone" label="Número de teléfono móvil" />
-              <Select label="País" name="countries">
+              <Select label="País" name="countries" onChange={handleChangeSelect}>
                 <option value="">Seleccionar</option>
-                {countries.map((item, id) => {
+                {countries.map((item) => {
                   return (
-                    <option value={item.name} key={id}>
+                    <option value={item.id} key={item.id}>
                       {item.name}
                     </option>
                   );
@@ -150,7 +166,7 @@ const InfoPersonalForm = () => {
 
               <Select label="Ciudad" name="cities">
                 <option value="">Seleccionar</option>
-                {cities.map((item, id) => {
+                {resultadoFiltro.map((item, id) => {
                   return (
                     <option value={item.name} key={id}>
                       {item.name}
