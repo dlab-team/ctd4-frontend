@@ -17,6 +17,7 @@ import { LoggedUserProvider } from './contexts/auth/LoggedUser';
 import { Mapa } from './views/Mapa/Mapa';
 import Formulario from './views/Formulario/Formulario';
 import { TestTecnicos } from './views/TestTecnicos/TestTecnicos';
+import {RecoveryPass }   from './views/login/RecoveryPass';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const isAuthenticated = JSON.parse(window.localStorage.getItem('user'));
@@ -102,6 +103,7 @@ root.render(
               )
             }
           />
+          <Route path="/recovery-pass" element={<RecoveryPass/> } />
         </Routes>
       </BrowserRouter>
     </LoggedUserProvider>

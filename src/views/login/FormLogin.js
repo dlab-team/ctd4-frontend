@@ -82,6 +82,11 @@ export const FormLogin = ({request}) => {
               >
                 Iniciar Sesion
               </button>
+
+             
+              <div className="text-center mt-6 text-sm">
+                <a href="http://localhost:3001/recovery-pass">¿Olvidaste tu contraseña?</a>
+              </div>
             </Form>
           )}
       </Formik>
