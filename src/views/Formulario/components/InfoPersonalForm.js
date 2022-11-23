@@ -16,7 +16,7 @@ const InfoPersonalForm = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKEND_URL + '/user/', {
+      .get('http://localhost:3000/user/', {
         headers: {
           'Content-Type': 'Application/json',
           Authorization: `Bearer ${userToken.token}`,
@@ -27,12 +27,12 @@ const InfoPersonalForm = () => {
         setUser(datos);
       });
 
-    axios.get(process.env.REACT_APP_BACKEND_URL + '/charges').then((res) => {
+    axios.get('http://localhost:3000/charges').then((res) => {
       const datos = res.data;
       setCharges(datos);
     });
 
-    axios.get(process.env.REACT_APP_BACKEND_URL + '/countries').then((res) => {
+    axios.get('http://localhost:3000/countries').then((res) => {
       const datos = res.data;
       setCountries(datos);
     });
@@ -43,23 +43,23 @@ const InfoPersonalForm = () => {
   const [countryId, setCountryId] = useState('')
 
 
-  const handleChangeSelect = (event) =>{
+  const handleChangeSelect = (event) => {
     const getCountryId = (event.target.value)
     setCountryId(getCountryId)
   }
 
 
-  useEffect(()=>{
-    axios.get(process.env.REACT_APP_BACKEND_URL + '/cities').then((res) => {
+  useEffect(() => {
+    axios.get('http://localhost:3000/cities').then((res) => {
       const datos = res.data;
       setCities(datos);
-      
+
     });
-  },[countryId])
- 
+  }, [countryId])
+
   const resultadoFiltro = cities.filter(citi => citi.countryId == countryId)
 
-  
+
 
   return (
     <>

@@ -17,6 +17,7 @@ import { LoggedUserProvider } from './contexts/auth/LoggedUser';
 import { Mapa } from './views/Mapa/Mapa';
 import Formulario from './views/Formulario/Formulario';
 import { TestTecnicos } from './views/TestTecnicos/TestTecnicos';
+import { EditarPerfil } from './views/EditarPerfil/EditarPerfil';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const isAuthenticated = JSON.parse(window.localStorage.getItem('user'));
@@ -97,6 +98,16 @@ root.render(
             element={
               isAuthenticated ? (
                 <TestTecnicos />
+              ) : (
+                <Navigate replace to='/login' />
+              )
+            }
+          />
+          <Route
+            path='/editarperfil'
+            element={
+              isAuthenticated ? (
+                <EditarPerfil />
               ) : (
                 <Navigate replace to='/login' />
               )
