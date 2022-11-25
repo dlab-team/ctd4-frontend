@@ -84,13 +84,7 @@ root.render(
           />
           <Route
             path='/formulario'
-            element={
-              isAuthenticated ? (
-                <Formulario />
-              ) : (
-                <Navigate replace to='/login' />
-              )
-            }
+            element={ <Formulario />}
           />
           <Route
             path='/tests'
