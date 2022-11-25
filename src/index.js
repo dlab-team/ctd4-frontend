@@ -30,6 +30,8 @@ root.render(
           {/* <App /> */}
           <Route path='/register' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/formulario' element={<Formulario />} />
+          {/* <Route path='/formulario' element={ <Formulario />}/> */}
           <Route
             path='/perfil'
             element={
@@ -81,10 +83,6 @@ root.render(
             element={
               isAuthenticated ? <Acerca /> : <Navigate replace to='/login' />
             }
-          />
-          <Route
-            path='/formulario'
-            element={ <Formulario />}
           />
           <Route
             path='/tests'

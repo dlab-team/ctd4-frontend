@@ -42,7 +42,7 @@ export const SignUpForm = () => {
 
       <Formik
         initialValues={{
-          name: '',
+          fullname: '',
           email: '',
           password: '',
           re_password: '',
@@ -68,7 +68,7 @@ export const SignUpForm = () => {
           setTimeout(() => {
             axios
               .post(url, {
-                name: values.name,
+                fullname: values.fullname,
                 email: values.email,
                 password: values.password,
                 re_password: values.re_password,
@@ -91,8 +91,8 @@ export const SignUpForm = () => {
             <div style={{ position: 'relative' }} className="my-4">
               <Field
                 type="text"
-                id="name"
-                name="name"
+                id="fullname"
+                name="fullname"
                 className={`text-input ${
                   animationName.inputFocus && 'text-inputBlur'
                 }`}
@@ -101,17 +101,17 @@ export const SignUpForm = () => {
                 autocomplete="off"
               />
               <label
-                htmlFor="name"
+                htmlFor="fullname"
                 className={`${
                   animationName.inputFocus ? 'labelBlur' : 'labelFocus'
                 }`}
               >
-                Nombre
+                Nombre completo
               </label>
               <ErrorMessage
                 name="name"
                 component={() => (
-                  <div className="text-red-600">{errors.name}</div>
+                  <div className="text-red-600">{errors.fullname}</div>
                 )}
               />
             </div>

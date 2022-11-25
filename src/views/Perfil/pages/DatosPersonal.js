@@ -147,7 +147,7 @@ const DatosPersonal = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKEND_URL + '/user/', {
+      .get('http://localhost:3000' + '/user/', {
         headers: {
           'Content-Type': 'Application/json',
           Authorization: `Bearer ${userToken.token}`,
