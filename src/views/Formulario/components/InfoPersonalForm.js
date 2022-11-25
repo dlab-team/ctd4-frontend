@@ -11,22 +11,9 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const InfoPersonalForm = () => {
-  const userToken = JSON.parse(localStorage.getItem('user'));
-  const [user, setUser] = useState([]);
-
+ 
   useEffect(() => {
-    axios
-      .get(process.env.REACT_APP_BACKEND_URL + '/user/', {
-        headers: {
-          'Content-Type': 'Application/json',
-          Authorization: `Bearer ${userToken.token}`,
-        },
-      })
-      .then((res) => {
-        const datos = res.data;
-        setUser(datos);
-      });
-
+   
     axios.get(process.env.REACT_APP_BACKEND_URL + '/charges').then((res) => {
       const datos = res.data;
       setCharges(datos);
@@ -149,9 +136,9 @@ const InfoPersonalForm = () => {
         >
           <Form>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-10 ">
-              <TextInput name="name" label="Nombre" value={user.name} />
+              <TextInput name="name" label="Nombre"  />
               <TextInput name="lastName" label="Apellido" />
-              <TextInput name="email" label="Email" value={user.email} />
+              <TextInput name="email" label="Email"  />
               <TextInput name="phone" label="Número de teléfono móvil" />
               <Select label="País" name="countries" onChange={handleChangeSelect}>
                 <option value="">Seleccionar</option>
