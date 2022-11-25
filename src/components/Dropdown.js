@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Profile from '../assets/images/Profile.jpg';
 import {ShowResponseFromBack} from './../components/Alerts'
 import {closeSession} from './../utils/utils'
+import axios from 'axios';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -12,6 +13,24 @@ function classNames(...classes) {
 export default function Dropdown() {
 
   const [logOut, setLogOut] = useState(false);
+  
+  const userToken = JSON.parse(localStorage.getItem('user'));
+
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_BACKEND_URL + '/user/', {
+        headers: {
+          'Content-Type': 'Application/json',
+          Authorization: `Bearer ${userToken.token}`,
+        },
+      })
+      .then((res) => {
+        const datos = res.data;
+        setUser(datos);
+      });
+  }, []);
 
   return (
 
@@ -54,7 +73,7 @@ export default function Dropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-300' : 'text-gray-700', 'block px-4 py-2 text-sm font-medium')}>
-                  Camila05 en linea
+                   {user.status}
                   </a>
                   
                 )}
