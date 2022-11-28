@@ -4,10 +4,10 @@ import {loginService} from './loginService/loginService'
 import {FormSocialNetworks} from "./FormSocialNetwork"
 import { Navigate } from "react-router-dom";
 import {ShowResponseFromBack, Loading} from '../../components/Alerts'
-import {FormLogin} from './FormLogin';
+import {FormNewPassword} from './FormNewPassword';
 import { LoggedUser } from '../../contexts/auth/LoggedUser';
 
-export const Login = () => {
+export const NewPassword = () => {
 
     const [responseFromBack, setResponseFromBack] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -23,12 +23,11 @@ export const Login = () => {
         <>
             {!user ? 
                 <LoginUI 
-                    title={"Únete a Devsafío"}
-                    textAnimated={"Crea tu cuenta profesional en Devsafío para que seas parte de distintas ofertas laborales que tenemos junto a importantes empresas en latinoamérica"}
+                    title={"Reestablecer Contraseña"}
+                    textAnimated={"Ingresa la nueva contraseña"}
                 >
                     <div className="w-full">
-                        <FormLogin request={formRequest} />
-                        <FormSocialNetworks />
+                        <FormNewPassword request={formRequest} />
                     </div>
                 </LoginUI>
             :

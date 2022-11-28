@@ -1,13 +1,12 @@
 import {useState, useContext} from 'react';
 import {LoginUI} from './LoginUI';
-import {loginService} from './loginService/loginService'
-import {FormSocialNetworks} from "./FormSocialNetwork"
+import {loginServicePassword} from './loginService/loginServicePassword'
 import { Navigate } from "react-router-dom";
 import {ShowResponseFromBack, Loading} from '../../components/Alerts'
-import {FormLogin} from './FormLogin';
+import { FormForgotPasswordPage } from './FormForgotPasswordPage';
 import { LoggedUser } from '../../contexts/auth/LoggedUser';
 
-export const Login = () => {
+export const ForgotPasswordPage = () => {
 
     const [responseFromBack, setResponseFromBack] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -16,19 +15,18 @@ export const Login = () => {
 
     const formRequest = (values) => {
         setLoading(true);
-        loginService(values, setResponseFromBack, setLoading);
+        loginServicePassword(values, setResponseFromBack, setLoading);
     }
 
     return(
         <>
             {!user ? 
                 <LoginUI 
-                    title={"Únete a Devsafío"}
-                    textAnimated={"Crea tu cuenta profesional en Devsafío para que seas parte de distintas ofertas laborales que tenemos junto a importantes empresas en latinoamérica"}
+                    title={"Necesitas ayuda con tu contraseña?"}
+                    textAnimated={"Ingresa el correo que utilizas para Devsafio, y te ayudaremos a crear una nueva contraseña"}
                 >
                     <div className="w-full">
-                        <FormLogin request={formRequest} />
-                        <FormSocialNetworks />
+                        <FormForgotPasswordPage request={formRequest} />
                     </div>
                 </LoginUI>
             :
