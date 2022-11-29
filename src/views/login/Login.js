@@ -4,7 +4,7 @@ import {loginService} from './loginService/loginService'
 import {FormSocialNetworks} from "./FormSocialNetwork"
 import { Navigate } from "react-router-dom";
 import {ShowResponseFromBack, Loading} from '../../components/Alerts'
-import {FormLogin} from './FormLogin';
+import {FormLogin} from './FormLogin'
 import { LoggedUser } from '../../contexts/auth/LoggedUser';
 
 export const Login = () => {
