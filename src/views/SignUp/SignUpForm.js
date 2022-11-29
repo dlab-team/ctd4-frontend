@@ -169,7 +169,7 @@ export const SignUpForm = () => {
                   <div className="text-red-600">{errors.password}</div>
                 )}
               />
-              <div className="acordion">
+              <div className="acordion text-sm">
                   <p>La contraseña debe tener: </p>
                   <p>Mayusculas y minusculas</p>
                   <p>Un minimo de 8 caracteres</p>

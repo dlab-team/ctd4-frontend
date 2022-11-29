@@ -17,8 +17,7 @@ import { LoggedUserProvider } from './contexts/auth/LoggedUser';
 import { Mapa } from './views/Mapa/Mapa';
 import Formulario from './views/Formulario/Formulario';
 import { TestTecnicos } from './views/TestTecnicos/TestTecnicos';
-import { ForgotPasswordPage } from './views/login/ForgotPasswordPage';
-import { NewPassword } from './views/login/NewPassword';
+import  { RequestEmail } from './views/login/RequestEmail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const isAuthenticated = JSON.parse(window.localStorage.getItem('user'));
@@ -96,8 +95,7 @@ root.render(
               )
             }
           />
-          <Route path="/recovery-pass" element={<ForgotPasswordPage/> } />
-          <Route path="/new-password" element={<NewPassword/> } />
+          <Route path="/recovery-pass" element={<RequestEmail/>} />
         </Routes>
       </BrowserRouter>
     </LoggedUserProvider>
