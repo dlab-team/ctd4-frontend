@@ -86,7 +86,7 @@ export const FormLogin = ({request}) => {
 
              
               <div className="text-center mt-6 text-sm">
-                <Link to='/recovery-pass'>¿Olvidaste tu contraseña?</Link> 
+                <Link to='/recovery-password'>¿Olvidaste tu contraseña?</Link> 
               </div>
             </Form>
           )}

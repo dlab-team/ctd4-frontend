@@ -95,7 +95,7 @@ root.render(
               )
             }
           />
-          <Route path="/recovery-pass" element={<RequestEmail/>} />
+          <Route path="/recovery-password" element={<RequestEmail/>} />
         </Routes>
       </BrowserRouter>
     </LoggedUserProvider>

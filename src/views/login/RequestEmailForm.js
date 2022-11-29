@@ -23,7 +23,7 @@ export const RequestEmailForm = () => {
       {successMessage && (
         <ShowResponseFromBack>
           <p>{successMessage}</p>
-          <button onClick={() => setResponseFromBack(false)}>Entendido</button>
+          <button onClick={() => navigate('/login', { replace: true })}>Entendido</button>
         </ShowResponseFromBack>
       )}
 
