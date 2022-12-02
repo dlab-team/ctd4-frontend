@@ -8,6 +8,7 @@ import Profile from '../../assets/images/Profile.jpg';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Modal } from './Modal';
+import FormModal from './FormModal';
 
 //import ListBox1 from '../../../components/ListBox1';
 
@@ -181,7 +182,7 @@ export const EditarPerfil = () => {
                 Completa tu perfil!
               </h1>
               <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
-                <h3>modal title</h3>
+                <FormModal />
               </Modal>
             </div>
 
