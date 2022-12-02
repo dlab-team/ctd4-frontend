@@ -16,10 +16,10 @@ export function DropdownBurguer() {
       <Menu as='div' className='relative inline-block text-left mr-6'>
         <div>
           <Menu.Button className='inline-flex w-full justify-center rounded-md bg-zinc-100 py-4 px-4  rounded-md inline  hover:opacity-80'>
-            <div class='space-y-2'>
-              <div class='w-6 h-0.5 bg-[#2738F5] opacity-80'></div>
-              <div class='w-6 h-0.5 bg-[#2738F5] opacity-80'></div>
-              <div class='w-6 h-0.5 bg-[#2738F5] opacity-80'></div>
+            <div className='space-y-2'>
+              <div className='w-6 h-0.5 bg-[#2738F5] opacity-80'></div>
+              <div className='w-6 h-0.5 bg-[#2738F5] opacity-80'></div>
+              <div className='w-6 h-0.5 bg-[#2738F5] opacity-80'></div>
             </div>
           </Menu.Button>
         </div>
