@@ -10,7 +10,9 @@ export const loginService = (values, setResponseFromBack, setLoading) => {
       })
       .then(function (response) {
         if (response.data) {
-         ;
+          window.localStorage.setItem('user', JSON.stringify(response.data));
+          setLoading(false);
+          window.location.reload();
         }
       })
       .catch(function (error) {

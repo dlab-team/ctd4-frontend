@@ -1,6 +1,6 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-import { useAnimationInput } from '../login/hooks/useAnimationInput';
+import { useAnimationInput } from './hooks/useAnimationInput';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { ShowResponseFromBack, Loading } from '../../components/Alerts';
@@ -10,15 +10,15 @@ export const RequestEmailForm = () => {
   const animationEmail = useAnimationInput();
   const navigate = useNavigate();
 
-  const [ErrorMessage, setErrorMessage] = useState(null);
+  // const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
-  const [loadingPass, setLoadingPass] = useState(false);
+  const [loadingEmail, setLoadingEmail] = useState(false);
   const [responseFromBack, setResponseFromBack] = useState(null);
 
   return (
     <>
 
-    {loadingPass && <Loading />}
+    {loadingEmail&& <Loading />}
 
       {successMessage && (
         <ShowResponseFromBack>
@@ -27,12 +27,10 @@ export const RequestEmailForm = () => {
         </ShowResponseFromBack>
       )}
 
-      {ErrorMessage && (
+      {responseFromBack && (
         <ShowResponseFromBack>
-          <p>{ErrorMessage}</p>
-          <button onClick={() => setResponseFromBack(null)}>
-            Volver a intentar
-          </button>
+          <p>{responseFromBack}</p>
+          <button onClick={() => setResponseFromBack(false)}>Volver a intentarlo</button>
         </ShowResponseFromBack>
       )}
 
@@ -46,7 +44,7 @@ export const RequestEmailForm = () => {
             .required('El email es obligatorio'),
         })}
         onSubmit={(values) => {
-          setLoadingPass(true);
+          setLoadingEmail(true);
           let url = process.env.REACT_APP_BACKEND_URL + '/recovery-password';
           setTimeout(() => {
             axios
@@ -55,15 +53,16 @@ export const RequestEmailForm = () => {
               })
               .then(function (response) {
                 if (response.data) {
-                  setLoadingPass(false);
+                  setLoadingEmail(false);
                   if (response.data) {
-                    setSuccessMessage('Se ha enviado un correo electrónico de confirmación a su correo electrónico');
+                    setSuccessMessage('Hemos enviado un enlace a tu correo electrónico para que recuperes el acceso a tu cuenta');
                   }
                 }
               })
               .catch(function (error) {
-                setLoadingPass(false);
-                setErrorMessage('Usuario inválido, no registrado');
+                setLoadingEmail(false);
+                setResponseFromBack('Usuario inválido ó no registrado');
+
                 
               });
           }, 1500);
@@ -105,7 +104,7 @@ export const RequestEmailForm = () => {
               type="submit"
               className="block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
             >
-              Enviar Enlace
+              Enviar enlace de acceso
             </button>
           </Form>
         )}
