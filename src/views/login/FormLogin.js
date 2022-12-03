@@ -2,6 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useAnimationInput } from './hooks/useAnimationInput';
 import './css/login.css';
+import { Link } from 'react-router-dom';
 
 
 export const FormLogin = ({request}) => {
@@ -82,6 +83,9 @@ export const FormLogin = ({request}) => {
               >
                 Iniciar Sesion
               </button>
+              <div className="text-center mt-6 text-sm">
+                <Link to='/recovery-password'>¿Olvidaste tu contraseña?</Link> 
+              </div>
             </Form>
           )}
       </Formik>
