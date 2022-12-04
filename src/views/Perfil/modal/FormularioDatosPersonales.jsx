@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const initialValues = {
@@ -12,6 +13,8 @@ const initialValues = {
 export const FormularioDatosPersonales = ({ user, setShowModal }) => {
   const userToken = JSON.parse(localStorage.getItem('user'));
 
+  console.log(user);
+
   const onSubmit = (values) => {
     console.log(userToken.token);
     const actualizarPerfilData = {
@@ -21,7 +24,11 @@ export const FormularioDatosPersonales = ({ user, setShowModal }) => {
       },
       body: JSON.stringify({
         user: {
+          email: user.email,
           fullname: values.fullname,
+          phoneNumber: '8906455663',
+
+          workProfile: {},
         },
       }),
       method: 'PUT',
@@ -34,7 +41,7 @@ export const FormularioDatosPersonales = ({ user, setShowModal }) => {
     setShowModal(false);
   };
 
-  let url = process.env.REACT_APP_BACKEND_URL + '/user/update';
+  let url = process.env.REACT_APP_BACKEND_URL + `/user/${user.id}`;
 
   const ActualizarPerfil = (data) => {
     fetch(url, data)
