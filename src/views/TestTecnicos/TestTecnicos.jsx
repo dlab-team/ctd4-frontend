@@ -31,7 +31,11 @@ export function TestTecnicos() {
               Tip: Si temes fallar un test, no te preocupes. Puedes volver a
               realizarlo luego de 3 meses.
             </p>
+            <div className="flex justify-between">
             <h3 className='text-xl font-semibold mt-6'>Habilidades</h3>
+            <button className='btn '>Agregar Tag</button>
+            </div>
+            
             <input
               type='text'
               className=' bg-[#E2F2FE] border border-zinc-300 mt-4 w-[36rem] h-[2.8rem] rounded-lg p-4'
