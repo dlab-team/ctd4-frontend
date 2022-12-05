@@ -10,13 +10,12 @@ const initialValues = {
   github: '',
 };
 
-export const FormularioDatosPersonales = ({ user, setShowModal }) => {
+export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
   const userToken = JSON.parse(localStorage.getItem('user'));
 
-  console.log(user);
+  // console.log(user);
 
   const onSubmit = (values) => {
-    console.log(userToken.token);
     const actualizarPerfilData = {
       headers: {
         'Content-Type': 'Application/json',
@@ -36,9 +35,9 @@ export const FormularioDatosPersonales = ({ user, setShowModal }) => {
 
     ActualizarPerfil(actualizarPerfilData);
 
-    console.log(values.fullname);
-
     setShowModal(false);
+
+    getUserData();
   };
 
   let url = process.env.REACT_APP_BACKEND_URL + `/user/${user.id}`;
@@ -49,7 +48,25 @@ export const FormularioDatosPersonales = ({ user, setShowModal }) => {
         return response.json();
       })
       .then(function (myJson) {
+        // console.log(myJson);
+      });
+  };
+
+  const getUserData = () => {
+    let getDataUrl = process.env.REACT_APP_BACKEND_URL + '/user';
+
+    fetch(getDataUrl, {
+      headers: {
+        'Content-Type': 'Application/json',
+        Authorization: `Bearer ${userToken.token}`,
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
         console.log(myJson);
+        setUser(myJson);
       });
   };
 

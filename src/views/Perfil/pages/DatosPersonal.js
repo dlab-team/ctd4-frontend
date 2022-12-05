@@ -26,10 +26,11 @@ const DatosPersonal = () => {
 
   const [user, setUser] = useState({});
   const [showModal, setShowModal] = useState(false);
+  let url = process.env.REACT_APP_BACKEND_URL + '/user';
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/user/', {
+      .get(url, {
         headers: {
           'Content-Type': 'Application/json',
           Authorization: `Bearer ${userToken.token}`,
@@ -38,9 +39,9 @@ const DatosPersonal = () => {
       .then((res) => {
         const datos = res.data;
         setUser(datos);
-        console.log(datos.City);
+        // console.log(datos.City);
       });
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -48,7 +49,11 @@ const DatosPersonal = () => {
         isVisible={showModal}
         onClose={() => setShowModal(false)}
       >
-        <FormularioDatosPersonales user={user} setShowModal={setShowModal} />
+        <FormularioDatosPersonales
+          user={user}
+          setShowModal={setShowModal}
+          setUser={setUser}
+        />
       </EditarDatosPersonalesModal>
 
       {/* <Header /> */}
