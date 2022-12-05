@@ -1,14 +1,36 @@
 import { Footer } from '../../components/Footer';
+import { useState, useEffect } from 'react';
 import NavPerfil from '../../components/perfil/NavPerfil';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import javascriptLogo from '../../assets/images/javascript-logo.png';
 import htmlLogo from '../../assets/images/htmlLogo.png';
 import androidLogo from '../../assets/images/androidLogo.png';
 import azureLogo from '../../assets/images/azureLogo.png';
+import ModalSkills from './Modal/ModalSkills';
+import FormModalSkills from './Modal/FormModalSkills';
+import axios from 'axios';
+
 
 export function TestTecnicos() {
+
+  const [showModal, setShowModal ] = useState(false);
+  const [tag, setTag] = useState([]);
+
+  useEffect(()=> {
+    axios.get(process.env.REACT_APP_BACKEND_URL + '/labels').then((res) => {
+      const datos = res.data;
+      setTag(datos);
+    });
+  },[])
+
+
   return (
     <>
+    <ModalSkills
+    isVisible={showModal} onClose={() => setShowModal(false)}
+    >
+      <FormModalSkills />
+    </ModalSkills>
       <div className='flex flex-col'>
         <NavPerfil />
         <div className='flex'>
@@ -33,7 +55,7 @@ export function TestTecnicos() {
             </p>
             <div className="flex justify-between">
             <h3 className='text-xl font-semibold mt-6'>Habilidades</h3>
-            <button className='btn '>Agregar Tag</button>
+            <button onClick={() => setShowModal(true)} className='btn '>Agregar Tag</button>
             </div>
             
             <input
@@ -47,66 +69,15 @@ export function TestTecnicos() {
                 {' '}
                 Todos{' '}
               </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
+              
                 {' '}
-                Skill-based{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Backend{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Containers{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Data engineering{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Database{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                DevOps{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Hybrid mobile{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Infrastructure{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Java{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Microsoft{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Mobile{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Other{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                PHP{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                Python{' '}
-              </button>
-              <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'>
-                {' '}
-                React{' '}
-              </button>
+                {tag.map((item, id)=>{
+                  return(
+                    <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100' key={id}>
+                        {item.name}
+                    </button>
+                  )
+                })}{' '}
             </div>
 
             <div className='cards mt-12 mb-24 flex gap-4'>
