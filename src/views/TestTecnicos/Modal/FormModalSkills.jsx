@@ -8,11 +8,11 @@ const FormModalSkills = () => {
     const [skills, SetSkills] = useState([]);
 
     useEffect(()=>{
-        axios.get(process.env.REACT_APP_BACKEND_URL + '/skills').then((res) => {
+        axios.get(process.env.REACT_APP_BACKEND_URL + '/labels').then((res) => {
             const datos = res.data;
             SetSkills(datos);
           });
-    },[])
+    },[skills])
 
     return(
         <>

@@ -20,8 +20,30 @@ export function TestTecnicos() {
     axios.get(process.env.REACT_APP_BACKEND_URL + '/labels').then((res) => {
       const datos = res.data;
       setTag(datos);
-    });
-  },[])
+    }); 
+  },[tag])
+
+
+  const onClickDelete = (id) =>{
+
+    if(id){
+      console.log(`Eliminando ${id}`)
+    }
+    const urlDelete = `http://localhost:3000/labels/${id}`
+      axios.delete(urlDelete)
+      .then((response)=>{
+        const res = response.data
+        if (res.success) {
+          alert(res.message)
+          const list = this.state.tag
+          list.splice(id,1)
+          this.setState({tag:list})
+        }
+      })
+      .catch(error=>{
+        alert("Error ==> "+error)
+      })
+  }
 
 
   return (
@@ -73,7 +95,7 @@ export function TestTecnicos() {
                 {' '}
                 {tag.map((item, id)=>{
                   return(
-                    <button className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100' key={id}>
+                    <button onClick={()=> onClickDelete(item.id)}   className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100' key={id}>
                         {item.name}
                     </button>
                   )
