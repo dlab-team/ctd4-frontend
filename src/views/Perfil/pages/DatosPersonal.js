@@ -115,8 +115,26 @@ const DatosPersonal = () => {
                   </span>
                 </div>
                 <div className='flex'></div>
-                <button>Github</button>
-                <button>Linkedin</button>
+
+                {user.WorkProfile ? (
+                  <a href={user.WorkProfile.urlGithub} target='_blank'>
+                    Github
+                  </a>
+                ) : (
+                  <a href='https://github.com/' target='_blank'>
+                    Github
+                  </a>
+                )}
+
+                {user.WorkProfile ? (
+                  <a href={user.WorkProfile.urlLinkedin} target='_blank'>
+                    Linkedin
+                  </a>
+                ) : (
+                  <a href='https://github.com/' target='_blank'>
+                    Linkedin
+                  </a>
+                )}
               </div>
             </div>
 
@@ -128,9 +146,17 @@ const DatosPersonal = () => {
               <div className='flex'>
                 <div className='mr-14'>
                   <p className='font-semibold text-start md:text-right'>
-                    1 a 3 años de experiencia
+                    {user.WorkProfile
+                      ? `${user.WorkProfile.yearsExperience} `
+                      : ' 1 a 3 '}
+                    años de experiencia
                   </p>
-                  <p>Nivel ingés avanzado</p>
+
+                  {user.WorkProfile ? (
+                    <p>Nivel inglés {user.WorkProfile.levelEnglish}</p>
+                  ) : (
+                    <p>Nivel inglés avanzado</p>
+                  )}
                 </div>
                 <button>{pencil}</button>
               </div>
@@ -144,7 +170,9 @@ const DatosPersonal = () => {
               <div className='flex'>
                 <div className='mr-14'>
                   <p className='font-semibold text-start md:text-right'>
-                    Full time
+                    {user.WorkProfile
+                      ? user.WorkProfile.availability
+                      : 'Fulltime'}
                   </p>
                   <p>Disponibilidad inmediata</p>
                 </div>

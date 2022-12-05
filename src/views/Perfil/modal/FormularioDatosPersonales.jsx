@@ -25,9 +25,24 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
         user: {
           email: user.email,
           fullname: values.fullname,
-          phoneNumber: '8906455663',
+          phoneNumber: values.phoneNumber,
 
-          workProfile: {},
+          workProfile: {
+            idealJobComment: null,
+            featureProyect: null,
+            activeVisa: null,
+            currentJobSituation: null,
+            yearsExperience: 5,
+            dreamJobComment: null,
+            urlLinkedin: values.linkedin,
+            urlGithub: values.github,
+            urlWebsite: null,
+            urlCv: null,
+            levelEnglish: 'Ninguno',
+            employmentStatus: null,
+            availability: null,
+            softSkills: null,
+          },
         },
       }),
       method: 'PUT',
@@ -38,6 +53,7 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
     setShowModal(false);
 
     getUserData();
+    console.log(values);
   };
 
   let url = process.env.REACT_APP_BACKEND_URL + `/user/${user.id}`;
