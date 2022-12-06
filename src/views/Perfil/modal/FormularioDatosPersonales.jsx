@@ -107,7 +107,6 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
               id='fullname'
               className='text-input bg-[#E2F2FE] W-48 border border-sky-800 mt-2 '
               placeholder={user.fullname}
-              value={user.fullname}
             />
           </div>
           <div className='px-10 py-5 h-20 W-48 text-[20px] text-[#140B34]'>
