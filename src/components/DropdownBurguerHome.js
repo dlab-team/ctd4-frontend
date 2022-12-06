@@ -42,7 +42,7 @@ export function DropdownBurguerHome() {
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <a href="/formulario" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base')}>
+                  <a href="/register" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base')}>
                     Regístrate
                   </a>
                 )}

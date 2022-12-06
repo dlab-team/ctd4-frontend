@@ -1,7 +1,8 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import {ShowResponseFromBack} from './../components/Alerts'
 import {closeSession} from './../utils/utils'
+import axios from 'axios';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -10,6 +11,24 @@ function classNames(...classes) {
 export function DropdownBurguer() {
 
   const [logOut, setLogOut] = useState(false);
+
+  const userToken = JSON.parse(localStorage.getItem('user'));
+
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_BACKEND_URL + '/user/', {
+        headers: {
+          'Content-Type': 'Application/json',
+          Authorization: `Bearer ${userToken.token}`,
+        },
+      })
+      .then((res) => {
+        const datos = res.data;
+        setUser(datos);
+      });
+  }, []);
 
   return (
 
@@ -37,10 +56,10 @@ export function DropdownBurguer() {
         >
           <Menu.Items className="absolute right-1 z-10  mt-1 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="py-1">
-              <Menu.Item>
+            <Menu.Item>
                 {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-300' : 'text-gray-700', 'block px-4 py-2 text-sm font-medium')}>
-                  Camila05 en linea
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-300' : 'text-gray-700', 'block px-4 py-2 text-base md:text-sm font-semibold text-blue-700')}>
+                   {user.fullname} {user.status}
                   </a>
                   
                 )}
@@ -49,37 +68,47 @@ export function DropdownBurguer() {
             <div className="py-1">
             <Menu.Item>
                 {({ active }) => (
-                  <a href="/perfil" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                  <a href="/perfil" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Inicio
                   </a>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <a href="/formulario" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
-                    Editar perfil
+                  <a href="/datospersonales" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
+                   Perfil
                   </a>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                  <a href="/tests" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
+                  Tests técnicos
+                  </a>
+                )}
+              </Menu.Item>
+              </div>
+              <div className="py-1">
+              <Menu.Item>
+                {({ active }) => (
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Ayuda
                   </a>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Configuración
                   </a>
                 )}
               </Menu.Item>
-            </div>
+              </div>
+            
             <div className="py-1">
               <Menu.Item>
                 {({ active }) => (
-                  <a href="#" onClick={() => setLogOut(true)} className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                  <a href="#" onClick={() => setLogOut(true)} className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Cerrar Sesion
                   </a>
                 )}
