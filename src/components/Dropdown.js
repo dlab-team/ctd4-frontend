@@ -63,6 +63,56 @@ export default function Dropdown() {
           as='div'
           className='md:relative md:inline-block md:text-left hidden'
         >
+          <Menu.Items className="absolute right-6 z-10 -mt-8 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="py-1">
+              <Menu.Item>
+                {({ active }) => (
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-300' : 'text-gray-700', 'block px-4 py-2 text-sm font-semibold text-blue-700')}>
+                   {user.fullname} {user.status}
+                  </a>
+                  
+                )}
+              </Menu.Item>
+            </div>
+            <div className="py-1">
+            <Menu.Item>
+                {({ active }) => (
+                  <a href="/perfil" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                    Inicio
+                  </a>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                    Ayuda
+                  </a>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                    Configuración
+                  </a>
+                )}
+              </Menu.Item>
+            </div>
+            <div className="py-1">
+              <Menu.Item>
+                {({ active }) => (
+                  <a href="#" onClick={() => setLogOut(true)} className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
+                    Cerrar Sesion
+                  </a>
+                )}
+
+              </Menu.Item>
+            </div>
+          </Menu.Items>
+        </Transition>
+      </Menu>
+      { logOut && 
+        <ShowResponseFromBack>
+          <p>¿Seguro que desea cerrar su sesion?</p>
           <div>
             <Menu.Button className='inline-flex  text-base font-medium text-gray-700'>
               <div className='mt-10 flex rounded-full outline-none ring-1 ring-offset-1 ring-gray-500 rounded-full hover:opacity-80'>

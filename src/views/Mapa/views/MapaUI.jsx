@@ -9,12 +9,12 @@ export const MapaUI = ({children}) => {
             <NavPerfil />
             <div className="flex">
                 <Sidebar />
-                <div className="w-[70%]">
+                <div className="md:w-[70%]">
                     <div className="px-20 my-10">
-                        <h2 className="text-[32px] font-[600]">¡Bienvenido!</h2>
+                        <h2 className="ml-4 md:ml-0 text-[32px] font-[600]">¡Bienvenido!</h2>
                     </div>
                     <div className="px-20 mb-10">
-                        <p className="text-[24px] font-[500]">Mapa para recibir ofertas automaticas</p>
+                        <p className="text-center md:text-start text-[24px] font-[500]">Mapa para recibir ofertas automaticas</p>
                     </div>
                     <div className="flex px-20 justify-between max-lg:justify-center flex-wrap">
                         {children}

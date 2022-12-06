@@ -66,13 +66,13 @@ const DatosPersonal = () => {
       <NavPerfil />
 
       {/* sidebar */}
-
-      <div className='flex'>
+      
+      <div className="flex mx-10 mb-6">
         <Sidebar />
 
-        <div className='container mt-10 px-3 md:px-12'>
-          <div className='row'>
-            <div className='flex justify-center md:justify-start'>
+        <div className="container mt-10 px-3 md:px-12 place-content-center justify-center">
+          <div className="row">
+            <div className="flex justify-center md:justify-start">
               <Bienvenido />
             </div>
 
@@ -220,10 +220,10 @@ const DatosPersonal = () => {
               <div className='flex my-5'>
                 Experimentado
                 <div>
-                  <span className='mx-10 border py-1 px-1 border-sky-700 rounded-md'>
+                  <span className="border py-1 px-1 border-sky-700 rounded-md">
                     CSS
                   </span>
-                  <span className='mx-10 border py-1 px-1 border-sky-700 rounded-md'>
+                  <span className="border py-1 px-1 border-sky-700 rounded-md">
                     JavaScript
                   </span>
                 </div>
@@ -231,7 +231,7 @@ const DatosPersonal = () => {
 
               <div className='flex my-5'>
                 Principiante
-                <span className='mx-10 border py-1 px-1 border-sky-700 rounded-md'>
+                <span className="border py-1 px-1 border-sky-700 rounded-md">
                   Angular
                 </span>
               </div>

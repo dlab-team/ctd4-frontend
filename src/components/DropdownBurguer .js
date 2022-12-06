@@ -1,8 +1,8 @@
-import { Fragment, useState } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import { ShowResponseFromBack } from './../components/Alerts';
-import { closeSession } from './../utils/utils';
-import { Link } from 'react-router-dom';
+import { Fragment, useState, useEffect } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import {ShowResponseFromBack} from './../components/Alerts'
+import {closeSession} from './../utils/utils'
+import axios from 'axios';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -10,6 +10,24 @@ function classNames(...classes) {
 
 export function DropdownBurguer() {
   const [logOut, setLogOut] = useState(false);
+
+  const userToken = JSON.parse(localStorage.getItem('user'));
+
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_BACKEND_URL + '/user/', {
+        headers: {
+          'Content-Type': 'Application/json',
+          Authorization: `Bearer ${userToken.token}`,
+        },
+      })
+      .then((res) => {
+        const datos = res.data;
+        setUser(datos);
+      });
+  }, []);
 
   return (
     <>
@@ -33,89 +51,62 @@ export function DropdownBurguer() {
           leaveFrom='transform opacity-100 scale-100'
           leaveTo='transform opacity-0 scale-95'
         >
-          <Menu.Items className='absolute right-1 z-10  mt-1 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-            <div className='py-1'>
-              <Menu.Item>
+          <Menu.Items className="absolute right-1 z-10  mt-1 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="py-1">
+            <Menu.Item>
                 {({ active }) => (
-                  <Link
-                    to='#'
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-300' : 'text-gray-700',
-                      'block px-4 py-2 text-sm font-medium'
-                    )}
-                  >
-                    Camila05 en linea
-                  </Link>
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-300' : 'text-gray-700', 'block px-4 py-2 text-base md:text-sm font-semibold text-blue-700')}>
+                   {user.fullname} {user.status}
+                  </a>
                 )}
               </Menu.Item>
             </div>
             <div className='py-1'>
               <Menu.Item>
                 {({ active }) => (
-                  <Link
-                    to='/perfil'
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
+                  <a href="/perfil" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Inicio
-                  </Link>
+                  </a>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <Link
-                    to='/editarperfil'
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
-                    {/* Editar perfil */} Meu ovo
-                  </Link>
+                  <a href="/datospersonales" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
+                   Perfil
+                  </a>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <Link
-                    to='#'
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
+                  <a href="/tests" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
+                  Tests técnicos
+                  </a>
+                )}
+              </Menu.Item>
+              </div>
+              <div className="py-1">
+              <Menu.Item>
+                {({ active }) => (
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Ayuda
-                  </Link>
+                  </a>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <Link
-                    to='#'
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
+                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Configuración
-                  </Link>
+                  </a>
                 )}
               </Menu.Item>
-            </div>
-            <div className='py-1'>
+             </div>
+            
+            <div className="py-1">
               <Menu.Item>
                 {({ active }) => (
-                  <Link
-                    to='#'
-                    onClick={() => setLogOut(true)}
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
+                  <a href="#" onClick={() => setLogOut(true)} className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-base md:text-sm')}>
                     Cerrar Sesion
-                  </Link>
+                  </a>
                 )}
               </Menu.Item>
             </div>
