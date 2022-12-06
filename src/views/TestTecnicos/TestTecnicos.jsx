@@ -15,6 +15,7 @@ export function TestTecnicos() {
 
   const [showModal, setShowModal ] = useState(false);
   const [tag, setTag] = useState([]);
+  const [newItem, setNewItem] = useState("");
 
   useEffect(()=> {
     axios.get(process.env.REACT_APP_BACKEND_URL + '/labels').then((res) => {
@@ -23,21 +24,18 @@ export function TestTecnicos() {
     }); 
   },[tag])
 
+  
 
   const onClickDelete = (id) =>{
 
-    if(id){
-      console.log(`Eliminando ${id}`)
-    }
     const urlDelete = `http://localhost:3000/labels/${id}`
       axios.delete(urlDelete)
       .then((response)=>{
         const res = response.data
         if (res.success) {
-          alert(res.message)
-          const list = this.state.tag
-          list.splice(id,1)
-          this.setState({tag:list})
+          const newItems = [...tag]
+          newItems.splice(id,1)
+          setTag(newItems)
         }
       })
       .catch(error=>{
@@ -93,11 +91,19 @@ export function TestTecnicos() {
               </button>
               
                 {' '}
-                {tag.map((item, id)=>{
+                {tag.map((item, i)=>{
                   return(
-                    <button onClick={()=> onClickDelete(item.id)}   className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100' key={id}>
-                        {item.name}
-                    </button>
+                    <>
+                    <div className="flex flex-row">
+                      <span className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100' key={i}>
+                          {item.name}
+                      </span>
+                      <button onClick={()=> onClickDelete(item.id)}   className=' hover:visible text-transparent hover:text-[#1E1E1E] hover:bg-white hover:transition-all rounded-xl 
+                      ' key={i}>
+                          X
+                      </button>
+                    </div>
+                    </>
                   )
                 })}{' '}
             </div>

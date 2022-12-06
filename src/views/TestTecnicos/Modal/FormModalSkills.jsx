@@ -5,14 +5,14 @@ import axios from "axios"
 
 const FormModalSkills = () => {
 
-    const [skills, SetSkills] = useState([]);
+    const [tag, setTag] = useState([]);
 
     useEffect(()=>{
         axios.get(process.env.REACT_APP_BACKEND_URL + '/labels').then((res) => {
             const datos = res.data;
-            SetSkills(datos);
+            setTag(datos);
           });
-    },[skills])
+    },[tag])
 
     return(
         <>
