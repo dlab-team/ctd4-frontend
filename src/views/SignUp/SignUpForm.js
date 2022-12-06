@@ -87,21 +87,21 @@ export const SignUpForm = () => {
         }}
       >
         {({ errors }) => (
-          <Form className="w-full md:px-10 rounded-xl border-1 border-zinc-300/60">
-            <div style={{ position: 'relative' }} className="my-4">
+          <Form className='w-full md:px-10 rounded-xl border-1 border-zinc-300/60'>
+            <div style={{ position: 'relative' }} className='my-4'>
               <Field
-                type="text"
-                id="fullname"
-                name="fullname"
+                type='text'
+                id='fullname'
+                name='fullname'
                 className={`text-input ${
                   animationName.inputFocus && 'text-inputBlur'
                 }`}
                 onFocus={() => animationName.focusAnimation()}
                 onBlur={(e) => animationName.blurAnimation(e)}
-                autocomplete="off"
+                autocomplete='off'
               />
               <label
-                htmlFor="fullname"
+                htmlFor='fullname'
                 className={`${
                   animationName.inputFocus ? 'labelBlur' : 'labelFocus'
                 }`}
@@ -109,27 +109,27 @@ export const SignUpForm = () => {
                 Nombre completo
               </label>
               <ErrorMessage
-                name="name"
+                name='name'
                 component={() => (
-                  <div className="text-red-600">{errors.fullname}</div>
+                  <div className='text-red-600'>{errors.fullname}</div>
                 )}
               />
             </div>
 
-            <div style={{ position: 'relative' }} className="my-4">
+            <div style={{ position: 'relative' }} className='my-4'>
               <Field
-                type="text"
-                id="email"
-                name="email"
+                type='text'
+                id='email'
+                name='email'
                 className={`text-input ${
                   animationEmail.inputFocus && 'text-inputBlur'
                 }`}
                 onFocus={() => animationEmail.focusAnimation()}
                 onBlur={(e) => animationEmail.blurAnimation(e)}
-                autocomplete="off"
+                autocomplete='off'
               />
               <label
-                htmlFor="email"
+                htmlFor='email'
                 className={`${
                   animationEmail.inputFocus ? 'labelBlur' : 'labelFocus'
                 }`}
@@ -137,18 +137,18 @@ export const SignUpForm = () => {
                 Email
               </label>
               <ErrorMessage
-                name="email"
+                name='email'
                 component={() => (
-                  <div className="text-red-600">{errors.email}</div>
+                  <div className='text-red-600'>{errors.email}</div>
                 )}
               />
             </div>
 
-            <div style={{ position: 'relative' }} className="my-4">
+            <div style={{ position: 'relative' }} className='my-4'>
               <Field
-                type="password"
-                id="password"
-                name="password"
+                type='password'
+                id='password'
+                name='password'
                 className={`text-input ${
                   animationPassword.inputFocus && 'text-inputBlur'
                 }`}
@@ -156,7 +156,7 @@ export const SignUpForm = () => {
                 onBlur={(e) => animationPassword.blurAnimation(e)}
               />
               <label
-                htmlFor="password"
+                htmlFor='password'
                 className={`${
                   animationPassword.inputFocus ? 'labelBlur' : 'labelFocus'
                 }`}
@@ -164,23 +164,23 @@ export const SignUpForm = () => {
                 Contraseña
               </label>
               <ErrorMessage
-                name="password"
+                name='password'
                 component={() => (
-                  <div className="text-red-600">{errors.password}</div>
+                  <div className='text-red-600'>{errors.password}</div>
                 )}
               />
-              <div className="acordion">
-                  <p>La contraseña debe tener: </p>
-                  <p>Mayusculas y minusculas</p>
-                  <p>Un minimo de 8 caracteres</p>
-                  <p>Uno o varios numeros del 0 al 9</p>
+              <div className='acordion'>
+                <p>La contraseña debe tener: </p>
+                <p>Mayusculas y minusculas</p>
+                <p>Un minimo de 8 caracteres</p>
+                <p>Uno o varios numeros del 0 al 9</p>
               </div>
             </div>
-            <div style={{ position: 'relative' }} className="my-4">
+            <div style={{ position: 'relative' }} className='my-4'>
               <Field
-                type="password"
-                id="rePassword"
-                name="re_password"
+                type='password'
+                id='rePassword'
+                name='re_password'
                 className={`text-input ${
                   animationRepeatPassword.inputFocus && 'text-inputBlur'
                 }`}
@@ -188,7 +188,7 @@ export const SignUpForm = () => {
                 onBlur={(e) => animationRepeatPassword.blurAnimation(e)}
               />
               <label
-                htmlFor="rePassword"
+                htmlFor='rePassword'
                 className={`${
                   animationRepeatPassword.inputFocus
                     ? 'labelBlur'
@@ -198,17 +198,17 @@ export const SignUpForm = () => {
                 Repita la contraseña
               </label>
               <ErrorMessage
-                name="re_password"
+                name='re_password'
                 component={() => (
-                  <div className="text-red-600">{errors.re_password}</div>
+                  <div className='text-red-600'>{errors.re_password}</div>
                 )}
               />
             </div>
 
             <button
               onSubmit={(value) => {}}
-              type="submit"
-              className="block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
+              type='submit'
+              className='block w-full bg-blue-700 mt-5 py-2 rounded-2xl hover:bg-blue-400 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2'
             >
               Crear cuenta
             </button>
