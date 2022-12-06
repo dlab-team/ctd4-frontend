@@ -1,12 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useAnimationInput } from './hooks/useAnimationInput';
-import { useNavigate, useParams} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { ShowResponseFromBack, Loading } from '../../components/Alerts';
 import axios from 'axios';
 
-export const PasswordChangeForm  = () => {
+export const PasswordChangeForm = () => {
   const animationPassword = useAnimationInput();
   const animationRepeatPassword = useAnimationInput();
   const navigate = useNavigate();
@@ -16,18 +16,16 @@ export const PasswordChangeForm  = () => {
   const [loadingPass, setLoadingPass] = useState(false);
   const [responseFromBack, setResponseFromBack] = useState(null);
 
-  const { id } = useParams()
+  const { id } = useParams();
 
-
-return (
+  return (
     <>
-
       {loadingPass && <Loading />}
 
       {successMessage && (
         <ShowResponseFromBack>
           <p>{successMessage}</p>
-          <button onClick={() => navigate ('/login', { replace: true })}>
+          <button onClick={() => navigate('/login', { replace: true })}>
             Entendido
           </button>
         </ShowResponseFromBack>
@@ -51,7 +49,10 @@ return (
           newPassword: Yup.string()
             .min(6, 'Debe tener al menos 6 caracteres')
             .required('La contraseña es obligatoria')
-            .oneOf([Yup.ref('confirmPassword')], 'Las contraseñas no son iguales'),
+            .oneOf(
+              [Yup.ref('confirmPassword')],
+              'Las contraseñas no son iguales'
+            ),
 
           confirmPassword: Yup.string()
             .min(6, 'Debe tener al menos 6 caracteres')
@@ -59,21 +60,24 @@ return (
             .oneOf([Yup.ref('newPassword')], 'Las contraseñas no son iguales'),
         })}
         onSubmit={(values) => {
+          setLoadingPass(true);
           let url = process.env.REACT_APP_BACKEND_URL + `/new-password/${id}`;
-            axios
-              .post(url, {
-                newPassword: values.newPassword,
-                confirmPassword: values.confirmPassword,
-              })
-              .then(function (response) {
+          axios
+            .post(url, {
+              newPassword: values.newPassword,
+              confirmPassword: values.confirmPassword,
+            })
+            .then(function (response) {
+              if (response.data) {
+                setLoadingPass(false);
                 if (response.data) {
-                  console.log('se envio la contraseña')
+                  setSuccessMessage('Contraseña actualizada exitosamente');
                 }
-              })
-              .catch(function (error) {
-                setErrorMessage(error.response.data.message);
-              });
-          
+              }
+            })
+            .catch(function (error) {
+              setErrorMessage(error.response.data.message);
+            });
         }}
       >
         {({ errors }) => (
@@ -104,10 +108,10 @@ return (
                 )}
               />
               <div className="acordion text-sm">
-                  <p>La contraseña debe tener: </p>
-                  <p>Mayusculas y minusculas</p>
-                  <p>Un minimo de 8 caracteres</p>
-                  <p>Uno o varios numeros del 0 al 9</p>
+                <p>La contraseña debe tener: </p>
+                <p>Mayusculas y minusculas</p>
+                <p>Un minimo de 8 caracteres</p>
+                <p>Uno o varios numeros del 0 al 9</p>
               </div>
             </div>
             <div style={{ position: 'relative' }} className="my-4">
@@ -151,7 +155,4 @@ return (
       </Formik>
     </>
   );
-}
-
-
-
+};
