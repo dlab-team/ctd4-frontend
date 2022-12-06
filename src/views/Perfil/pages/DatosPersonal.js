@@ -24,6 +24,8 @@ import {
 const DatosPersonal = () => {
   const userToken = JSON.parse(localStorage.getItem('user'));
 
+  const [auxUser, setAuxUser] = useState('');
+
   const [user, setUser] = useState({});
   const [showModal, setShowModal] = useState(false);
   let url = process.env.REACT_APP_BACKEND_URL + '/user';
@@ -40,7 +42,10 @@ const DatosPersonal = () => {
         const datos = res.data;
         setUser(datos);
       });
-  }, []);
+  }, [auxUser]);
+
+  console.log(user);
+  console.log(auxUser);
 
   return (
     <>
@@ -52,6 +57,7 @@ const DatosPersonal = () => {
           user={user}
           setShowModal={setShowModal}
           setUser={setUser}
+          setAuxUser={setAuxUser}
         />
       </EditarDatosPersonalesModal>
 

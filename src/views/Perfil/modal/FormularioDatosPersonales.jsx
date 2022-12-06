@@ -2,7 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
+export const FormularioDatosPersonales = ({
+  user,
+  setShowModal,
+  setAuxUser,
+}) => {
   const initialValues = {
     fullname: user.fullname,
     email: '',
@@ -50,10 +54,11 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
 
     // setUser()
 
-    setShowModal(false).then(() => console.log('Recargar data'));
+    setShowModal(false);
 
-    // getUserData();
-    console.log();
+    // setAuxUser('Q');
+
+    getUserData();
   };
 
   let url = process.env.REACT_APP_BACKEND_URL + `/user/${user.id}`;
@@ -77,13 +82,10 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
         'Content-Type': 'Application/json',
         Authorization: `Bearer ${userToken.token}`,
       },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        return myJson;
-      });
+    }).then(function (myJson) {
+      setAuxUser(myJson);
+      console.log('papata');
+    });
   };
 
   return (
