@@ -39,9 +39,8 @@ const DatosPersonal = () => {
       .then((res) => {
         const datos = res.data;
         setUser(datos);
-        // console.log(datos.City);
       });
-  }, [user]);
+  }, []);
 
   return (
     <>
@@ -131,7 +130,7 @@ const DatosPersonal = () => {
                     Linkedin
                   </a>
                 ) : (
-                  <a href='https://github.com/' target='_blank'>
+                  <a href='https://linkedin.com/' target='_blank'>
                     Linkedin
                   </a>
                 )}

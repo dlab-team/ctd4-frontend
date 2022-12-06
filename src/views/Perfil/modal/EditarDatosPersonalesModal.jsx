@@ -14,7 +14,7 @@ export function EditarDatosPersonalesModal({ isVisible, onClose, children }) {
         id='wrapper'
         onClick={handleClose}
       >
-        <div className='w-[37.5rem] flex flex-col'>
+        <div className='w-[42.5rem] flex flex-col'>
           <button
             className='text-white text-xl place-self-end '
             onClick={() => onClose()}

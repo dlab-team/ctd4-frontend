@@ -2,18 +2,16 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-const initialValues = {
-  fullname: '',
-  email: '',
-  phoneNumber: '',
-  linkedin: '',
-  github: '',
-};
-
 export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
-  const userToken = JSON.parse(localStorage.getItem('user'));
+  const initialValues = {
+    fullname: user.fullname,
+    email: '',
+    phoneNumber: '',
+    linkedin: '',
+    github: '',
+  };
 
-  // console.log(user);
+  const userToken = JSON.parse(localStorage.getItem('user'));
 
   const onSubmit = (values) => {
     const actualizarPerfilData = {
@@ -50,10 +48,12 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
 
     ActualizarPerfil(actualizarPerfilData);
 
-    setShowModal(false);
+    // setUser()
 
-    getUserData();
-    console.log(values);
+    setShowModal(false).then(() => console.log('Recargar data'));
+
+    // getUserData();
+    console.log();
   };
 
   let url = process.env.REACT_APP_BACKEND_URL + `/user/${user.id}`;
@@ -65,7 +65,8 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
       })
       .then(function (myJson) {
         // console.log(myJson);
-      });
+      })
+      .catch((error) => console.log(error.response.data.message));
   };
 
   const getUserData = () => {
@@ -81,8 +82,7 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
         return response.json();
       })
       .then(function (myJson) {
-        console.log(myJson);
-        setUser(myJson);
+        return myJson;
       });
   };
 
@@ -93,25 +93,27 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
           Editar Datos personales
         </h3>
         <Form action=' ' className='space-y-6'>
-          <div>
+          <div className='px-10 py-5 h-20 W-48 text-[20px] text-[#140B34]'>
             <label
               htmlFor='fullname'
-              className='block mb-2 text-sm font-medium text-gray-900'
+              className=' text-lg font-medium text-[#140B34]'
             >
               Nombre
             </label>
+
             <Field
               type='text'
               name='fullname'
               id='fullname'
-              clasname='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='text-input bg-[#E2F2FE] W-48 border border-sky-800 mt-2 '
               placeholder={user.fullname}
+              value={user.fullname}
             />
           </div>
-          <div>
+          <div className='px-10 py-5 h-20 W-48 text-[20px] text-[#140B34]'>
             <label
               htmlFor='phoneNumber'
-              className='block mb-2 text-sm font-medium text-gray-900'
+              className='block text-lg font-medium text-[#140B34]'
             >
               Telefono
             </label>
@@ -119,16 +121,16 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
               type='tel'
               name='phoneNumber'
               id='phoneNumber'
-              clasname='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='text-input bg-[#E2F2FE] W-48 border border-sky-800 mt-2  '
               placeholder={
                 user.phoneNumber ? user.phoneNumber : '+569 ********'
               }
             />
           </div>
-          <div>
+          <div className='px-10 py-5 h-20 W-48 text-[20px] text-[#140B34]'>
             <label
               htmlFor='linkedin'
-              className='block mb-2 text-sm font-medium text-gray-900'
+              className='block text-lg font-medium text-[#140B34]'
             >
               Linkedin
             </label>
@@ -136,14 +138,14 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
               type='tel'
               name='linkedin'
               id='linkedin'
-              clasname='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='text-input bg-[#E2F2FE] W-48 border border-sky-800 mt-2 '
               placeholder='url'
             />
           </div>
-          <div>
+          <div className='px-10 py-5 h-20 W-48 text-[20px] text-[#140B34]'>
             <label
               htmlFor='github'
-              className='block mb-2 text-sm font-medium text-gray-900'
+              className='block text-lg font-medium text-[#140B34]'
             >
               Github
             </label>
@@ -151,12 +153,15 @@ export const FormularioDatosPersonales = ({ user, setShowModal, setUser }) => {
               type='tel'
               name='github'
               id='github'
-              clasname='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='text-input bg-[#E2F2FE] W-48 border border-sky-800 mt-2 '
               placeholder='url'
             />
           </div>
           <div className='flex justify-end'>
-            <button type='submit' className='  '>
+            <button
+              type='submit'
+              className=' h-12 w-36 bg-[#2738F5] hover:bg-blue-600 text-[#FFFFFF] text-lg font-bold mt-4 py-2 px-4 rounded-3xl '
+            >
               Guardar
             </button>
           </div>
