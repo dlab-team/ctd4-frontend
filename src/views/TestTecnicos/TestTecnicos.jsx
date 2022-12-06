@@ -38,7 +38,7 @@ export function TestTecnicos() {
   }, [auxq]);
 
   const onClickDelete = (id) => {
-    const urlDelete = `http://localhost:3000/labels/${id}`;
+    const urlDelete = `${process.env.REACT_APP_BACKEND_URL}/labels/${id}`;
     axios
       .delete(urlDelete)
       .then((response) => {
@@ -55,7 +55,7 @@ export function TestTecnicos() {
   };
 
   const onClickDeleteQuizz = (id) => {
-    const urlDelete = `http://localhost:3000/quizzes/${id}`;
+    const urlDelete = `${process.env.REACT_APP_BACKEND_URL}/quizzes/${id}`;
     axios
       .delete(urlDelete)
       .then((response) => {
