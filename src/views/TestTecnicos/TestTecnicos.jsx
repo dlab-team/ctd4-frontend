@@ -86,8 +86,8 @@ export function TestTecnicos() {
         <NavPerfil />
         <div className='flex'>
           <Sidebar />
-          <div className='content min-h-screen ml-28 mr-20'>
-            <h1 className='text-3xl font-semibold mt-20'>
+          <div className='mx-14 justify-center text-center md:text-left md:content md:min-h-screen md:ml-28 md:mr-20'>
+            <h1 className='text-3xl font-semibold mt-20 '>
               Completa los tests técnicos
             </h1>
             <p className='text-2xl mt-10'>
@@ -113,11 +113,11 @@ export function TestTecnicos() {
 
             <input
               type='text'
-              className=' bg-[#E2F2FE] border border-zinc-300 mt-4 w-[36rem] h-[2.8rem] rounded-lg p-4'
+              className=' bg-[#E2F2FE] border border-zinc-300 mt-4 w-[16rem] h-[1.8rem] md:w-[36rem] md:h-[2.8rem] rounded-lg p-4'
               placeholder='Buscar habilidades'
             />
 
-            <div className='mt-12 max-w-[36rem] flex flex-wrap gap-2'>
+            <div className='place-content-center md:place-content-start mt-12 max-w-[36rem] flex flex-wrap gap-2'>
               <button className='border  py-1 px-2 rounded-lg bg-blue-700 text-zinc-100'>
                 {' '}
                 Todos{' '}
@@ -172,6 +172,7 @@ export function TestTecnicos() {
                   </>
                 );
               })}
+
             </div>
           </div>
         </div>
