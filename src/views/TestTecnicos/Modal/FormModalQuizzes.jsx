@@ -32,6 +32,7 @@ const FormModalQuizzes = () => {
               })
               .then(function (response) {
                 console.log(response);
+                window.location.reload();
               })
               .catch(function (error) {
                 console.log(error);
@@ -39,12 +40,17 @@ const FormModalQuizzes = () => {
           }}
         >
           <Form>
-            <div className='text-center'>
-              <InputTest name='name' label='Nombre del quizz' />
-              <InputTest name='duration' label='Duración' />
-              <InputTest name='img' label='Agrega Url del logo del quizz' />
+            <div className="text-center">
+              <InputTest name="name" label="Nombre del quizz" />
+              <br />
+              <InputTest name="duration" label="Duración" />
+              <br />
+              <InputTest
+                name="url_logo"
+                label="Agrega Url del logo del quizz"
+              />
               <div>
-                <button type='submit' className='btn'>
+                <button type="submit" className="btn mt-10">
                   Guardar
                 </button>
               </div>

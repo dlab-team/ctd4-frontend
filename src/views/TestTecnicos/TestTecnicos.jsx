@@ -12,6 +12,7 @@ import FormModalSkills from './Modal/FormModalSkills';
 import FormModalQuizzes from './Modal/FormModalQuizzes';
 import ModalQuizzes from './Modal/ModalQuizzes';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 export function TestTecnicos() {
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +23,10 @@ export function TestTecnicos() {
 
   const [auxTag, setAuxTag] = useState('');
   const [auxq, setAuxq] = useState([]);
+
+  // TODO: refactor get roleId
+  const userToken = JSON.parse(localStorage.getItem('user'));
+  var userData = jwt_decode(userToken.token);
 
   useEffect(() => {
     axios.get(process.env.REACT_APP_BACKEND_URL + '/labels').then((res) => {
@@ -78,64 +83,67 @@ export function TestTecnicos() {
       </ModalSkills>
       <ModalQuizzes
         isVisible={showModalQuizzes}
-        onClose={() => setShowModal(false)}
+        onClose={() => setShowModalQuizzes(false)}
       >
         <FormModalQuizzes />
       </ModalQuizzes>
-      <div className='flex flex-col'>
+      <div className="flex flex-col">
         <NavPerfil />
-        <div className='flex'>
+        <div className="flex">
           <Sidebar />
-          <div className='mx-14 justify-center text-center md:text-left md:content md:min-h-screen md:ml-28 md:mr-20'>
-            <h1 className='text-3xl font-semibold mt-20 '>
+          <div className="mx-14 justify-center text-center md:text-left md:content md:min-h-screen md:ml-28 md:mr-20">
+            <h1 className="text-3xl font-semibold mt-20 ">
               Completa los tests técnicos
             </h1>
-            <p className='text-2xl mt-10'>
+            <p className="text-2xl mt-10">
               De esta forma podemos conocer qué trabajos encajan mejor contigo.
               Haz los tests de las habilidades que te gustaría continuar usando
               para tu próximo trabajo.
             </p>
-            <p className='text-2xl mt-8'>
+            {/* <p className="text-2xl mt-8">
               Marcamos tus
-              <span className='font-semibold'>habilidades destacadas</span>según
-              tu<span className='text-blue-700'>perfil</span> con una estrella
-            </p>
-            <p className='text-sm mt-6'>
+              <span className="font-semibold">habilidades destacadas</span>{' '}
+              según tu<span className="text-blue-700">perfil</span> con una
+              estrella
+            </p> */}
+            <p className="text-sm mt-6">
               Tip: Si temes fallar un test, no te preocupes. Puedes volver a
               realizarlo luego de 3 meses.
             </p>
-            <div className='flex justify-between'>
-              <h3 className='text-xl font-semibold mt-6'>Habilidades</h3>
-              <button onClick={() => setShowModal(true)} className='btn '>
-                Agregar Tag
-              </button>
+            <div className="">
+              <h3 className="text-xl font-semibold mt-6">Habilidades</h3>
+              {userData.email === 'admin@mail.com' ? (
+                <button onClick={() => setShowModal(true)} className="btn ">
+                  Agregar Tag
+                </button>
+              ) : null}
             </div>
 
             <input
-              type='text'
-              className=' bg-[#E2F2FE] border border-zinc-300 mt-4 w-[16rem] h-[1.8rem] md:w-[36rem] md:h-[2.8rem] rounded-lg p-4'
-              placeholder='Buscar habilidades'
+              type="text"
+              className=" bg-[#E2F2FE] border border-zinc-300 mt-4 w-[16rem] h-[1.8rem] md:w-[36rem] md:h-[2.8rem] rounded-lg p-4"
+              placeholder="Buscar habilidades"
             />
 
-            <div className='place-content-center md:place-content-start mt-12 max-w-[36rem] flex flex-wrap gap-2'>
-              <button className='border  py-1 px-2 rounded-lg bg-blue-700 text-zinc-100'>
+            <div className="place-content-center md:place-content-start mt-12 max-w-[36rem] flex flex-wrap gap-2">
+              <button className="border  py-1 px-2 rounded-lg bg-blue-700 text-zinc-100">
                 {' '}
                 Todos{' '}
               </button>{' '}
               {tag.map((item, i) => {
                 return (
                   <>
-                    <div className='flex flex-row'>
+                    <div className="flex flex-row">
                       <span
-                        className='border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100'
+                        className="border border-blue-700 py-1 px-2 rounded-lg hover:bg-blue-700 hover:text-zinc-100"
                         key={i}
                       >
                         {item.name}
                       </span>
                       <button
                         onClick={() => onClickDelete(item.id)}
-                        className=' hover:visible text-transparent hover:text-[#1E1E1E] hover:bg-white hover:transition-all rounded-xl 
-                      '
+                        className=" hover:visible text-transparent hover:text-[#1E1E1E] hover:bg-white hover:transition-all rounded-xl 
+                      "
                         key={i}
                       >
                         X
@@ -145,13 +153,17 @@ export function TestTecnicos() {
                 );
               })}{' '}
             </div>
+            <h3 className="text-xl font-semibold mt-12">Test Técnicos</h3>
+            {userData.email === 'admin@mail.com' ? (
+              <button
+                onClick={() => setShowModalQuizzes(true)}
+                className="btn "
+              >
+                Agregar Test
+              </button>
+            ) : null}
 
-            <h3 className='text-xl font-semibold mt-6'>Test Técnicos</h3>
-            <button onClick={() => setShowModalQuizzes(true)} className='btn '>
-              Agregar Test
-            </button>
-
-            <div className='cards mt-12 mb-24 flex gap-4'>
+            <div className="cards mt-2 mb-24 flex gap-4">
               {quizzes.map((item, i) => {
                 return (
                   <>
@@ -160,10 +172,10 @@ export function TestTecnicos() {
                         image={item.url_logo}
                         titulo={item.name}
                         text1={`Duración: ${item.duration}`}
-                        text2='Iniciar test'
+                        text2="Iniciar test"
                       />
                       <button
-                        className='hover:visible text-transparent hover:text-[#1E1E1E] hover:bg-white hover:transition-all rounded-xl'
+                        className="hover:visible text-transparent hover:text-[#1E1E1E] hover:bg-white hover:transition-all rounded-xl"
                         onClick={() => onClickDeleteQuizz(item.id)}
                       >
                         X
@@ -172,7 +184,6 @@ export function TestTecnicos() {
                   </>
                 );
               })}
-
             </div>
           </div>
         </div>

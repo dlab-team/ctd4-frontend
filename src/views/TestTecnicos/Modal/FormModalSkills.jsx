@@ -35,10 +35,10 @@ const FormModalSkills = ({ setAuxTag }) => {
           }}
         >
           <Form>
-            <div className='text-center'>
-              <InputTest name='name' label='Agregar tag' />
+            <div className="text-center">
+              <InputTest name="name" label="Agregar tag" />
               <div>
-                <button type='submit' className='btn'>
+                <button type="submit" className="btn mt-10">
                   Guardar
                 </button>
               </div>
