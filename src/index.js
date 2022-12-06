@@ -17,8 +17,9 @@ import { LoggedUserProvider } from './contexts/auth/LoggedUser';
 import { Mapa } from './views/Mapa/Mapa';
 import Formulario from './views/Formulario/Formulario';
 import { TestTecnicos } from './views/TestTecnicos/TestTecnicos';
-import  { RequestEmail } from './views/login/RequestEmail';
+import { RequestEmail } from './views/login/RequestEmail';
 import { PasswordChange } from './views/login/PasswordChange';
+import UserDataProvider from './contexts/UserDataProvider/UserDataProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const isAuthenticated = JSON.parse(window.localStorage.getItem('user'));
@@ -26,81 +27,82 @@ const isAuthenticated = JSON.parse(window.localStorage.getItem('user'));
 root.render(
   <React.StrictMode>
     <LoggedUserProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<App />} />
-          {/* <App /> */}
-          <Route path='/register' element={<SignUp />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/formulario' element={<Formulario />} />
-          {/* <Route path='/formulario' element={ <Formulario />}/> */}
-          <Route
-            path='/perfil'
-            element={
-              isAuthenticated ? <Mapa /> : <Navigate replace to='/login' />
-            }
-          />
-          <Route
-            path='/datospersonales'
-            element={
-              isAuthenticated ? (
-                <DatosPersonal />
-              ) : (
-                <Navigate replace to='/login' />
-              )
-            }
-          />
-          <Route
-            path='/perfileducacional'
-            element={
-              isAuthenticated ? (
-                <PerfilEducacion />
-              ) : (
-                <Navigate replace to='/login' />
-              )
-            }
-          />
-          <Route
-            path='/perfilLaboral'
-            element={
-              isAuthenticated ? (
-                <PerfilLaboral />
-              ) : (
-                <Navigate replace to='/login' />
-              )
-            }
-          />
-          <Route
-            path='/experiencia'
-            element={
-              isAuthenticated ? (
-                <Experiencia />
-              ) : (
-                <Navigate replace to='/login' />
-              )
-            }
-          />
-          <Route
-            path='/Acercadeti'
-            element={
-              isAuthenticated ? <Acerca /> : <Navigate replace to='/login' />
-            }
-          />
-          <Route
-            path='/tests'
-            element={
-              isAuthenticated ? (
-                <TestTecnicos />
-              ) : (
-                <Navigate replace to='/login' />
-              )
-            }
-          />
-          <Route path="/recovery-password" element={<RequestEmail/>} />
-          <Route path="/new-password/:id" element={<PasswordChange/>} />
-    
-        </Routes>
-      </BrowserRouter>
+      <UserDataProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<App />} />
+            {/* <App /> */}
+            <Route path='/register' element={<SignUp />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/formulario' element={<Formulario />} />
+            {/* <Route path='/formulario' element={ <Formulario />}/> */}
+            <Route
+              path='/perfil'
+              element={
+                isAuthenticated ? <Mapa /> : <Navigate replace to='/login' />
+              }
+            />
+            <Route
+              path='/datospersonales'
+              element={
+                isAuthenticated ? (
+                  <DatosPersonal />
+                ) : (
+                  <Navigate replace to='/login' />
+                )
+              }
+            />
+            <Route
+              path='/perfileducacional'
+              element={
+                isAuthenticated ? (
+                  <PerfilEducacion />
+                ) : (
+                  <Navigate replace to='/login' />
+                )
+              }
+            />
+            <Route
+              path='/perfilLaboral'
+              element={
+                isAuthenticated ? (
+                  <PerfilLaboral />
+                ) : (
+                  <Navigate replace to='/login' />
+                )
+              }
+            />
+            <Route
+              path='/experiencia'
+              element={
+                isAuthenticated ? (
+                  <Experiencia />
+                ) : (
+                  <Navigate replace to='/login' />
+                )
+              }
+            />
+            <Route
+              path='/Acercadeti'
+              element={
+                isAuthenticated ? <Acerca /> : <Navigate replace to='/login' />
+              }
+            />
+            <Route
+              path='/tests'
+              element={
+                isAuthenticated ? (
+                  <TestTecnicos />
+                ) : (
+                  <Navigate replace to='/login' />
+                )
+              }
+            />
+            <Route path='/recovery-password' element={<RequestEmail />} />
+            <Route path='/new-password/:id' element={<PasswordChange />} />
+          </Routes>
+        </BrowserRouter>
+      </UserDataProvider>
     </LoggedUserProvider>
   </React.StrictMode>
 );
