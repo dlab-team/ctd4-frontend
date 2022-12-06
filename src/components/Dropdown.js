@@ -34,157 +34,94 @@ export default function Dropdown() {
   return (
     <>
       {/*Notificacion*/}
-      <div className='absolute inset-y-0 right-0 flex justify-center items-center md:pr-2 md:static md:inset-auto md:ml-6 md:pr-0 md:space-x-6'>
+      <div class="absolute inset-y-0 right-0 flex justify-center items-center md:pr-2 md:static md:inset-auto md:ml-6 md:pr-0 md:space-x-6">
         <button
-          type='button'
-          className='hidden md:bg-none md:p-1 md:text-white md:hover:text-white md:flex md:outline-none md:hover:opacity-80'
+          type="button"
+          className="hidden md:bg-none md:p-1 md:text-white md:hover:text-white md:flex md:outline-none md:hover:opacity-80"
         >
-          <span className='sr-only'>View notifications</span>
+          <span class="sr-only">View notifications</span>
           {/*Icon Bell*/}
           <svg
-            className='h-6 w-6'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            strokeWidth='1.5'
-            stroke='currentColor'
-            aria-hidden='true'
+            className="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
           >
             <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0'
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
             />
           </svg>
         </button>
 
         {/*Dropdown*/}
         <Menu
-          as='div'
-          className='md:relative md:inline-block md:text-left hidden'
+          as="div"
+          className="md:relative md:inline-block md:text-left hidden"
         >
-          <Menu.Items className="absolute right-6 z-10 -mt-8 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-300' : 'text-gray-700', 'block px-4 py-2 text-sm font-semibold text-blue-700')}>
-                   {user.fullname} {user.status}
-                  </a>
-                  
-                )}
-              </Menu.Item>
-            </div>
-            <div className="py-1">
-            <Menu.Item>
-                {({ active }) => (
-                  <a href="/perfil" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
-                    Inicio
-                  </a>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
-                    Ayuda
-                  </a>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <a href="#" className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
-                    Configuración
-                  </a>
-                )}
-              </Menu.Item>
-            </div>
-            <div className="py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <a href="#" onClick={() => setLogOut(true)} className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm')}>
-                    Cerrar Sesion
-                  </a>
-                )}
-
-              </Menu.Item>
-            </div>
-          </Menu.Items>
-        </Transition>
-      </Menu>
-      { logOut && 
-        <ShowResponseFromBack>
-          <p>¿Seguro que desea cerrar su sesion?</p>
           <div>
-            <Menu.Button className='inline-flex  text-base font-medium text-gray-700'>
-              <div className='mt-10 flex rounded-full outline-none ring-1 ring-offset-1 ring-gray-500 rounded-full hover:opacity-80'>
+            <Menu.Button className="inline-flex  text-base font-medium text-gray-700">
+              <div className="mt-10 flex rounded-full outline-none ring-1 ring-offset-1 ring-gray-500 rounded-full hover:opacity-80">
                 <img
-                  className='w-12 h-12 inline object-cover rounded-full'
+                  className="w-12 h-12 inline object-cover rounded-full"
                   src={Profile}
                 />
               </div>
               {/* object-cover */}
               <ChevronDownIcon
-                className='mr-6 ml-2 h-32 w-5 fill-white'
-                aria-hidden='true'
+                className="mr-6 ml-2 h-32 w-5 fill-white"
+                aria-hidden="true"
               />
             </Menu.Button>
           </div>
 
           <Transition
             as={Fragment}
-            enter='transition ease-out duration-100'
-            enterFrom='transform opacity-0 scale-95'
-            enterTo='transform opacity-100 scale-100'
-            leave='transition ease-in duration-75'
-            leaveFrom='transform opacity-100 scale-100'
-            leaveTo='transform opacity-0 scale-95'
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className='absolute right-6 z-10 -mt-8 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-              <div className='py-1'>
+            <Menu.Items className="absolute right-6 z-10 -mt-8 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='#'
+                      href="#"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-300' : 'text-gray-700',
-                        'block px-4 py-2 text-sm font-medium'
+                        'block px-4 py-2 text-sm font-semibold text-blue-700'
                       )}
                     >
-                      Camila05 en linea
+                      {user.fullname} {user.status}
                     </a>
                   )}
                 </Menu.Item>
               </div>
-              <div className='py-1'>
+              <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='/perfil'
+                      href="/perfil"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm'
                       )}
                     >
-                      Home
+                      Inicio
                     </a>
                   )}
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='/editarperfil'
-                      className={classNames(
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm'
-                      )}
-                    >
-                      Editar perfil
-                    </a>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href='#'
+                      href="#"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm'
@@ -197,7 +134,7 @@ export default function Dropdown() {
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='#'
+                      href="#"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm'
@@ -208,11 +145,11 @@ export default function Dropdown() {
                   )}
                 </Menu.Item>
               </div>
-              <div className='py-1'>
+              <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='#'
+                      href="#"
                       onClick={() => setLogOut(true)}
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',

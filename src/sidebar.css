@@ -1,0 +1,4 @@
+.side-bar > div {
+  min-height: calc(100vh - 210px);
+  height: 100%;
+}

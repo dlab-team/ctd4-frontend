@@ -66,8 +66,8 @@ const DatosPersonal = () => {
       <NavPerfil />
 
       {/* sidebar */}
-      
-      <div className="flex mx-10 mb-6">
+
+      <div className="flex mb-6">
         <Sidebar />
 
         <div className="container mt-10 px-3 md:px-12 place-content-center justify-center">
@@ -77,80 +77,80 @@ const DatosPersonal = () => {
             </div>
 
             <div>
-              <div className='flex justify-center md:justify-between border-b-2 border-[#817E7E] py-6 '>
-                <div className='flex'>
+              <div className="flex justify-center md:justify-between border-b-2 border-[#817E7E] py-6 ">
+                <div className="flex">
                   <input
-                    id='icon-button-file'
-                    type='file'
+                    id="icon-button-file"
+                    type="file"
                     style={{ display: 'none' }}
                   />
-                  <label htmlFor='icon-button-file'>
-                    <button component='span'>{upload}</button>
+                  <label htmlFor="icon-button-file">
+                    <button component="span">{upload}</button>
                   </label>
-                  <p className='ml-3'>Sube tu CV</p>
+                  <p className="ml-3">Sube tu CV</p>
                 </div>
-                <button className=''>{pencil}</button>
+                <button className="">{pencil}</button>
               </div>
 
-              <div className='flex justify-center md:justify-between py-4'>
-                <div className='flex my-4'>
+              <div className="flex justify-center md:justify-between py-4">
+                <div className="flex my-4">
                   <img
-                    className='w-14 h-14 inline object-cover rounded-full'
+                    className="w-14 h-14 inline object-cover rounded-full"
                     src={Profile}
-                    alt=''
+                    alt=""
                   />
-                  <div className='ml-5'>
-                    <h3 className='font-semibold'>{user.fullname}</h3>
-                    <p className='pt-3'>
+                  <div className="ml-5">
+                    <h3 className="font-semibold">{user.fullname}</h3>
+                    <p className="pt-3">
                       {user.City ? user.City.Country.name : ' Pais'}
                     </p>
                   </div>
                 </div>
                 <button onClick={() => setShowModal(true)}>{pencil}</button>
               </div>
-              <div className='flex-wrap justify-center md:flex  md:justify-between  border-b-2 border-[#817E7E] py-3'>
-                <div className='flex-wrap flex md:'>
+              <div className="flex-wrap justify-center md:flex  md:justify-between  border-b-2 border-[#817E7E] py-3">
+                <div className="flex-wrap flex md:">
                   {mail}
                   <span>{user.email}</span>
                 </div>
-                <div className='flex'>
+                <div className="flex">
                   {phone}
                   <span>
                     {user.phoneNumber ? user.phoneNumber : '+569 *******'}
                   </span>
                 </div>
-                <div className='flex'></div>
+                <div className="flex"></div>
 
                 {user.WorkProfile ? (
-                  <a href={user.WorkProfile.urlGithub} target='_blank'>
+                  <a href={user.WorkProfile.urlGithub} target="_blank">
                     Github
                   </a>
                 ) : (
-                  <a href='https://github.com/' target='_blank'>
+                  <a href="https://github.com/" target="_blank">
                     Github
                   </a>
                 )}
 
                 {user.WorkProfile ? (
-                  <a href={user.WorkProfile.urlLinkedin} target='_blank'>
+                  <a href={user.WorkProfile.urlLinkedin} target="_blank">
                     Linkedin
                   </a>
                 ) : (
-                  <a href='https://linkedin.com/' target='_blank'>
+                  <a href="https://linkedin.com/" target="_blank">
                     Linkedin
                   </a>
                 )}
               </div>
             </div>
 
-            <div className='flex-wrap md:flex md:justify-between border-b-2 border-[#817E7E] py-10 '>
-              <div className='flex'>
+            <div className="flex-wrap md:flex md:justify-between border-b-2 border-[#817E7E] py-10 ">
+              <div className="flex">
                 {book}
-                <p className='ml-3 text-lg'>Experiencia laboral</p>
+                <p className="ml-3 text-lg">Experiencia laboral</p>
               </div>
-              <div className='flex'>
-                <div className='mr-14'>
-                  <p className='font-semibold text-start md:text-right'>
+              <div className="flex">
+                <div className="mr-14">
+                  <p className="font-semibold text-start md:text-right">
                     {user.WorkProfile
                       ? `${user.WorkProfile.yearsExperience} `
                       : ' 1 a 3 '}
@@ -167,14 +167,14 @@ const DatosPersonal = () => {
               </div>
             </div>
 
-            <div className='flex-wrap md:flex md:justify-between border-b-2 border-[#817E7E] py-10 '>
-              <div className='flex'>
+            <div className="flex-wrap md:flex md:justify-between border-b-2 border-[#817E7E] py-10 ">
+              <div className="flex">
                 {calendar}
-                <p className='ml-3 text-lg'>Disponibilidad</p>
+                <p className="ml-3 text-lg">Disponibilidad</p>
               </div>
-              <div className='flex'>
-                <div className='mr-14'>
-                  <p className='font-semibold text-start md:text-right'>
+              <div className="flex">
+                <div className="mr-14">
+                  <p className="font-semibold text-start md:text-right">
                     {user.WorkProfile
                       ? user.WorkProfile.availability
                       : 'Fulltime'}
@@ -185,14 +185,14 @@ const DatosPersonal = () => {
               </div>
             </div>
 
-            <div className='flex-wrap md:flex md:justify-between border-b-2 border-[#817E7E] py-10'>
-              <div className='flex'>
+            <div className="flex-wrap md:flex md:justify-between border-b-2 border-[#817E7E] py-10">
+              <div className="flex">
                 {profile}
-                <p className='ml-3 text-lg'>Rol y salario actual</p>
+                <p className="ml-3 text-lg">Rol y salario actual</p>
               </div>
-              <div className='flex'>
-                <div className='mr-14'>
-                  <p className='font-semibold text-start md:text-right'>
+              <div className="flex">
+                <div className="mr-14">
+                  <p className="font-semibold text-start md:text-right">
                     Full stack
                   </p>
                   <p>Salario actual 1.000.000 clp</p>
@@ -201,23 +201,23 @@ const DatosPersonal = () => {
               </div>
             </div>
 
-            <div className='flex justify-center  md:justify-between py-6 '>
-              <div className='flex'>
-                <p className='ml-3 text-xl font-medium'>Habilidades</p>
+            <div className="flex justify-center  md:justify-between py-6 ">
+              <div className="flex">
+                <p className="ml-3 text-xl font-medium">Habilidades</p>
               </div>
               <button>{pencil}</button>
             </div>
-            <div className='border-b-2 border-[#817E7E] py-6 ml-3'>
-              <div className='flex my-5'>
+            <div className="border-b-2 border-[#817E7E] py-6 ml-3">
+              <div className="flex my-5">
                 Avanzado
                 <div>
-                  <span className='mx-10 border py-1 px-1 border-sky-700 rounded-md'>
+                  <span className="mx-10 border py-1 px-1 border-sky-700 rounded-md">
                     HTML
                   </span>
                 </div>
               </div>
 
-              <div className='flex my-5'>
+              <div className="flex my-5">
                 Experimentado
                 <div>
                   <span className="border py-1 px-1 border-sky-700 rounded-md">
@@ -229,7 +229,7 @@ const DatosPersonal = () => {
                 </div>
               </div>
 
-              <div className='flex my-5'>
+              <div className="flex my-5">
                 Principiante
                 <span className="border py-1 px-1 border-sky-700 rounded-md">
                   Angular
@@ -237,25 +237,25 @@ const DatosPersonal = () => {
               </div>
             </div>
 
-            <div className='flex justify-center md:justify-between py-6 '>
-              <p className='ml-3 text-xl font-medium'>Educación</p>
+            <div className="flex justify-center md:justify-between py-6 ">
+              <p className="ml-3 text-xl font-medium">Educación</p>
             </div>
 
-            <div className='flex  md:justify-between py'>
-              <div className='flex my-4'>
-                <div className='ml-5'>
-                  <p className='mb-2 text-[#2738F5] text-sm'>
+            <div className="flex  md:justify-between py">
+              <div className="flex my-4">
+                <div className="ml-5">
+                  <p className="mb-2 text-[#2738F5] text-sm">
                     Mar 2021 - Mar 2022
                   </p>
-                  <h3 className='text-xl font-medium mb-2'>Desafío Latam</h3>
-                  <p className='mb-2 text-[#2738F5] text-sm'>
+                  <h3 className="text-xl font-medium mb-2">Desafío Latam</h3>
+                  <p className="mb-2 text-[#2738F5] text-sm">
                     Full Stack Developer
                   </p>
                 </div>
               </div>
-              <div className='my-5'>
+              <div className="my-5">
                 <button>{pencil}</button>
-                <button className='px-3'>{trash}</button>
+                <button className="px-3">{trash}</button>
               </div>
             </div>
           </div>

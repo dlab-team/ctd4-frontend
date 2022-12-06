@@ -8,6 +8,7 @@ import '../Sidebar/Sidebar.css';
 import { activeItemSidebar } from './../../utils/activeItemSidebar';
 import axios from 'axios';
 
+import './../../sidebar.css';
 function Sidebar() {
   const [sidebar, setSidebar] = useState(false);
 
